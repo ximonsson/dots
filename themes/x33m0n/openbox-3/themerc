@@ -1,0 +1,127 @@
+# --------------------------------------------------------------------
+# Derived from "hybrid" theme, by "someone I can't remember"
+# --------------------------------------------------------------------
+
+## OSD --------------------------------------------------------------
+
+osd.bg: Solid Flat
+osd.bg.color: #1D1F21
+
+osd.hilight.bg: Flat
+osd.hilight.bg.color: #19c9d6
+
+osd.unhilight.bg: Solid Flat
+osd.unhilight.bg.color: #353535
+
+osd.label.text.color: #f1f1f1
+
+# osd.border.width: 12
+
+## Menus ------------------------------------------------------------
+
+# Border
+
+menu.border.width: 0
+
+# Text
+
+menu.title.text.justify: Left
+menu.title.text.color: #ffffff
+
+menu.items.text.color: #c5c8c6
+menu.items.disabled.text.color: #454545
+menu.items.active.text.color: #b294bb
+menu.items.active.disabled.text.color: #454545
+
+menu.separator.color: #1D1F21
+
+# Backgrounds
+
+menu.items.bg: Flat
+menu.items.bg.color: #1D1F21
+
+menu.items.active.bg: Flat
+menu.items.active.bg.color: #1D1F21
+
+menu.title.bg: Flat
+menu.title.bg.color: #1D1F21
+
+
+## Windows -------------------------------------------------------
+
+padding.height: 6
+border.width: 0
+window.client.padding.width: 3
+window.client.padding.height: 3
+window.handle.width: 0
+window.label.text.justify: Center
+
+## Active Windows
+
+# Border, Handle, Padding
+
+window.active.border.color: #00b5b5
+window.active.title.separator.color: #1D1F21
+
+# Text
+
+window.active.label.text.color: #f0f0f0
+
+# Backgrounds
+
+window.active.label.bg: Parentrelative
+window.active.title.bg: Flat
+window.active.title.bg.color: #1d1f21
+window.active.client.color: #1d1f21
+
+# Buttons
+
+window.active.button.unpressed.bg: Parentrelative
+window.active.button.unpressed.image.color: #888
+window.active.button.toggled.unpressed.image.color: #888
+
+window.active.button.pressed.bg: Parentrelative
+window.active.button.pressed.image.color: #ffffff
+window.active.button.toggled.pressed.image.color: #ffffff
+
+window.active.button.hover.bg: Parentrelative
+window.active.button.hover.image.color: #ffffff
+window.active.button.toggled.hover.image.color: #ffffff
+
+window.active.button.disabled.bg: Parentrelative
+window.active.button.disabled.image.color: #1D1F21
+
+## Inactive Windows
+
+# Border, Handle, Padding
+
+window.inactive.border.width: 0
+window.inactive.border.color: #1D1F21
+
+# Text #
+
+window.inactive.label.text.color: #1D1F21
+
+# Backgrounds #
+
+window.inactive.label.bg: Parentrelative
+window.inactive.title.bg: Flat
+window.inactive.title.bg.color: #1d1f21
+window.inactive.client.color: #1d1f21
+
+# Buttons #
+
+window.inactive.button.unpressed.bg: Parentrelative
+window.inactive.button.unpressed.image.color: #1D1F21
+window.inactive.button.toggled.unpressed.image.color: #1D1F21
+
+window.inactive.button.pressed.bg: Parentrelative
+window.inactive.button.pressed.image.color: #c5c8c6
+window.inactive.button.toggled.pressed.image.color: #c5c8c6
+
+window.inactive.button.hover.bg: Parentrelative
+window.inactive.button.hover.image.color: #c5c8c6
+window.inactive.button.toggled.hover.image.color: #c5c8c6
+
+window.inactive.button.disabled.bg: Parentrelative
+window.inactive.button.disabled.image.color: #1D1F21

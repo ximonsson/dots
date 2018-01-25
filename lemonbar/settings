@@ -1,0 +1,36 @@
+# location
+COUNTRY="Sweden"
+REGION="Stockholm"
+CITY="Stockholm"
+
+# settings
+WLAN_DEVICE=wlp3s0 # wlan device
+LAN_DEVICE=enp0s25
+BATTERY=BAT0
+
+# colors
+BG=#001D1F21
+FG=#F5F5F5
+MAGENTA=#C792C1
+GRAY=#888888
+DARKGRAY=#232c32
+CYAN=#239fa8
+RED=#e52d4c
+ORANGE=#ff9f5b
+ICON_COLOR=$CYAN
+ICON_COLOR_WARN=$RED
+
+# dimensions
+SEP=8
+HEIGHT=28
+WIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}'`
+WIDTH=$(( WIDTH-2*SEP-2 ))
+X=$(( SEP+1))
+Y=$SEP
+DIMENSIONS=`printf "%dx%d+%d+%d" $WIDTH $HEIGHT $X $Y`
+
+# fonts
+FONTS=(
+	"-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1"
+	"-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+	"6x12")

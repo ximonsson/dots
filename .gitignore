@@ -1,0 +1,13 @@
+#
+# Global .gitignore
+#
+
+*.swp
+*.a
+*.o
+*.so
+*.pyc
+
+vim/plugged
+vim/.netrwhist
+weechat/weechat.log

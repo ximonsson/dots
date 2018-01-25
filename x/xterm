@@ -1,0 +1,32 @@
+xterm*faceName:     xft:fontname
+xterm*faceSize:     fontsize
+XTerm.vt100.boldFont: xft:fontname
+xterm*scaleHeight:  1.3
+xterm*background: 	color_bg
+xterm*foreground: 	color_fg
+xterm*geometry: 	150x35
+xterm*internalBorder:  12
+xterm*saveLines:    9000
+xterm*termName:     xterm-color
+! colors
+xterm*color0: 		color_00
+xterm*color1: 		color_01
+xterm*color2: 		color_02
+xterm*color3: 		color_03
+xterm*color4: 		color_04
+xterm*color5: 		color_05
+xterm*color6: 		color_06
+xterm*color7: 		color_07
+xterm*color8: 		color_08
+xterm*color9: 		color_09
+xterm*color10: 		color_10
+xterm*color11: 		color_11
+xterm*color12: 		color_12
+xterm*color13: 		color_13
+xterm*color14: 		color_14
+xterm*color15: 		color_15
+!XTerm*cursorColor: red
+XTerm*colorBD: dark blue
+XTerm*colorUL: purple4
+!XTerm*pointerShape: double_arrow
+

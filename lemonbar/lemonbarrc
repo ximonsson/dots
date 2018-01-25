@@ -1,0 +1,71 @@
+#!/usr/bin/bash
+DIR=$XDG_CONFIG_HOME/lemonbar
+
+# settings
+. $DIR/settings
+
+# functions
+#. $DIR/date.sh
+. $DIR/battery.sh
+. $DIR/weather.sh
+. $DIR/alsa.sh
+. $DIR/lan.sh
+. $DIR/system.sh
+
+# function to print icon from icon font
+function icon
+{
+	color=$ICON_COLOR
+	if [ $# -gt 1 ]
+	then
+		case $2 in
+			warn)
+				color=$ICON_COLOR_WARN
+				;;
+		esac
+	fi
+	tmp=`echo -e "$1"`
+	echo "%{F$color}%{T2}$tmp%{T-}%{F-}"
+}
+
+# to not spam weather service only update once every minute
+WEATHER_UPDATE_INT=60
+COUNT=$WEATHER_UPDATE_INT
+
+function out
+{
+	while true
+	do
+		HOST="%{F$MAGENTA}$HOSTNAME%{F-}"
+		DATETIME=$(datetime)
+		BAT="$(battery $BATTERY)"
+		VOL="$(volume)"
+		CPU=$(cpu)
+		FS=$(fs)
+		RAM=$(ram)
+
+		# network info
+		ETH=$(lan $LAN_DEVICE) # default to cable ethernet
+		[ -z "$ETH" ] && ETH=$(wlan $WLAN_DEVICE) # in case empty use wifi info
+
+		# update weather
+		if [ "$COUNT" -eq "$WEATHER_UPDATE_INT" ]; then
+			WEATHER="$(weather $COUNTRY $REGION $CITY)"
+			COUNT=0
+		fi
+		COUNT=$(( COUNT + 1))
+
+		# output info
+		LEFT="$DATETIME   $WEATHER"
+		RIGHT="$ETH   $VOL   $RAM   $CPU   $FS   $BAT"
+		echo "%{l}%{O20}$LEFT%{r}$RIGHT%{O20}"
+		sleep 1
+	done
+}
+
+# kill any other version of the bar already running
+pkill -x lemonbar
+
+# run
+argv="-p -B$BG -F$FG -g$DIMENSIONS `echo "${FONTS[@]/#/-f }"`"
+out | lemonbar $argv

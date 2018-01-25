@@ -1,0 +1,64 @@
+URxvt*font: 			xft:fontname:size=fontsize
+URxvt.boldFont:
+URxvt.title:            term
+!URxvt.letterSpace: 		-1
+URxvt.depth: 			32
+URxvt.lineSpace:		4
+URxvt.internalBorder:   22
+URxvt.scrollstyle: 		xterm
+URxvt.scrollBar: 		false
+URxvt.perl-ext-common: 	default,clipboard,matcher
+!URxvt.perl-ext-common: ...,tabbed,...
+URxvt*geometry: 		137x35
+URxvt.urgentOnBell: 	false
+URxvt.iso14755: 		false
+URxvt*scrollWithBuffer: true
+URxvt*saveLines:	 	65535
+!URxvt*cursorUnderline: 	true
+URxvt*cursorBlink: 		false
+URxvt*cursorColor:      color_07
+
+! keys
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+! colors
+URxvt.background: 		color_bg
+URxvt.foreground: 		color_fg
+URxvt*color0: 			color_00
+URxvt*color1: 			color_01
+URxvt*color2: 			color_02
+URxvt*color3:			color_03
+URxvt*color4: 			color_04
+URxvt*color5: 			color_05
+URxvt*color6: 			color_06
+URxvt*color7: 			color_07
+URxvt*color8: 			color_08
+URxvt*color9: 			color_09
+URxvt*color10: 			color_10
+URxvt*color11: 			color_11
+URxvt*color12: 			color_12
+URxvt*color13: 			color_13
+URxvt*color14: 			color_14
+URxvt*color15: 			color_15
+
+! tabs
+URxvt.tabbed.tabbar-fg:  8
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tab-fg: 	-2
+URxvt.tabbed.tab-bg: 	-1
+URxvt.keysym.Control-t: perl:tabbed:new_tab
+
+! clipboard
+URxvt.keysym.Shift-Control-C: 	perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:	perl:clipboard:paste
+URxvt.clipboard.copycmd:  		xsel -ib
+URxvt.clipboard.pastecmd: 		xsel -ob
+
+! url matcher
+URxvt.url-launcher: 			firefox
+URxvt.matcher.button: 			1
+
+

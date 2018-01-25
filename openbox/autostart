@@ -1,0 +1,15 @@
+# load X resources
+[[ -f $HOME/.Xresources ]] && xrdb -merge -I$HOME $HOME/.Xresources
+
+# composite manager
+compton -c -b --config $XDG_CONFIG_HOME/compton.conf
+
+# conky + bar
+# conky &
+$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
+
+# notification daemon
+dunst &
+
+# background
+$HOME/.fehbg

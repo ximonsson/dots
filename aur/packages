@@ -1,0 +1,25 @@
+###################################################################################
+# file:        packages
+# description: file containing a list of packages we have installed from the AUR.
+###################################################################################
+
+# AUR packages
+declare -A packages=(
+	["spotify"]="https://aur.archlinux.org/spotify.git"
+	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
+	["rofi-git"]="https://aur.archlinux.org/rofi-git.git"
+	["lemonbar-git"]="https://aur.archlinux.org/lemonbar-git.git"
+	["slack-desktop"]="https://aur.archlinux.org/slack-desktop.git"
+	["paper-icon-theme-git"]="https://aur.archlinux.org/paper-icon-theme-git.git"
+	["siji-git"]="https://aur.archlinux.org/siji-git.git"
+	["bdf-tewi-git"]="https://aur.archlinux.org/bdf-tewi-git.git"
+	["chromium-widevine"]="https://aur.archlinux.org/chromium-widevine.git"
+	["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
+	["libjson"]="https://aur.archlinux.org/libjson.git"
+	["signal"]="https://aur.archlinux.org/signal.git")
+	#["libcurl-compat"]=""
+	#["libcurl-openssl-1.0"]="https://aur.archlinux.org/libcurl-openssl-1.0.git"
+	#["ncurses5-compat-libs"]="https://aur.archlinux.org/ncurses5-compat-libs.git"
+	#["arm-linux-gnueabihf-binutils"]="https://aur.archlinux.org/arm-linux-gnueabihf-binutils.git"
+	#["libopenssl-1.0-compat"]="https://aur.archlinux.org/libopenssl-1.0-compat.git")
+	#["oomox-git"]="https://aur.archlinux.org/oomox-git.git"

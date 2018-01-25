@@ -1,0 +1,74 @@
+#!/bin/sh
+
+####################################################################################################################
+# file:        update
+# description: script to update AUR packages.
+#              In case no arguments are given we go through all packages defined in XDG_CONFIG_HOME/aur/packages
+#              and try to update all of them. Else we assume a the name of a single package is passed as argument
+#              which we to try to update.
+####################################################################################################################
+
+dir=$XDG_CONFIG_HOME/aur
+
+# import packages
+. $dir/packages
+
+function check_updates {
+	pkg=$1
+	git -C "$pkg" checkout -- PKGBUILD
+	git -C "$pkg" fetch 2> /dev/null
+	LOCAL=$(git -C "$pkg" rev-parse @)
+	BASE=$(git -C "$pkg" merge-base @ @{u})
+	REMOTE=$(git -C "$pkg" rev-parse @{u})
+
+	# do nada
+	if [ $LOCAL = $REMOTE ]; then
+		echo "[ up-to-date ]"
+		# update !
+	elif [ $LOCAL = $BASE ]; then
+		echo "[ updating ]"
+		git -C "$pkg" pull
+		if [[ $? == 0 ]]; then
+			(cd "$pkg" && makepkg -sri)
+		fi
+		# lol what?
+	elif [ $REMOTE = $BASE ]; then
+		echo "[ needs push? ]"
+		# unknown
+	else
+		echo "[ diverged? ]"
+	fi
+}
+
+function install {
+	pkg=$1
+	url="${packages[$pkg]}"
+	if [ -z "$url" ]
+	then
+		echo "no such package"
+		return
+	fi
+	mkdir $pkg
+	git clone $url $pkg
+	(cd "$pkg" && makepkg -sri)
+}
+
+if [ $# == 0 ];
+then # loop through all the packages and check for updates
+	for pkg in "${!packages[@]}"
+	do
+		if [ -d "$pkg" ] # not all packages are installed
+		then
+			printf "%-40s" "$pkg"
+			check_updates $pkg
+		fi
+	done
+else # update specific package
+	pkg=$1
+	printf "%-40s" "$pkg"
+	if [ ! -d $pkg ]; then
+		install $pkg
+	else
+		check_updates $pkg
+	fi
+fi

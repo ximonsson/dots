@@ -1,0 +1,78 @@
+conky.config = {
+-----------------------------------------------------------
+--- Generic Settings
+-----------------------------------------------------------
+	background=true,
+	update_interval=1,
+	double_buffer=true,
+	no_buffers=true,
+	draw_shades=false,
+	draw_outline=false,
+	draw_borders=false,
+	default_bar_height=7,
+	default_bar_width=20,
+
+-----------------------------------------------------------
+--- Window Settings
+-----------------------------------------------------------
+	gap_x=30,
+	gap_y=20,
+	--minimum_height=200,
+	--minimum_width=260,
+	own_window=true,
+	own_window_class="Conky",
+	own_window_type="desktop",
+	own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+	alignment="top_left",
+	own_window_transparent=true,
+
+-----------------------------------------------------------
+--- Text Settings
+-----------------------------------------------------------
+	use_xft=true,
+	font="Roboto Mono:size=9",
+
+-----------------------------------------------------------
+--- Color Settings
+-----------------------------------------------------------
+	default_color='888',
+	color1='00b2b2', -- cyan
+	color2="db6820", -- orange
+	color3="d64659", -- red
+	color4="a85caa", -- magenta
+	color5="000",    -- white
+
+-----------------------------------------------------------
+--- Scripts
+-----------------------------------------------------------
+	lua_load="~/.config/conky/script.lua",
+--  	lua_draw_hook_pre="bg",
+}
+
+conky.text = [[
+└─${color1}CPU $color${lua_parse format %2.0f $cpu}%  \
+└─${color1}RAM $color${lua_parse format %2.0f $memperc}%  \
+└─${color1}Battery $color$battery_percent% ${color}${battery_bar 8,30}$color  \
+└─${color1}Filesystem $color${fs_used /}/${fs_size /}  \
+└─${color1}Network ${color}${wireless_essid wlp3s0}: ${addr wlp3s0}  \
+└─${color1}Weather $color${execi 3600 ~/.config/conky/weather.sh}  \
+└─${color1}Date $color${time %A} ${time %d.%m.%Y}  \
+└─${color1}Clock ${color2}${time %H:%M}
+      ${voffset 12}${color4}$nodename $color $sysname $kernel
+]]
+
+
+-- ${color #fff}${execbar ~/.config/conky/alsa.sh "Right"}
+
+conky.text = [[
+${color4}$nodename     \
+${color5}${time %a} ${time %d.%m.%Y} ${color2}${time %H:%M}     \
+${color1}weather $color${execi 10 ~/.config/conky/weather.sh Berlin Berlin Germany}     \
+${color1}battery ${voffset 1}${color5}${battery_bar} ${voffset -1}$color$battery_percent% [$battery_time]     \
+${color1}volume ${voffset 1}${color3}${execbar ~/.config/conky/alsa.sh "Left"} ${color5}${execbar ~/.config/conky/alsa.sh "Right"}
+${voffset 10}\
+    ${voffset 10}${color1}network ${color5}${wireless_essid wlp3s0} $color${addr wlp3s0}
+    ${voffset 10}${color1}cpu $color${lua_parse format %02.0f $cpu}%
+    ${voffset 10}${color1}ram $color${lua_parse format %02.0f $memperc}%
+    ${voffset 10}${color1}filesystem ${color5}${fs_used /} $color${fs_size /}
+]]
