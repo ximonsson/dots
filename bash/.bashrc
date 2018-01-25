@@ -49,7 +49,7 @@ unset default
 #}
 #PROMPT_COMMAND=print_pre_prompt
 
-[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion/*
+[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion/*
 
 # Load custom environment variables
 [ -r ~/.bash_env ] && . ~/.bash_env
