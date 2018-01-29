@@ -45,6 +45,16 @@ alias wifi="nmtui"
 # conky
 alias conky-restart="pkill --signal SIGHUP conky"
 
+# function for restarting USB device
+function restart-usb
+{
+	DEVICE=$1
+	FILE="/sys/bus/usb/devices/$DEVICE/authorized"
+	echo $FILE
+	sudo sh -c "echo 0 >> $FILE"
+	sudo sh -c "echo 1 >> $FILE"
+}
+
 #
 # Mediaserver
 #
