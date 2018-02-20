@@ -1,20 +1,18 @@
 URxvt*font: 			xft:fontname:size=fontsize
 URxvt.boldFont:
 URxvt.title:            term
-!URxvt.letterSpace: 		-1
 URxvt.depth: 			32
-URxvt.lineSpace:		4
+URxvt.lineSpace:		1
 URxvt.internalBorder:   22
 URxvt.scrollstyle: 		xterm
 URxvt.scrollBar: 		false
 URxvt.perl-ext-common: 	default,clipboard,matcher
 !URxvt.perl-ext-common: ...,tabbed,...
-URxvt*geometry: 		137x35
+URxvt*geometry: 		95x22
 URxvt.urgentOnBell: 	false
 URxvt.iso14755: 		false
 URxvt*scrollWithBuffer: true
 URxvt*saveLines:	 	65535
-!URxvt*cursorUnderline: 	true
 URxvt*cursorBlink: 		false
 URxvt*cursorColor:      color_07
 
@@ -60,5 +58,3 @@ URxvt.clipboard.pastecmd: 		xsel -ob
 ! url matcher
 URxvt.url-launcher: 			firefox
 URxvt.matcher.button: 			1
-
-
