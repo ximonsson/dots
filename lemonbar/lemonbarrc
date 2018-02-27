@@ -7,7 +7,7 @@ DIR=$XDG_CONFIG_HOME/lemonbar
 # functions
 . $DIR/battery.sh
 . $DIR/weather.sh
-. $DIR/alsa.sh
+. $DIR/audio.sh
 . $DIR/lan.sh
 . $DIR/system.sh
 
