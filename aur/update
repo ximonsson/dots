@@ -1,12 +1,12 @@
 #!/bin/sh
 
-####################################################################################################################
+################################################################################################
 # file:        update
 # description: script to update AUR packages.
-#              In case no arguments are given we go through all packages defined in XDG_CONFIG_HOME/aur/packages
-#              and try to update all of them. Else we assume a the name of a single package is passed as argument
-#              which we to try to update.
-####################################################################################################################
+#              In case no arguments are given we go through all packages defined in#######
+#              $XDG_CONFIG_HOME/aur/packages and try to update all of them. Else we assume
+#              a the name of a single package is passed as argument which we to try to update.
+################################################################################################
 
 dir=$XDG_CONFIG_HOME/aur
 
