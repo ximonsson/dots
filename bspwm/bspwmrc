@@ -2,14 +2,7 @@
 
 # autostart
 
-xrdb -merge -I$HOME $HOME/.Xresources
-compton -b --config $XDG_CONFIG_HOME/compton.conf
-xsetroot -cursor_name left_ptr
-xsetroot -solid "#171719"
-$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
-sxhkd &
-dunst &
-[ -x $HOME/.fehbg ] && $HOME/.fehbg
+$XDG_CONFIG_HOME/bspwm/autostart
 
 # settings
 
@@ -34,4 +27,5 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc rule -a MPlayer state=floating
 bspc rule -a Vlc state=floating
+bspc rule -a Octave state=floating
 bspc rule -a Screenkey manage=off
