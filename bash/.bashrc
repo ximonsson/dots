@@ -24,10 +24,10 @@ color=$cyan
 W="\[\e[106;30m\] \W \[$default\]"
 H="\[\e[7m\] \H \[$default\]"
 #PS1="\[\e[96m\]»\[$default\]"
-PS1="\[\e[96m\]───╼\[$default\]"
+PS1="\[\e[96m\]───╼ \[$default\]"
 
 #PS1="\[$color\]┌─╼ [ \[$default\]\W\[$color\] ] \n\[$color\]└──────╼\[$default\] "
-PS1="$H$W$PS1 "
+PS1="$H$W$PS1"
 PS1R="$white[ $color$USER@$HOSTNAME$white ]"
 prompt ()
 {

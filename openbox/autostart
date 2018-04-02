@@ -12,4 +12,5 @@ $XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 dunst &
 
 # background
+xsetroot -solid "#171719"
 $HOME/.fehbg
