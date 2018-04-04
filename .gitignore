@@ -7,7 +7,7 @@
 *.o
 *.so
 *.pyc
+*.log
 
 vim/plugged
 vim/.netrwhist
-weechat/weechat.log
