@@ -11,7 +11,7 @@ hi CursorLineNr ctermfg=7
 hi Search       ctermfg=none  ctermbg=none cterm=reverse
 hi Visual       ctermbg=0 ctermfg=8
 
-hi StatusLine   cterm=none ctermbg=15 ctermfg=0
+hi StatusLine   cterm=none ctermbg=0 ctermfg=15
 hi clear StatusLineNC
 hi StatusLineNC ctermbg=0 ctermfg=15
 hi clear VertSplit
@@ -33,7 +33,8 @@ hi Statement    ctermfg=14
 hi Integer      ctermfg=1
 hi PreProc      ctermfg=12
 
-hi TabLine      ctermbg=0 cterm=none ctermfg=8
+hi TabLine      ctermbg=none cterm=none ctermfg=8
 hi clear TabLineFill
 hi link TabLineFill TabLine
-hi TabLineSel   ctermbg=none ctermfg=white ctermbg=14
+" hi TabLineFill ctermbg=0
+hi TabLineSel   ctermfg=16 ctermbg=15

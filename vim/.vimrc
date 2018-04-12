@@ -33,7 +33,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " airline theme
-let g:airline_theme="minimalist"
+let g:airline_theme="papercolor"
 
 " reset the cursor to an underscore
 "	not a big fan of this solution as it is not dynamic but has to
