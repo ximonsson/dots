@@ -12,6 +12,9 @@ alias ll="l -aF"
 alias grep="grep --color"
 alias fsearch="grep -RIn"
 
+# the week starts with monday
+alias cal="cal -m -w"
+
 #
 # Monitors
 #
