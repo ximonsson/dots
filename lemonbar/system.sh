@@ -28,3 +28,15 @@ function datetime
 	DATE="$(icon '\ue225') %{F-}$(date "+%a") %{F$GRAY}$(date "+%d.%m.%Y")"
 	echo -n "$DATE   $TIME"
 }
+
+function cpu_temp
+{
+	TEMP=$(</sys/class/thermal/thermal_zone0/temp)
+	TEMP=$((TEMP/1000))
+	ICON='\ue01d'
+	if [ $TEMP -gt "85" ]
+	then
+		ICON='\ue01d warn'
+	fi
+	echo -n "$(icon $ICON) $TEMP°"
+}

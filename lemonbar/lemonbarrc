@@ -40,6 +40,7 @@ function out
 		BAT="$(battery $BATTERY)"
 		VOL="$(volume)"
 		CPU=$(cpu)
+		CPU_TEMP=$(cpu_temp)
 		FS=$(fs)
 		RAM=$(ram)
 
@@ -56,7 +57,7 @@ function out
 
 		# output info
 		LEFT="$DATETIME   $WEATHER"
-		RIGHT="$ETH   $VOL   $RAM   $CPU   $FS   $BAT"
+		RIGHT="$ETH   $VOL   $RAM   $CPU   $CPU_TEMP   $FS   $BAT"
 		echo "%{l}%{O20}$LEFT%{r}$RIGHT%{O20}"
 		sleep 1
 	done
