@@ -29,7 +29,7 @@ function check_updates {
 		echo "[ updating ]"
 		git -C "$pkg" pull
 		if [[ $? == 0 ]]; then
-			(cd "$pkg" && makepkg -sri)
+			(cd "$pkg" && makepkg -sric)
 		fi
 		# lol what?
 	elif [ $REMOTE = $BASE ]; then
@@ -50,7 +50,7 @@ function install {
 	fi
 	mkdir $pkg
 	git clone $url $pkg
-	(cd "$pkg" && makepkg -sri)
+	(cd "$pkg" && makepkg -sric)
 }
 
 if [ $# == 0 ];
