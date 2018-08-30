@@ -1,15 +1,14 @@
 " colors por favor
 syntax on
-
 " colorscheme
 colorscheme x33m0n
 
 " indentation settings
-set number ts=4 shiftwidth=4 softtabstop=4 autoindent
+set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
-" highlight search results
+" cosmetics like line numbers, highlighting
 set hlsearch
-
+set number
 set cursorline
 
 " trim whitespace on save
