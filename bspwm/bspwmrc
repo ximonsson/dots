@@ -2,7 +2,7 @@
 
 # autostart
 
-$XDG_CONFIG_HOME/bspwm/autostart
+#$XDG_CONFIG_HOME/bspwm/autostart
 
 # settings
 
@@ -31,4 +31,6 @@ bspc rule -a vtk state=floating
 bspc rule -a Octave state=floating
 bspc rule -a Display state=floating
 bspc rule -a vtk state=floating
+bspc rule -a *:matplotlib state=floating
 bspc rule -a Screenkey manage=off
+
