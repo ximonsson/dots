@@ -13,6 +13,14 @@ dir=$XDG_CONFIG_HOME/aur
 # import packages
 . $dir/packages
 
+function update {
+	pkg=$1
+	git -C "$pkg" pull
+	if [[ $? == 0 ]]; then
+		(cd "$pkg" && makepkg -sric)
+	fi
+}
+
 function check_updates {
 	pkg=$1
 	git -C "$pkg" checkout -- PKGBUILD
@@ -27,10 +35,7 @@ function check_updates {
 		# update !
 	elif [ $LOCAL = $BASE ]; then
 		echo "[ updating ]"
-		git -C "$pkg" pull
-		if [[ $? == 0 ]]; then
-			(cd "$pkg" && makepkg -sric)
-		fi
+		update $pkg
 		# lol what?
 	elif [ $REMOTE = $BASE ]; then
 		echo "[ needs push? ]"
@@ -68,6 +73,8 @@ else # update specific package
 	printf "%-40s" "$pkg"
 	if [ ! -d $pkg ]; then
 		install $pkg
+	#elif [ $2 = "--force" ]; then
+		#update $pkg
 	else
 		check_updates $pkg
 	fi
