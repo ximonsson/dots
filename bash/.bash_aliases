@@ -2,8 +2,8 @@
 # ls
 #
 alias ls="ls --color=auto"
-alias l="ls -l"
-alias ll="l -aF"
+alias l="ls -1"
+alias ll="l -laF"
 
 #
 # grep
