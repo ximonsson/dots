@@ -1,15 +1,18 @@
 # location
-COUNTRY="Sweden"
-REGION="Stockholm"
-CITY="Stockholm"
+#COUNTRY="Germany"
+#REGION="Berlin"
+#CITY="Berlin"
+COUNTRY="Norway"
+REGION="Oslo"
+CITY="Oslo/Majorstuen"
 
 # settings
-WLAN_DEVICE=wlp0s29u1u7 # wlan device
-LAN_DEVICE=enp2s0
+WLAN_DEVICE=wlp3s0 # wlan device
+LAN_DEVICE=enp0s25
 BATTERY=BAT0
 
 # colors
-BG=#171719
+BG=#00171719
 FG=#F5F5F5
 MAGENTA=#C792C1
 GRAY=#888888
@@ -23,7 +26,7 @@ ICON_COLOR_WARN=$RED
 # dimensions
 SEP=8
 HEIGHT=28
-WIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}'`
+WIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}' | sed -n 1p`
 WIDTH=$(( WIDTH-2*SEP-2 ))
 X=$(( SEP+1))
 Y=$SEP
