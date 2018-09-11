@@ -31,7 +31,8 @@ function datetime
 
 function cpu_temp
 {
-	TEMP=$(</sys/class/thermal/thermal_zone0/temp)
+	#TEMP=$(</sys/class/thermal/thermal_zone0/temp)
+	TEMP=$(</sys/class/hwmon/hwmon1/temp2_input)
 	TEMP=$((TEMP/1000))
 	ICON='\ue01d'
 	if [ $TEMP -gt "85" ]
