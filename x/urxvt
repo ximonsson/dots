@@ -59,3 +59,4 @@ URxvt.clipboard.pastecmd: 		xsel -ob
 ! url matcher
 URxvt.url-launcher: 			firefox
 URxvt.matcher.button: 			1
+! vim: ft=xdefaults
