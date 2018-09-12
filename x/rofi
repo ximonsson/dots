@@ -2,12 +2,7 @@ rofi.color-enabled:     true
 rofi.color-normal:      argb:00000000, #d8dee9, argb:00000000, color_06, #ffffff
 rofi.color-urgent:      argb:00000000, #f99157, argb:00000000, #f99157, #1b2b34
 rofi.color-active:      argb:00000000, color_03, argb:00000000, color_03, color_bg
-rofi.color-window:      argb:ec000000, argb:ec000000, color_bg
-
-!rofi.color-normal:      argb:00000000, #545454, argb:00000000, color_06, #ffffff
-!rofi.color-urgent:      argb:00000000, #f99157, argb:00000000, #f99157, #1b2b34
-!rofi.color-active:      argb:00000000, color_03, argb:00000000, color_03, color_bg
-!rofi.color-window:      argb:fafafafa, argb:00000000, #00fafafa
+rofi.color-window:      argb:ec040808, argb:ec040808, color_bg
 
 rofi.separator-style:	solid
 rofi.padding:           22

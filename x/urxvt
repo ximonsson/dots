@@ -24,7 +24,7 @@ URxvt.keysym.Control-Right: \033[1;5C
 
 ! colors
 !URxvt.background: 		color_bg
-urxvt*background:		rgba:0000/0000/0000/ec00
+urxvt*background:		rgba:0400/0800/0800/ec00
 URxvt.foreground: 		color_fg
 URxvt*color0: 			color_00
 URxvt*color1: 			color_01
