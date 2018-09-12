@@ -1,5 +1,5 @@
 ! --- COLORS ---
-#define color_bg #171719
+#define color_bg #040808
 #define color_fg #dae1e6
 ! gray
 #define color_00 #2a3033
