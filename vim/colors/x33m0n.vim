@@ -2,6 +2,8 @@ hi clear
 
 let g:colors_name = "x33m0n"
 
+hi Normal       ctermfg=7
+
 hi Comment      ctermfg=8
 hi Special      ctermfg=1
 hi link SpecialChar Special
@@ -23,12 +25,12 @@ hi WarningMsg   ctermfg=1
 hi Question     ctermfg=4
 hi Directory    ctermfg=4
 hi Identifier   ctermfg=14 cterm=none
-hi Function     ctermfg=13
+hi Function     ctermfg=15
 
 hi Type         ctermfg=14
 hi Conditional  ctermfg=13
 hi Constant     ctermfg=1
-hi String       ctermfg=3
+hi String       ctermfg=15
 hi Statement    ctermfg=14
 hi Integer      ctermfg=1
 hi PreProc      ctermfg=12
