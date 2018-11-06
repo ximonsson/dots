@@ -2,7 +2,7 @@ hi clear
 
 let g:colors_name = "x33m0n"
 
-hi Normal       ctermfg=7
+hi Normal       ctermfg=252
 
 hi Comment      ctermfg=8
 hi Special      ctermfg=1
@@ -28,12 +28,12 @@ hi Identifier   ctermfg=14 cterm=none
 hi Function     ctermfg=15
 
 hi Type         ctermfg=14
-hi Conditional  ctermfg=13
+hi Conditional  ctermfg=14
 hi Constant     ctermfg=1
 hi String       ctermfg=15
 hi Statement    ctermfg=14
 hi Integer      ctermfg=1
-hi PreProc      ctermfg=12
+hi PreProc      ctermfg=14
 
 hi TabLine      ctermbg=none cterm=none ctermfg=8
 hi clear TabLineFill
