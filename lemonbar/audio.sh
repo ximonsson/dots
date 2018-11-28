@@ -5,7 +5,7 @@ function phones
 	#STATE=`grep -A 10 'Node 0x1f' /proc/asound/card0/codec#0 | grep 'Pin-ctls'`
 	#[[ "$STATE" != *OUT ]]
 	STATE=`pactl list sinks | grep "Active Port"`
-	[[ $STATE == *headphones* ]]
+	[[ $STATE == *headphones* || $STATE == *headset* ]]
 }
 
 function volume
