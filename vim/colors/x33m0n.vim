@@ -5,7 +5,7 @@ let g:colors_name = "x33m0n"
 hi Normal       ctermfg=252
 
 hi Comment      ctermfg=8
-hi Special      ctermfg=1
+hi Special      ctermfg=13
 hi link SpecialChar Special
 hi LineNr       ctermfg=239
 hi CursorLine   cterm=none ctermbg=0
@@ -29,7 +29,7 @@ hi Function     ctermfg=15
 
 hi Type         ctermfg=14
 hi Conditional  ctermfg=14
-hi Constant     ctermfg=1
+hi Constant     ctermfg=3
 hi String       ctermfg=15
 hi Statement    ctermfg=14
 hi Integer      ctermfg=1
