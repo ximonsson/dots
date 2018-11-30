@@ -23,7 +23,7 @@ function weather
 		fi
 	done
 	# icon
-	ICON='\ue25d'
+	ICON='\ue25d warn'
 	case `echo $forecast | awk '{print tolower($0)}'` in
 		# cloudy ones
 		"partly cloudy"|fair)
