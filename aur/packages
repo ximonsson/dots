@@ -7,7 +7,6 @@
 declare -A packages=(
 	["spotify"]="https://aur.archlinux.org/spotify.git"
 	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
-	["rofi-git"]="https://aur.archlinux.org/rofi-git.git"
 	["lemonbar-git"]="https://aur.archlinux.org/lemonbar-git.git"
 	["slack-desktop"]="https://aur.archlinux.org/slack-desktop.git"
 	["paper-icon-theme-git"]="https://aur.archlinux.org/paper-icon-theme-git.git"
@@ -24,5 +23,8 @@ declare -A packages=(
 	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
 	["pcl"]="https://aur.archlinux.org/pcl.git"
 	["sensorkinect"]="https://aur.archlinux.org/sensorkinect.git"
-	["delve"]="https://aur.archlinux.org/delve.git")
+	["delve"]="https://aur.archlinux.org/delve.git"
+	["teamviewer12"]="https://aur.archlinux.org/teamviewer12.git"
+	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
 	#["arm-linux-gnueabihf-binutils"]="https://aur.archlinux.org/arm-linux-gnueabihf-binutils.git"
+	)
