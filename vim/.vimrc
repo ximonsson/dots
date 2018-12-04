@@ -3,9 +3,6 @@ syntax on
 " colorscheme
 colorscheme x33m0n
 
-" indentation settings
-set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-
 " cosmetics like line numbers, highlighting
 set hlsearch
 set number
@@ -20,6 +17,9 @@ set wildignore=*.o,*.a,*.so,*.pyc
 " load plugins
 filetype plugin indent on
 
+" indentation settings
+set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 " turn off the damn bell
 set vb
 
@@ -29,6 +29,7 @@ Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " airline theme
