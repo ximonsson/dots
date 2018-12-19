@@ -1,4 +1,4 @@
-URxvt*font: 			xft:fontname:size=fontsize
+URxvt.font: 			fontname
 URxvt.boldFont:
 URxvt.title:            term
 URxvt.depth: 			32
@@ -24,7 +24,7 @@ URxvt.keysym.Control-Right: \033[1;5C
 
 ! colors
 !URxvt.background: 		color_bg
-urxvt*background:		rgba:0400/0800/0800/ec00
+urxvt*background:		rgba:0400/0800/0800/e000
 URxvt.foreground: 		color_fg
 URxvt*color0: 			color_00
 URxvt*color1: 			color_01
