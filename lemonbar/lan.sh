@@ -13,7 +13,7 @@ function lan
 function wlan
 {
 	device=$1
-	essid=`iw dev $device link | grep "SSID" | awk -F"[]:[]" '{ print $2 }' | cut -d "\"" -f2`
+	essid=`iw dev $device link | grep "SSID" | awk -F"[]:[]" '{ print $2 }' | xargs | cut -d "\"" -f2`
 	link=`cat /proc/net/wireless | grep $device | awk '{ print $3 }' | cut -d "." -f1`
 
 	ICON='\ue21f warn'
