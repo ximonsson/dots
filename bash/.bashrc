@@ -13,6 +13,9 @@ fi
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
+# trying to put this here to turn off the damn bell
+xset -b
+
 # set sexy PS1
 white="\e[37m"
 default="\e[0m"

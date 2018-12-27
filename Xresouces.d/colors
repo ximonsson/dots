@@ -1,0 +1,27 @@
+#define color_bg #040808
+#define color_fg #dae1e6
+! gray
+#define color_00 #2a3033
+#define color_08 #888
+! red
+#define color_01 #d64659
+#define color_09 #ef2929
+! green
+#define color_02 #46d678
+#define color_10 #88DC36
+! yellow
+#define color_03 #ff9f5b
+#define color_11 #fce94f
+! blue
+#define color_04 #648ad1
+#define color_12 #5d98d3
+! magenta
+#define color_05 #b764d1
+#define color_13 #c792c1
+! cyan
+#define color_06 #155e5e
+#define color_14 #00b5b5
+! white
+#define color_07 #d3d7cf
+#define color_15 #ffffff
+
