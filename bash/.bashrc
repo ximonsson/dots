@@ -23,31 +23,17 @@ color=$cyan
 
 W="\[\e[106;30m\] \W \[$default\]"
 H="\[\e[7m\] \H \[$default\]"
-#PS1="\[\e[96m\]»\[$default\]"
 PS1="\[\e[96m\]───╼ \[$default\]"
 
-#PS1="\[$color\]┌─╼ [ \[$default\]\W\[$color\] ] \n\[$color\]└──────╼\[$default\] "
 PS1="$H$W$PS1"
 PS1R="$white[ $color$USER@$HOSTNAME$white ]"
 prompt ()
 {
-	#PS1=$(printf "%*s\r%s" $(tput cols) "$PS1R" "$PS1")
 	printf "%*s\r" $(tput cols) "$PS1R"
 }
-#PROMPT_COMMAND=prompt
 unset white
 unset color
 unset default
-
-#PS1=''
-#print_pre_prompt ()
-#{
-#    PS1L=$PWD
-#    if [[ $PS1L/ = "$HOME"/* ]]; then PS1L=\~${PS1L#$HOME}; fi
-#    PS1R=$USER@$HOSTNAME
-#    printf "%s%$(($COLUMNS-${#PS1L}))s" "$PS1L" "$PS1R"
-#}
-#PROMPT_COMMAND=print_pre_prompt
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion/*
 
