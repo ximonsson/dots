@@ -1,6 +1,16 @@
 function lan
 {
 	device=$1
+
+	# check if the device is running
+	state=`cat /sys/class/net/$device/operstate`
+	if [ "$state" == "down" ]
+	then
+		echo -n ""
+		return
+	fi
+
+	# check if it is connected
 	connected=`cat /sys/class/net/$device/carrier`
 	if [ "$connected" == "1" ]
 	then
@@ -30,4 +40,3 @@ function wlan
 	fi
 	echo -n "$(icon $ICON) $essid"
 }
-
