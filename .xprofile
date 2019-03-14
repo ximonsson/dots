@@ -6,6 +6,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export BROWSER=firefox
 export EDITOR=nvim
+export WM=bspwm
 
 # no bell sounds (so annoying)
 xset -b
