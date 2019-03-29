@@ -6,7 +6,8 @@ rofi.color-window:      argb:ec040808, argb:ec040808, color_bg
 
 rofi.separator-style:	solid
 rofi.padding:           22
-rofi.font:				ypn envypn 9
+!rofi.font:				ypn envypn 9
+rofi.font:				jmk Neep 9
 rofi.eh:                1.5
 rofi.parse-known-hosts: false
 rofi.sidebar-mode:      true
