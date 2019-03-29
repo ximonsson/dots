@@ -3,8 +3,7 @@
 #
 
 xrdb -merge -I$HOME $HOME/.Xresources
-#compton -b --config $XDG_CONFIG_HOME/compton.conf
-compton --config $XDG_CONFIG_HOME/compton.conf &
+compton -b --config $XDG_CONFIG_HOME/compton.conf
 xsetroot -cursor_name left_ptr
 xsetroot -solid "#171719"
 $XDG_CONFIG_HOME/lemonbar/lemonbarrc &
