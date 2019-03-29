@@ -40,3 +40,6 @@ hi clear TabLineFill
 hi link TabLineFill TabLine
 " hi TabLineFill ctermbg=0
 hi TabLineSel   ctermfg=16 ctermbg=15
+
+hi Pmenu ctermbg=0 ctermfg=240
+hi PmenuSel ctermbg=240 ctermfg=14
