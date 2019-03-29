@@ -85,9 +85,7 @@ alias pulse-hdmi="pactl set-card-profile $AUDIO_CARD $AUDIO_PROFILE_DIGITAL"
 #
 # Docker
 #
-#alias docker-clear="\
-	#docker volume ls -qf dangling=true | xargs -r docker volume rm && \
-	#docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v && \
-	#docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi"
-
-alias docker-clear="docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v"
+alias docker-clear="\
+	docker volume ls -qf dangling=true | xargs -r docker volume rm && \
+	docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v && \
+	docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi"

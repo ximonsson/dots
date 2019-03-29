@@ -44,7 +44,7 @@ unset default
 [ -r ~/.bash_env ] && . ~/.bash_env
 
 # Load custom alias definitions.
-[ -r ~/.aliases ] && . ~/.aliases
+[ -r ~/.bash_aliases ] && . ~/.bash_aliases
 
 # Autostart X server
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then

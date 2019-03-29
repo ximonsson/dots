@@ -1,0 +1,34 @@
+#
+# ~/.zshrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Colors
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# don't put duplicate lines or lines starting with space in the history.
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt histignoredups
+unsetopt beep notify
+bindkey -e
+
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
+
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
+# set sexy PS1
+PS1="%F{0}%K{15} %n %K{14} %m %k%B%F{cyan}───╼ %f%b"
+RPS1="%K{0}%F{7} %~ %f%k"
+
+# Load custom alias definitions.
+[ -r ~/.aliases ] && . ~/.aliases
