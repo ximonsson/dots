@@ -1,0 +1,47 @@
+set header_cache=~/.cache/neomutt
+set mail_check=60
+set sort=threads
+set sort_aux=last-date-received
+set menu_scroll
+set markers=no
+set send_charset="utf-8"
+set collapse_all
+
+# mailcap
+set mailcap_path=$XDG_CONFIG_HOME/neomutt/mailcap
+auto_view text/html application/x-gzip application/x-gunzip
+
+# IMAP settings
+#set imap_check_subscribed
+unset imap_passive
+set imap_keepalive=60
+
+# colors
+source ~/.config/neomutt/colors.neomuttrc
+
+# SIDEBAR
+# ----------------------------------------------------------
+
+bind index,pager B sidebar-toggle-visible
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Co sidebar-open
+
+#source /usr/share/doc/mutt/samples/sample.muttrc-sidebar
+
+# ACCOUNTS
+# ----------------------------------------------------------
+
+source "gpg -dq $XDG_CONFIG_HOME/neomutt/passwords.gpg |"
+
+# KTH
+source $XDG_CONFIG_HOME/neomutt/kth
+folder-hook $folder 'source ~/.config/neomutt/kth'
+
+# Asteria
+source $XDG_CONFIG_HOME/neomutt/asteria
+folder-hook $folder 'source ~/.config/neomutt/asteria'
+
+# GMail TODO
+source $XDG_CONFIG_HOME/neomutt/gmail
+folder-hook $folder 'source ~/.config/neomutt/gmail'

@@ -1,0 +1,22 @@
+# vim: filetype=muttrc
+set my_pass=$my_gmail_pass
+
+# imap settings
+set imap_user=simonsson.simon@gmail.com
+set imap_pass=$my_pass
+set folder=imaps://$imap_user@imap.gmail.com/
+set spoolfile=+INBOX
+set postponed=+Drafts
+
+# smtp settings
+set record=""
+set realname="Simon Simonsson"
+set from="simonsson.simon@gmail.com"
+set use_from=yes
+set smtp_url=smtps://$imap_user:$imap_pass@smtp.gmail.com
+set ssl_force_tls=yes
+set ssl_starttls=yes
+
+mailboxes =INBOX
+
+account-hook $folder "set imap_user=simonsson.simon@gmail.com imap_pass=\"$my_gmail_pass\""
