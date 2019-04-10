@@ -16,6 +16,8 @@ set wildignore=*.o,*.a,*.so,*.pyc
 
 " load plugins
 filetype plugin indent on
+autocmd BufNewFile,BufRead *.gp setf gnuplot
+autocmd BufNewFile,BufRead *.neomuttrc setf neomuttrc
 
 " indentation settings
 set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
