@@ -25,6 +25,8 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 " turn off the damn bell
 set vb
 
+set encoding=utf-8
+
 " plugins
 call plug#begin()
 Plug 'fatih/vim-go'
@@ -35,6 +37,7 @@ Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " airline theme
+let g:airline_powerline_fonts=1
 let g:airline_theme="papercolor"
 
 " reset the cursor to an underscore

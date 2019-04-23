@@ -1,13 +1,13 @@
 rofi.color-enabled:     true
-rofi.color-normal:      argb:00000000, #d8dee9, argb:00000000, color_06, #ffffff
-rofi.color-urgent:      argb:00000000, #f99157, argb:00000000, #f99157, #1b2b34
-rofi.color-active:      argb:00000000, color_03, argb:00000000, color_03, color_bg
+rofi.color-normal:      argb:00000000, color_fg, argb:00000000, color_06, #ffffff
+rofi.color-urgent:      argb:00000000, color_09, argb:00000000, color_09, color_bg
+rofi.color-active:      argb:00000000, color_14, argb:00000000, color_14, color_bg
 rofi.color-window:      argb:ec040808, argb:ec040808, color_bg
 
 rofi.separator-style:	solid
 rofi.padding:           22
-!rofi.font:				ypn envypn 9
-rofi.font:				jmk Neep 9
+rofi.font:				Tamzen 9
+!rofi.font:				jmk Neep 9
 rofi.eh:                1.5
 rofi.parse-known-hosts: false
 rofi.sidebar-mode:      true

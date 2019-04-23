@@ -1,4 +1,5 @@
 #define fontname \
+	-misc-tamzenforpowerline-medium-r-normal--14-101-100-100-c-70-iso8859-1,\
 	-ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-2,\
 	-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1
 #define fontsize 12

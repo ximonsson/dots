@@ -1,5 +1,5 @@
-URxvt.font: 			fontname
-URxvt.boldFont:
+URxvt*font: 			fontname
+URxvt*boldFont:
 URxvt.title:            term
 URxvt.depth: 			32
 URxvt.lineSpace:		1

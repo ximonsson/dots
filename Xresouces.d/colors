@@ -24,4 +24,4 @@
 ! white
 #define color_07 #d3d7cf
 #define color_15 #ffffff
-
+! vim: ft=xdefaults
