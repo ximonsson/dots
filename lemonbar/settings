@@ -33,7 +33,7 @@ DIMENSIONS=`printf "%dx%d+%d+%d" $WIDTH $HEIGHT $X $Y`
 
 # fonts
 FONTS=(
-	"-misc-tamzenforpowerline-medium-r-normal--14-101-100-100-c-70-iso8859-1"
+	"-misc-tamzenforpowerline-medium-r-normal--13-94-100-100-c-70-iso8859-1"
 	"-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
 	"-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1"
 	)
