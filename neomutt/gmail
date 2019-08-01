@@ -1,4 +1,3 @@
-# vim: filetype=muttrc
 set my_pass=$my_gmail_pass
 
 # imap settings
@@ -7,6 +6,7 @@ set imap_pass=$my_pass
 set folder=imaps://$imap_user@imap.gmail.com/
 set spoolfile=+INBOX
 set postponed=+Drafts
+set trash=+[Gmail]/Lixeira
 
 # smtp settings
 set record=""
@@ -20,3 +20,4 @@ set ssl_starttls=yes
 mailboxes =INBOX
 
 account-hook $folder "set imap_user=simonsson.simon@gmail.com imap_pass=\"$my_gmail_pass\""
+# vim: filetype=muttrc

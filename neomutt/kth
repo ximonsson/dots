@@ -7,6 +7,7 @@ set imap_pass=$my_pass
 set folder=imaps://$imap_user@webmail.kth.se/
 set spoolfile=+INBOX
 set postponed=+Drafts
+set trash='+Deleted Items'
 
 # smtp settings
 set record="+Sent Items"

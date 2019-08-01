@@ -6,6 +6,8 @@ set menu_scroll
 set markers=no
 set send_charset="utf-8"
 set collapse_all
+set mime_forward
+set mime_forward_rest
 
 # mailcap
 set mailcap_path=$XDG_CONFIG_HOME/neomutt/mailcap
