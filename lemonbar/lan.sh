@@ -14,7 +14,7 @@ function lan
 	connected=`cat /sys/class/net/$device/carrier`
 	if [ "$connected" == "1" ]
 	then
-		echo -n "$(icon '\ue20e') eth0"
+		echo -n "$(icon '\ue20e') $device"
 	else
 		echo -n ""
 	fi

@@ -54,6 +54,10 @@ function weather
 		fog|windy)
 			ICON='\ue235'
 			;;
+		# thunder
+		*"thunder")
+			ICON='\ue22c'
+			;;
 	esac
 	echo -n "$(icon $ICON) $weather"
 }
