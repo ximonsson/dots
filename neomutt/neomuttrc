@@ -9,6 +9,8 @@ set collapse_all
 set mime_forward
 set mime_forward_rest
 
+set index_format="%4C %Z %{%b %d}  %-15.15L  %s"
+
 # mailcap
 set mailcap_path=$XDG_CONFIG_HOME/neomutt/mailcap
 auto_view text/html application/x-gzip application/x-gunzip
@@ -44,6 +46,6 @@ folder-hook $folder 'source ~/.config/neomutt/kth'
 source $XDG_CONFIG_HOME/neomutt/asteria
 folder-hook $folder 'source ~/.config/neomutt/asteria'
 
-# GMail TODO
+# GMail
 source $XDG_CONFIG_HOME/neomutt/gmail
 folder-hook $folder 'source ~/.config/neomutt/gmail'
