@@ -32,9 +32,8 @@ color message       color7        default
 color markers       color6        color254
 color attachment    color7        default
 color search        color7        default
-#color status        J_black         J_status
 color status        color0        color15
-color indicator     default        color0
+color indicator     color14       default
 color tree          color14       default                                    # arrow in threads
 color prompt        color7		  default
 
@@ -53,7 +52,7 @@ color index         color7        default        ~F                         # fl
 #color index         color14          default        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
 color index         color241      default        "~A"                        # all messages
 #color index         color7        default        "~E"                        # expired messages
-color index         color14         default        "~N"                        # new messages
+color index         color13         default        "~N"                        # new messages
 #color index         color7         default        "~O"                        # old messages
 #color index         color61         default        "~Q"                        # messages that have been replied to
 #color index         color7        default        "~R"                        # read messages
@@ -71,8 +70,8 @@ color index         color14         default        "~N"                        #
 #color index         color160        default        "~N~F~p"                    # new flagged messages to me
 #color index         color160        default        "~U~F~p"                    # new flagged messages to me
 color index         color1        default        "~D"                        # deleted messages
-color index         color241      color235       "~v~(!~N)"                  # collapsed thread with no unread
-color index         color14       color235       "~v~(~N)"                   # collapsed thread with some unread
+#color index         color7      default       "~v~(!~N)"                  # collapsed thread with no unread
+color index         color13       color235       "~v~(~N)"                   # collapsed thread with some unread
 #color index         color64         default        "~N~v~(~N)"                 # collapsed thread with unread parent
 # statusbg used to indicated flagged when foreground color shows other status
 # for collapsed thread
@@ -81,7 +80,7 @@ color index         color14       color235       "~v~(~N)"                   # c
 #color index         color64         color235        "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
 #color index         color64         color235        "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
 #color index         color37         color235        "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
-color index         color1        color235        "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
+color index         color1        default        "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
 #color index         color136        default        "~(~N)"                    # messages in threads with some unread
 #color index         color64         default        "~S"                       # superseded messages
 #color index         color160        default        "~T"                       # tagged messages
@@ -89,6 +88,7 @@ color index         color1        color235        "~v~(~D)"                   # 
 
 color index_flags color1 default "~F"
 color index_subject color7 default "~A!~N!~D"
+color index_subject color241 default "~v"
 #color index_subject color14 default "~N"
 #color index_subject color14 default "~D"
 
