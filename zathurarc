@@ -1,0 +1,18 @@
+set default-bg "#0e1212"
+
+set recolor true
+set recolor-lightcolor "#151a1a"
+set recolor-darkcolor "#efefef"
+
+set statusbar-fg "#0a0a0a"
+set statusbar-bg "#fefefe"
+
+set completion-bg "#080a0a"
+set completion-fg "#efefef"
+set completion-highlight-bg "#080a0a"
+set completion-highlight-fg "#00b5b5"
+
+set inputbar-fg "#fafafa"
+
+set font "GohuFont Powerline normal 9"
+set page-padding 10
