@@ -1,5 +1,7 @@
 set default-bg "#0e1212"
 
+set recolor-reverse-video true
+set recolor-keephue true
 set recolor true
 set recolor-lightcolor "#151a1a"
 set recolor-darkcolor "#efefef"
