@@ -149,11 +149,11 @@ super + {Left,Down,Up,Right}
 
 # raise volume
 XF86AudioRaiseVolume
-	amixer -q sset Master 5%+ unmute
+	amixer -q sset Master 2%+ unmute
 
 # lower volume
 XF86AudioLowerVolume
-	amixer -q sset Master 5%- unmute
+	amixer -q sset Master 2%- unmute
 
 XF86AudioMute
 	amixer -q sset Master toggle
