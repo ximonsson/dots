@@ -2,7 +2,7 @@ hi clear
 
 let g:colors_name = "x33m0n"
 
-hi Normal       ctermfg=252
+hi Normal       ctermfg=251
 
 hi Comment      ctermfg=8
 hi Special      ctermfg=13
