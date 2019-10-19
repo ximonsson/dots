@@ -4,9 +4,10 @@ let g:colors_name = "x33m0n"
 
 hi Normal       ctermfg=251
 
-hi Comment      ctermfg=8
-hi Special      ctermfg=13
+hi Comment      ctermfg=243
+hi Special      ctermfg=243
 hi link SpecialChar Special
+hi SpecialComment ctermfg=255
 hi LineNr       ctermfg=239
 hi CursorLine   cterm=none ctermbg=0
 hi CursorLineNr ctermfg=7
@@ -29,7 +30,7 @@ hi Function     ctermfg=15
 
 hi Type         ctermfg=14
 hi Conditional  ctermfg=14
-hi Constant     ctermfg=3
+hi Constant     ctermfg=1
 hi String       ctermfg=15
 hi Statement    ctermfg=14
 hi Integer      ctermfg=1
@@ -43,3 +44,5 @@ hi TabLineSel   ctermfg=16 ctermbg=15
 
 hi Pmenu ctermbg=0 ctermfg=240
 hi PmenuSel ctermbg=240 ctermfg=14
+
+hi Title ctermfg=255
