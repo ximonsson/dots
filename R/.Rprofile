@@ -10,6 +10,7 @@ set.ggplot_theme <- function(...) {
 			axis.text = element_text(color="#888888"),
 			axis.title = element_text(color="#eeeeee"),
 			plot.title = element_text(color="#eeeeee", face="bold"),
+			plot.subtitle = element_text(color="#888888"),
 			legend.background = element_rect(fill = NA),
 			legend.key = element_rect(fill = NA, color = NA),
 			legend.text = element_text(color="#eeeeee"),
