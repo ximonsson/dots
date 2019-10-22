@@ -2,22 +2,22 @@
 set -g status-interval 1
 
 # Basic status bar colors
-set -g status-style fg=colour240 #,bg=colour233
+set -g status-style fg=colour240,bg=default
 
 # Left side of status bar
 set -g status-left-style fg=colour243
-set -g status-left-length 10
-set -g status-left "#[fg=colour232,bg=colour130,bold] #S #[fg=colour130,bg=default,nobold]"
+set -g status-left-length 0
+set -g status-left "#[fg=colour232,bg=colour130,bold] #S #[fg=colour130,bg=colour235,nobold]"
 
 # Right side of status bar
 set -g status-right ""
 
 # Window status
-set -g window-status-format "  #I #W  "
-set -g window-status-current-format "#[fg=colour166,bg=colour239,nobold] #I #W #[fg=colour233,bg=default,nobold]"
+set -g window-status-format "#[bg=colour235]  #I #W  #[bg=colour235,fg=colour235]"
+set -g window-status-current-format "#[fg=colour235,bg=colour239]  #[fg=white]#I#[fg=colour235] #W  #[fg=colour239,bg=colour235]"
 
 # Current window status
-set -g window-status-current-style bg=colour130,fg=colour235
+set -g window-status-current-style bg=colour239,fg=colour166
 
 # Window with activity status
 set -g window-status-activity-style bg=colour233,fg=colour245
@@ -26,7 +26,7 @@ set -g window-status-activity-style bg=colour233,fg=colour245
 set -g window-status-separator ""
 
 # Window status alignment
-set -g status-justify centre
+set -g status-justify left
 
 # Pane border
 set -g pane-border-style bg=default,fg=colour238
