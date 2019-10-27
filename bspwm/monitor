@@ -1,0 +1,49 @@
+BUILTIN="eDP-1"
+
+
+function onchange_monitor {
+	echo "yarr"
+	#sleep 2
+	echo "hej"
+	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
+	[ -x $HOME/.fehbg ] && $HOME/.fehbg
+}
+
+function external {
+	MONITOR="$1"
+	xrandr --output $MONITOR --auto --primary --output $BUILTIN --off
+	bspc monitor -d I II III IV V VI VII VIII IX X
+	onchange_monitor
+}
+
+function dual {
+	MONITOR1="$1"
+	MONITOR2="$2"
+	xrandr \
+		--output $MONITOR1 --auto --primary \
+		--output $MONITOR2 --auto --right-of $MONITOR1
+
+	if [ "$MONITOR2" != "$BUILTIN" && "$MONITOR1" != "$BUILTIN" ]
+	then
+		xrandr --output $BUILTIN --off
+	fi
+
+	bspc monitor $MONITOR1 -d I II III IV V
+	bspc monitor $MONITOR2 -d VI VII VIII IX X
+	onchange_monitor
+}
+
+function internal {
+	xrandr --output $BUILTIN --auto --primary --output DP-1-2-1 --off --output DP-1-2-2 --off --output HDMI-1 --off
+	bspc monitor -d I II III IV V VI VII VIII IX X
+	onchange_monitor
+}
+
+function hdmi {
+	#xrandr --output $BUILTIN --auto --primary --output HDMI-1 --auto --left-of $BUILTIN
+	#xrandr --output $BUILTIN --auto --primary --output HDMI-1 --off
+	#bspc monitor $BUILTIN -d II IV VI VIII X
+	#bspc monitor HDMI-1 -d I III V VII IX
+	dual $BUILTIN "HDMI-1"
+	onchange_monitor
+}

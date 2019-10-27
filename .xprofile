@@ -7,12 +7,3 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export BROWSER=firefox
 export EDITOR=nvim
 export WM=bspwm
-
-# no bell sounds (so annoying)
-xset -b
-
-# decrease acceleration of the mouse
-MOUSE='Dell Dell Universal Receiver' xinput --set-prop "pointer:$MOUSE" 'libinput Accel Speed' -0.8
-
-# keyring
-eval $(ssh-agent)
