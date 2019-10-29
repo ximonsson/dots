@@ -1,10 +1,8 @@
 BUILTIN="eDP-1"
+MONITORF="/sys/class/drm/card0-DP-4/status"
 
 
 function onchange_monitor {
-	echo "yarr"
-	#sleep 2
-	echo "hej"
 	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 	[ -x $HOME/.fehbg ] && $HOME/.fehbg
 }
@@ -47,3 +45,20 @@ function hdmi {
 	dual $BUILTIN "HDMI-1"
 	onchange_monitor
 }
+
+# normal mode
+if [ ! -f $MONITORF ]
+then
+	internal
+
+# if the external monitor is connected
+elif [ `cat $MONITORF` == "connected" ]
+then
+	external "DP-1-2-1"
+
+# check later for dual monitors
+elif [ 0 ]
+then
+	echo "two monitors connected" >> $XDG_CONFIG_HOME/bspwm/bspwm.log
+	echo "TODO" >> $XDG_CONFIG_HOME/bspwm/bspwm.log
+fi

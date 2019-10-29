@@ -3,28 +3,29 @@
 #
 
 xrdb -merge -I$HOME $HOME/.Xresources
-compton -b --config $XDG_CONFIG_HOME/compton.conf
-xsetroot -cursor_name left_ptr
-xsetroot -solid "#171719"
-sxhkd &
-dunst &
+#xsetroot -cursor_name left_ptr
+#xsetroot -solid "#171719"
 
-#
-# Monitor settings
-#
+# sxhkd
+if [ ! $(pidof sxhkd) ]; then
+	#set -U SXHKD_SHELL /usr/bin/bash
+	sxhkd &
+else
+	pkill -USR1 -x sxhkd
+fi
 
-. $XDG_CONFIG_HOME/bspwm/monitor
+# composite manager
+if [ ! $(pidof compton) ]; then
+	compton -b --config $XDG_CONFIG_HOME/compton.conf
+else
+	pkill -x compton
+	compton -b --config $XDG_CONFIG_HOME/compton.conf
+fi
 
-# if the external monitor is connected
-if [ `cat /sys/class/drm/card0-DP-4/status` == "connected" ]
-then
-	echo "external monitor connected"
-	external "DP-1-2-1"
-elif [ 0 ] # check later for dual monitors
-then
-	echo "two monitors connected"
-	echo "TODO"
-else # normal mode
-	echo "only the internal display connected"
-	bspc monitor -d I II III IV V VI VII VIII IX X
+# notification manager
+if [ ! $(pidof dunst) ]; then
+	dunst &
+else
+	pkill -x dunst
+	dunst &
 fi

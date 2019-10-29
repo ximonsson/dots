@@ -4,6 +4,11 @@
 
 $XDG_CONFIG_HOME/bspwm/autostart
 
+
+# monitor
+
+$XDG_CONFIG_HOME/bspwm/monitor
+
 # settings
 
 bspc config border_width              4

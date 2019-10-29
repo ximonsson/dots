@@ -157,3 +157,10 @@ XF86AudioLowerVolume
 
 XF86AudioMute
 	amixer -q sset Master toggle
+
+#
+# monitor
+#
+
+XF86Display
+	$XDG_CONFIG_HOME/bspwm/monitor
