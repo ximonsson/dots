@@ -1,10 +1,11 @@
 BUILTIN="eDP-1"
-MONITORF="/sys/class/drm/card0-DP-4/status"
+MONITORF="/sys/class/drm/card0-DP-5/status"
 
 
 function onchange_monitor {
 	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 	[ -x $HOME/.fehbg ] && $HOME/.fehbg
+	xset -b
 }
 
 function external {
@@ -32,33 +33,39 @@ function dual {
 }
 
 function internal {
-	xrandr --output $BUILTIN --auto --primary --output DP-1-2-1 --off --output DP-1-2-2 --off --output HDMI-1 --off
+	xrandr \
+		--output $BUILTIN --auto --primary \
+		--output DP-1-2-1 --off --output DP-1-2-2 --off --output HDMI-1 --off
 	bspc monitor -d I II III IV V VI VII VIII IX X
 	onchange_monitor
 }
 
 function hdmi {
-	#xrandr --output $BUILTIN --auto --primary --output HDMI-1 --auto --left-of $BUILTIN
-	#xrandr --output $BUILTIN --auto --primary --output HDMI-1 --off
-	#bspc monitor $BUILTIN -d II IV VI VIII X
-	#bspc monitor HDMI-1 -d I III V VII IX
 	dual $BUILTIN "HDMI-1"
 	onchange_monitor
 }
 
-# normal mode
-if [ ! -f $MONITORF ]
-then
-	internal
+MONITOR=0
+for F in /sys/class/drm/card0-DP-*
+do
+	STATUS=$(cat $F/status)
+	if [ $STATUS == "connected" ]
+	then
+		MONITOR=1
+		break
+	fi
+done
 
 # if the external monitor is connected
-elif [ `cat $MONITORF` == "connected" ]
+if [[ $MONITOR -eq 1 ]]
 then
 	external "DP-1-2-1"
-
 # check later for dual monitors
-elif [ 0 ]
+elif [ 1 == 0 ]
 then
 	echo "two monitors connected" >> $XDG_CONFIG_HOME/bspwm/bspwm.log
 	echo "TODO" >> $XDG_CONFIG_HOME/bspwm/bspwm.log
+# else normal mode
+else
+	internal
 fi

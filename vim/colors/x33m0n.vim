@@ -4,10 +4,10 @@ let g:colors_name = "x33m0n"
 
 hi Normal       ctermfg=250
 
-hi Comment      ctermfg=243
+hi Comment      ctermfg=241
 hi Special      ctermfg=15
 hi link SpecialChar Special
-hi SpecialComment ctermfg=255
+hi link SpecialComment Comment
 hi LineNr       ctermfg=239
 hi CursorLine   cterm=none ctermbg=0
 hi CursorLineNr ctermfg=7

@@ -18,7 +18,7 @@ auto_view text/html application/x-gzip application/x-gunzip
 # IMAP settings
 #set imap_check_subscribed
 unset imap_passive
-set imap_keepalive=60
+set imap_keepalive=20
 
 # colors
 source ~/.config/neomutt/colors.neomuttrc

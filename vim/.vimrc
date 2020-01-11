@@ -37,6 +37,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " airline theme

@@ -1,9 +1,6 @@
-# vim: filetype=muttrc
-set my_pass=$my_asteria_pass
-
 # imap settings
 set imap_user=simon@asteria.ai
-set imap_pass=$my_pass
+set imap_pass=$my_asteria_pass
 set folder=imaps://$imap_user@outlook.office365.com/
 set spoolfile=+INBOX
 set postponed=+Drafts
@@ -18,6 +15,7 @@ set smtp_url=smtp://$imap_user:$imap_pass@smtp.office365.com:587
 set ssl_force_tls=yes
 set ssl_starttls=yes
 
-mailboxes =INBOX +Trello +IBM
+mailboxes +INBOX +Trello +IBM
 
 account-hook $folder "set imap_user=simon@asteria.ai imap_pass=\"$my_asteria_pass\""
+# vim: filetype=muttrc
