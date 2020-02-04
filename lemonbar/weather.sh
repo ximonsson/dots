@@ -47,8 +47,16 @@ function weather
 			ICON='\ue22e'
 			;;
 		# nice weather
-		sunny|"clear sky")
+		sunny)
 			ICON='\ue234'
+			;;
+		"clear sky")
+			H=$(date +"%H")
+			if [ $H -gt "20" ] || [ $H -lt "6" ]; then # night
+				ICON='\ue233'
+			else # day
+				ICON='\ue234'
+			fi
 			;;
 		# windy
 		fog|windy)
