@@ -15,11 +15,11 @@ else
 fi
 
 # composite manager
-if [ ! $(pidof compton) ]; then
-	compton -b --config $XDG_CONFIG_HOME/compton.conf
+if [ ! $(pidof picom) ]; then
+	picom -b --config $XDG_CONFIG_HOME/compton.conf
 else
-	pkill -x compton
-	compton -b --config $XDG_CONFIG_HOME/compton.conf
+	pkill -x picom
+	picom -b --config $XDG_CONFIG_HOME/compton.conf
 fi
 
 # notification manager
