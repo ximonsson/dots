@@ -1,3 +1,5 @@
+#! /bin/sh
+
 #
 # This file contains autostart commands for BSPWM
 #
@@ -16,10 +18,10 @@ fi
 
 # composite manager
 if [ ! $(pidof picom) ]; then
-	picom -b --config $XDG_CONFIG_HOME/compton.conf
+	picom -b --config $XDG_CONFIG_HOME/picom.conf
 else
 	pkill -x picom
-	picom -b --config $XDG_CONFIG_HOME/compton.conf
+	picom -b --config $XDG_CONFIG_HOME/picom.conf
 fi
 
 # notification manager

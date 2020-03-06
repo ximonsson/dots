@@ -18,7 +18,8 @@ auto_view text/html application/x-gzip application/x-gunzip
 # IMAP settings
 #set imap_check_subscribed
 unset imap_passive
-set imap_keepalive=20
+set imap_keepalive=60
+color progress white cyan
 
 # colors
 source ~/.config/neomutt/colors.neomuttrc
@@ -26,10 +27,10 @@ source ~/.config/neomutt/colors.neomuttrc
 # SIDEBAR
 # ----------------------------------------------------------
 
-bind index,pager B sidebar-toggle-visible
-bind index,pager \Cp sidebar-prev
-bind index,pager \Cn sidebar-next
-bind index,pager \Co sidebar-open
+#bind index,pager B sidebar-toggle-visible
+#bind index,pager \Cp sidebar-prev
+#bind index,pager \Cn sidebar-next
+#bind index,pager \Co sidebar-open
 
 #source /usr/share/doc/mutt/samples/sample.muttrc-sidebar
 

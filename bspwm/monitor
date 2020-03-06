@@ -1,5 +1,8 @@
-BUILTIN="eDP-1"
-MONITORF="/sys/class/drm/card0-DP-5/status"
+#! /bin/sh
+
+BUILTIN="eDP1"
+MONITORF="/sys/class/drm/card0-DP-3/status"
+XMONITOR="DP1-1"
 
 
 function onchange_monitor {
@@ -35,7 +38,10 @@ function dual {
 function internal {
 	xrandr \
 		--output $BUILTIN --auto --primary \
-		--output DP-1-2-1 --off --output DP-1-2-2 --off --output HDMI-1 --off
+		--output DP-1-2-1 --off \
+		--output DP-1-2-2 --off \
+		--output HDMI-1 --off \
+		--output DP1-1 --off
 	bspc monitor -d I II III IV V VI VII VIII IX X
 	onchange_monitor
 }
@@ -59,7 +65,7 @@ done
 # if the external monitor is connected
 if [[ $MONITOR -eq 1 ]]
 then
-	external "DP-1-2-1"
+	external $XMONITOR
 # check later for dual monitors
 elif [ 1 == 0 ]
 then

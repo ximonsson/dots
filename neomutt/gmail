@@ -3,7 +3,7 @@ set imap_user=simonsson.simon@gmail.com
 set imap_pass=$my_gmail_pass
 set folder=imaps://$imap_user@imap.gmail.com/
 set spoolfile=+INBOX
-set postponed=+Drafts
+set postponed=+[Gmail]/Rascunhos
 set trash=+[Gmail]/Lixeira
 
 # smtp settings
