@@ -1,5 +1,5 @@
 URxvt*font: 			fontname
-URxvt*boldFont:
+!URxvt*boldFont:
 URxvt.title:            term
 URxvt.depth: 			32
 URxvt.lineSpace:		1
@@ -23,25 +23,7 @@ URxvt.keysym.Control-Left:  \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
 
 ! colors
-!URxvt.background: 		color_bg
-urxvt*background:		rgba:0400/0800/0800/c000
-URxvt.foreground: 		color_fg
-URxvt*color0: 			color_00
-URxvt*color1: 			color_01
-URxvt*color2: 			color_02
-URxvt*color3:			color_03
-URxvt*color4: 			color_04
-URxvt*color5: 			color_05
-URxvt*color6: 			color_06
-URxvt*color7: 			color_07
-URxvt*color8: 			color_08
-URxvt*color9: 			color_09
-URxvt*color10: 			color_10
-URxvt*color11: 			color_11
-URxvt*color12: 			color_12
-URxvt*color13: 			color_13
-URxvt*color14: 			color_14
-URxvt*color15: 			color_15
+urxvt.background:		rgba:0400/0800/0800/c000
 
 ! tabs
 URxvt.tabbed.tabbar-fg:  8

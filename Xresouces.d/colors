@@ -4,24 +4,43 @@
 #define color_00 #2a3033
 #define color_08 #888
 ! red
-#define color_01 #d64659
-#define color_09 #ef2929
+#define color_01 #c6235a
+#define color_09 #d8346a
 ! green
-#define color_02 #46d678
-#define color_10 #88DC36
+#define color_02 #1a9983
+#define color_10 #32b59f
 ! yellow
-#define color_03 #ff9f5b
-#define color_11 #fce94f
+#define color_03 #d3942e
+#define color_11 #d3af2e
 ! blue
-#define color_04 #648ad1
-#define color_12 #5d98d3
+#define color_04 #14749e
+#define color_12 #328db5
 ! magenta
-#define color_05 #b764d1
-#define color_13 #c792c1
+#define color_05 #9d57cc
+#define color_13 #aa70d1
 ! cyan
-#define color_06 #155e5e
-#define color_14 #00b5b5
+#define color_14 #16acba
+#define color_06 #14929e
 ! white
 #define color_07 #d3d7cf
 #define color_15 #ffffff
+
+*foreground: 		color_fg
+*color0: 			color_00
+*color1: 			color_01
+*color2: 			color_02
+*color3:			color_03
+*color4: 			color_04
+*color5: 			color_05
+*color6: 			color_06
+*color7: 			color_07
+*color8: 			color_08
+*color9: 			color_09
+*color10: 			color_10
+*color11: 			color_11
+*color12: 			color_12
+*color13: 			color_13
+*color14: 			color_14
+*color15: 			color_15
+
 ! vim: ft=xdefaults

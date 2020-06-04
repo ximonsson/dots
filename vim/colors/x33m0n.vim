@@ -30,7 +30,7 @@ hi Function     ctermfg=15
 
 hi Type         ctermfg=14
 hi Conditional  ctermfg=14
-hi Constant     ctermfg=1
+hi Constant     ctermfg=9
 hi String       ctermfg=15
 hi Statement    ctermfg=14
 hi Integer      ctermfg=1

@@ -33,9 +33,9 @@ color markers       color6        color254
 color attachment    color7        default
 color search        color7        default
 color status        color0        color15
-color indicator     color14       default
-color tree          color14       default                                    # arrow in threads
-color prompt        color7		  default
+color indicator     default       color0
+color tree          color7       default                                    # arrow in threads
+color prompt        color14		  default
 
 # basic monocolor screen
 mono  bold          bold
@@ -46,11 +46,11 @@ mono  error         bold
 # index ----------------------------------------------------------------
 
 #color index         color1        default        "~D(!~p|~p)"               # deleted
-color index         color7        default        ~F                         # flagged
 #color index         color166        default        ~=                         # duplicate messages
 #color index         color7        default        "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
 #color index         color14          default        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
-color index         color241      default        "~A"                        # all messages
+color index         color243      default        "~A"                        # all messages
+color index         color14        default        ~F                         # flagged
 #color index         color7        default        "~E"                        # expired messages
 color index         color13         default        "~N"                        # new messages
 #color index         color7         default        "~O"                        # old messages
@@ -70,12 +70,13 @@ color index         color13         default        "~N"                        #
 #color index         color160        default        "~N~F~p"                    # new flagged messages to me
 #color index         color160        default        "~U~F~p"                    # new flagged messages to me
 color index         color1        default        "~D"                        # deleted messages
-#color index         color7      default       "~v~(!~N)"                  # collapsed thread with no unread
-color index         color13       color235       "~v~(~N)"                   # collapsed thread with some unread
-#color index         color64         default        "~N~v~(~N)"                 # collapsed thread with unread parent
+
 # statusbg used to indicated flagged when foreground color shows other status
 # for collapsed thread
-#color index         default        color235        "~v~(~F)!~N"                # collapsed thread with flagged, no unread
+color index         color249      default       "~v~(!~N)"                  # collapsed thread with no unread
+color index         color5       default       "~v~(~N)"                   # collapsed thread with some unread
+#color index         color64         default        "~N~v~(~N)"                 # collapsed thread with unread parent
+color index         color6        default        "~v~(~F)!~N"                # collapsed thread with flagged, no unread
 #color index         color1        color235        "~v~(~F~N)"                 # collapsed thread with some unread & flagged
 #color index         color64         color235        "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
 #color index         color64         color235        "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
@@ -86,9 +87,9 @@ color index         color1        default        "~v~(~D)"                   # t
 #color index         color160        default        "~T"                       # tagged messages
 #color index         color166        color160        "~="                       # duplicated messages
 
-color index_flags color1 default "~F"
-color index_subject color7 default "~A!~N!~D"
-color index_subject color241 default "~v"
+#color index_flags color1 default "~F"
+#color index_subject color7 default "~A!~N!~D"
+#color index_subject color241 default "~v"
 #color index_subject color14 default "~N"
 #color index_subject color14 default "~D"
 
@@ -159,9 +160,9 @@ color body          color14        default        "([a-z][a-z0-9+-]*://(((([a-z0
 
 
 # Color of the highlighted, but not open, mailbox.
-color sidebar_highlight default color0
-color sidebar_ordinary  color239 default
-color sidebar_indicator default default
+#color sidebar_highlight default color0
+#color sidebar_ordinary  color239 default
+#color sidebar_indicator default default
 
 # Color of the divider separating the Sidebar from Mutt panels
 #color sidebar_divider color8 black
