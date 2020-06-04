@@ -1,25 +1,26 @@
 set header_cache=~/.cache/neomutt
-set mail_check=60
 set sort=threads
 set sort_aux=last-date-received
 set menu_scroll
-set markers=no
+unset markers
 set send_charset="utf-8"
-set collapse_all
+#set collapse_all
 set mime_forward
 set mime_forward_rest
-
 set index_format="%4C %Z %{%b %d}  %-15.15L  %s"
+set include
+set forward_quote
+unset sig_dashes
+unset mark_old
 
 # mailcap
 set mailcap_path=$XDG_CONFIG_HOME/neomutt/mailcap
 auto_view text/html application/x-gzip application/x-gunzip
 
 # IMAP settings
-#set imap_check_subscribed
 unset imap_passive
-set imap_keepalive=60
-color progress white cyan
+#set imap_check_subscribed
+#color progress white cyan
 
 # colors
 source ~/.config/neomutt/colors.neomuttrc

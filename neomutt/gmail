@@ -1,3 +1,5 @@
+#unmailboxes *
+
 # imap settings
 set imap_user=simonsson.simon@gmail.com
 set imap_pass=$my_gmail_pass
@@ -15,7 +17,7 @@ set smtp_url=smtps://$imap_user:$imap_pass@smtp.gmail.com
 set ssl_force_tls=yes
 set ssl_starttls=yes
 
-mailboxes +INBOX
-
-account-hook $folder "set imap_user=simonsson.simon@gmail.com imap_pass=\"$my_gmail_pass\""
+mailboxes =INBOX
+#unset imap_passive
+account-hook $folder 'set imap_user=simonsson.simon@gmail.com imap_pass=$my_gmail_pass'
 # vim: filetype=muttrc
