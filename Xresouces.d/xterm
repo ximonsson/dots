@@ -1,15 +1,17 @@
 xterm*faceName:     lucy tewi
-xterm*faceSize:     fontsize
+!xterm*faceName:	-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1
+!xterm*renderFont: false
+xterm*faceSize:     11
 !XTerm.*.boldFont: lucy tewi
-xterm*scaleHeight: 0.9
+!xterm*scaleHeight: 0.9
 xterm*geometry: 	95x22
 xterm*internalBorder:  22
 xterm*saveLines:    65535
-xterm*termName:     xterm-color
+!xterm*termName:     xterm-color
 ! colors
 xterm*background: 	color_bg
 !XTerm*cursorColor: red
-XTerm*colorBD: dark blue
-XTerm*colorUL: purple4
+!XTerm*colorBD: dark blue
+!XTerm*colorUL: purple4
 !XTerm*pointerShape: double_arrow
 ! vim: ft=xdefaults

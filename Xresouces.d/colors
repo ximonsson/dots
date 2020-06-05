@@ -10,13 +10,14 @@
 #define color_02 #1a9983
 #define color_10 #32b59f
 ! yellow
-#define color_03 #d3942e
+#define color_03 #c17634
+!#define color_03 #d3942e
 #define color_11 #d3af2e
 ! blue
 #define color_04 #14749e
 #define color_12 #328db5
 ! magenta
-#define color_05 #9d57cc
+#define color_05 #8356a0
 #define color_13 #aa70d1
 ! cyan
 #define color_14 #16acba
