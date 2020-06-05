@@ -45,7 +45,8 @@ call plug#end()
 
 " airline theme
 let g:airline_powerline_fonts=1
-let g:airline_theme="papercolor"
+let g:airline_theme='minimalist'
+"let g:airline_solarized_bg='dark'
 
 " reset the cursor to an underscore
 "	not a big fan of this solution as it is not dynamic but has to
