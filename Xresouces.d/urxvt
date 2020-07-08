@@ -1,9 +1,10 @@
 URxvt*font: 			fontname
 !URxvt*boldFont:
+urxvt.termName:		    xterm-256color
 URxvt.title:            term
 URxvt.depth: 			32
 URxvt.lineSpace:		1
-URxvt.internalBorder:   22
+URxvt.internalBorder:   30
 URxvt.scrollstyle: 		xterm
 URxvt.scrollBar: 		false
 URxvt.perl-ext-common: 	default,clipboard,matcher

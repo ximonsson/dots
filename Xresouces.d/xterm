@@ -9,7 +9,8 @@ xterm*internalBorder:  22
 xterm*saveLines:    65535
 !xterm*termName:     xterm-color
 ! colors
-xterm*background: 	color_bg
+!xterm*background:		rgba:0400/0800/0800/c000
+!xterm*background: 	color_bg
 !XTerm*cursorColor: red
 !XTerm*colorBD: dark blue
 !XTerm*colorUL: purple4

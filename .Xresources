@@ -10,3 +10,4 @@ Xft.hintstyle: hintfull
 #include ".config/.Xresources.d/rofi"
 #include ".config/.Xresources.d/urxvt"
 #include ".config/.Xresources.d/xterm"
+#include ".config/.Xresources.d/emacs"
