@@ -8,8 +8,8 @@ function cpu
 # fs returns filesystem information
 function fs
 {
-	FS=(`df -h / | awk 'NR == 2 {print $3" "$2}'`)
-	FS="$(icon '\ue1e0') ${FS[0]} %{F$GRAY}${FS[1]}%{F-}"
+	FS=(`df / | awk 'NR == 2 {print int($3 / $2 * 100)}'`)
+	FS="$(icon '\ue1e0') ${FS[0]}"
 	echo -n "$FS"
 }
 
@@ -25,7 +25,7 @@ function ram
 function datetime
 {
 	TIME="$(icon '\ue015') $(date "+%R")"
-	DATE="$(icon '\ue225') %{F-}$(date "+%a") %{F$GRAY}$(date "+%d.%m.%Y")"
+	DATE="$(icon '\ue225') %{F-}$(date "+%a") $(date "+%d/%m") %{F$GRAY}$(date "+%Y")"
 	echo -n "$DATE   $TIME"
 }
 
