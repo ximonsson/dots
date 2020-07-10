@@ -4,7 +4,7 @@
 # NOTE: should change so files are not hidden in the repository and instead the created
 #       symlinks are
 
-install: bspwm bash lemonbar x dunst picom weechat vim mutt aur zsh octave julia r tmux dunst
+install: bspwm bash lemonbar x dunst picom weechat vim mutt aur zsh octave julia r tmux dunst userdirs
 
 sxkhd:
 	ln -s -T $(CURDIR)/sxhkd $(XDG_CONFIG_HOME)/sxhkd
@@ -80,3 +80,6 @@ dunst:
 tmux:
 	ln -s $(CURDIR)/tmux/.tmux.conf $(HOME)/.tmux.conf
 	ln -s $(CURDIR)/tmux/.tmux.conf.d $(XDG_CONFIG_HOME)/.tmux.conf.d
+
+userdirs:
+	ln -s $(CURDIR)/user-dirs.dirs $(XDG_CONFIG_HOME)/user-dirs.dirs
