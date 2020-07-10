@@ -44,10 +44,6 @@ source "gpg -dq $XDG_CONFIG_HOME/neomutt/passwords.gpg |"
 source $XDG_CONFIG_HOME/neomutt/kth
 folder-hook $folder 'source ~/.config/neomutt/kth'
 
-# Asteria
-source $XDG_CONFIG_HOME/neomutt/asteria
-folder-hook $folder 'source ~/.config/neomutt/asteria'
-
 # GMail
 source $XDG_CONFIG_HOME/neomutt/gmail
 folder-hook $folder 'source ~/.config/neomutt/gmail'
