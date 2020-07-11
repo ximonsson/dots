@@ -4,7 +4,7 @@
 # NOTE: should change so files are not hidden in the repository and instead the created
 #       symlinks are
 
-install: bspwm bash lemonbar x dunst picom weechat vim mutt aur zsh octave julia r tmux dunst userdirs
+install: bspwm bash lemonbar x picom weechat vim mutt aur zsh octave julia r tmux dunst userdirs
 
 sxkhd:
 	ln -s -T $(CURDIR)/sxhkd $(XDG_CONFIG_HOME)/sxhkd
@@ -31,8 +31,11 @@ x:
 	ln -s -T $(CURDIR)/.xprofile $(HOME)/.xprofile
 	ln -s -T $(CURDIR)/Xresources.d $(XDG_CONFIG_HOME)/.Xresources.d
 
-dunst:
-	ln -s -T $(CURDIR)/dunst $(XDG_CONFIG_HOME)/dunst
+
+$(XDG_CONFIG_HOME)/dunst:
+	ln -s -T $(CURDIR)/dunst $@
+
+dunst: $(XDG_CONFIG_HOME)/dunst
 
 picom:
 	ln -s -T $(CURDIR)/picom.conf $(XDG_CONFIG_HOME)/picom.conf
@@ -72,10 +75,8 @@ r:
 	ln -s $(CURDIR)/R/.Rprofile $(HOME)/.Rprofile
 
 julia:
+	mkdir -p $(HOME)/.julia/config
 	ln -s $(CURDIR)/julia/startup.jl $(HOME)/.julia/config/startup.jl
-
-dunst:
-	ln -s $(CURDIR)/dunst $(XDG_CONFIG_HOME)/dunst
 
 tmux:
 	ln -s $(CURDIR)/tmux/.tmux.conf $(HOME)/.tmux.conf
