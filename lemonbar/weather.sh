@@ -1,15 +1,14 @@
 #!/usr/bin/bash
 function weather
 {
-	country=$1
-	region=$2
-	city=$3
+	lat=$1
+	lon=$2
 
 	forecast=
 	# retry a couple of times in case we are not able to communicate with the service
 	for N in 1 .. 5
 	do
-		weather=`$GOPATH/bin/weather "$country" "$region" "$city" 2> /dev/null`
+		weather=`$GOPATH/bin/weather $lat $lon 2> /dev/null`
 		if [ $? -eq 0 ]; then
 			#>&2 echo "succeeded getting weather"
 			forecast=`echo $weather | cut -d ":" -f2`

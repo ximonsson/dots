@@ -2,6 +2,13 @@ function lan
 {
 	device=$1
 
+	stat /sys/class/net/$device/operstate 2> /dev/null
+	if [ $? != 0 ]
+	then
+		echo -n ""
+		return
+	fi
+
 	# check if the device is running
 	state=`cat /sys/class/net/$device/operstate`
 	if [ "$state" == "down" ]
@@ -23,7 +30,7 @@ function lan
 function wlan
 {
 	device=$1
-	essid=`iw dev $device link | grep "SSID" | awk -F"[]:[]" '{ print $2 }' | xargs | cut -d "\"" -f2`
+	essid=`iwctl station $device show | grep -i "connected network" | awk '{ print $3 }'`
 	link=`cat /proc/net/wireless | grep $device | awk '{ print $3 }' | cut -d "." -f1`
 
 	ICON='\ue21f warn'

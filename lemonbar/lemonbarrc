@@ -50,7 +50,7 @@ function out
 
 		# update weather
 		if [ "$COUNT" -eq "$WEATHER_UPDATE_INT" ]; then
-			WEATHER="$(weather "$COUNTRY" "$REGION" "$CITY")"
+			WEATHER="$(weather $LAT $LON)"
 			COUNT=0
 		fi
 		COUNT=$(( COUNT + 1))
