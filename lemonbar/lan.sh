@@ -2,8 +2,8 @@ function lan
 {
 	device=$1
 
-	stat /sys/class/net/$device/operstate 2> /dev/null
-	if [ $? != 0 ]
+	stat /sys/class/net/$device/operstate 2>&1 > /dev/null
+	if [ "$?" -ne "0" ]
 	then
 		echo -n ""
 		return
