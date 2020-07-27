@@ -25,7 +25,7 @@ function weather
 	ICON='\ue25d warn'
 	case `echo $forecast | awk '{print tolower($0)}'` in
 		# cloudy ones
-		"partly cloudy"|fair)
+		"partlycloudy"*|fair)
 			H=$(date +"%H")
 			if [ $H -gt "20" ] || [ $H -lt "6" ]; then # night
 				ICON='\ue232'
