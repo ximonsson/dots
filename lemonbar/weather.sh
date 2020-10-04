@@ -37,13 +37,13 @@ function weather
 			ICON='\ue22b'
 			;;
 		# rain
-		"light rain"*|*sleet*|"rain showers")
+		"lightrain"*|*sleet*|"rainshowers")
 			ICON='\ue230'
 			;;
 		rain)
 			ICON='\ue22f'
 			;;
-		"heavy rain"*)
+		"heavyrain"*)
 			ICON='\ue22d'
 			;;
 		# snow
@@ -54,7 +54,7 @@ function weather
 		sunny)
 			ICON='\ue234'
 			;;
-		"clear sky")
+		"clearsky"*)
 			H=$(date +"%H")
 			if [ $H -gt "20" ] || [ $H -lt "6" ]; then # night
 				ICON='\ue233'
