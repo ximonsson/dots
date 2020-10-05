@@ -20,7 +20,7 @@ set -g window-status-current-format "   #[fg=#16acba, bold]#I #[fg=white]#W#[fg=
 set -g window-status-current-style fg=colour166
 
 # Window with activity status
-set -g window-status-activity-style bg=colour233,fg=colour245
+set -g window-status-activity-style fg=#c6235a
 
 # Window separator
 set -g window-status-separator ""
