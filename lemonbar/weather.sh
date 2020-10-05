@@ -25,7 +25,7 @@ function weather
 	ICON='\ue25d warn'
 	case `echo $forecast | awk '{print tolower($0)}'` in
 		# cloudy ones
-		"partlycloudy"*|fair)
+		"partlycloudy"*|fair*)
 			H=$(date +"%H")
 			if [ $H -gt "20" ] || [ $H -lt "6" ]; then # night
 				ICON='\ue232'
@@ -33,17 +33,17 @@ function weather
 				ICON='\ue231'
 			fi
 			;;
-		"cloudy")
+		"cloudy"*)
 			ICON='\ue22b'
 			;;
 		# rain
-		"light rain"*|*sleet*|"rain showers")
+		"lightrain"*|*sleet*|"rainshowers")
 			ICON='\ue230'
 			;;
-		rain)
+		rain*)
 			ICON='\ue22f'
 			;;
-		"heavy rain"*)
+		"heavyrain"*)
 			ICON='\ue22d'
 			;;
 		# snow
@@ -54,7 +54,7 @@ function weather
 		sunny)
 			ICON='\ue234'
 			;;
-		"clear sky")
+		"clearsky"*)
 			H=$(date +"%H")
 			if [ $H -gt "20" ] || [ $H -lt "6" ]; then # night
 				ICON='\ue233'
@@ -63,11 +63,11 @@ function weather
 			fi
 			;;
 		# windy
-		fog|windy)
+		fog*|windy*)
 			ICON='\ue235'
 			;;
 		# thunder
-		*"thunder")
+		*"thunder"*)
 			ICON='\ue22c'
 			;;
 	esac
