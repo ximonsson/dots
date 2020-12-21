@@ -40,3 +40,5 @@ bspc rule -a *:LibFreenect state=floating
 bspc rule -a feh state=floating
 bspc rule -a R_x11 state=floating
 bspc rule -a gksqt state=floating center=on
+bspc rule -a Makie state=floating center=on
+bspc rule -a mpv state=floating center=on
