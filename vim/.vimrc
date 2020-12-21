@@ -27,6 +27,9 @@ set vb
 
 set encoding=utf-8
 
+" no more tabs for me!
+set hidden
+
 " plugins
 call plug#begin()
 Plug 'fatih/vim-go'
