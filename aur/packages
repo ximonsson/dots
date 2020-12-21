@@ -23,13 +23,14 @@ declare -A packages=(
 	["envypn-font"]="https://aur.archlinux.org/envypn-font.git"
 	["tamzen-font-git"]="https://aur.archlinux.org/tamzen-font-git.git"
 	["nerd-fonts-profont"]="https://aur.archlinux.org/nerd-fonts-profont.git"
-	["otb-scientifica"]="https://aur.archlinux.org/otb-scientifica.git "
+	["scientifica-bdf"]="https://aur.archlinux.org/scientifica-bdf.git "
 	#["mxnet"]="https://aur.archlinux.org/mxnet.git"
 	["python-keras"]="https://aur.archlinux.org/python-keras.git"
 	["python-graphviz"]="https://aur.archlinux.org/python-graphviz.git"
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
 	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
 	["sensorkinect"]="https://aur.archlinux.org/sensorkinect.git"
+	["teams"]="https://aur.archlinux.org/teams.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
