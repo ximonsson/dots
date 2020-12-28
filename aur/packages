@@ -40,6 +40,7 @@ declare -A packages=(
 	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
 	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
 	#["mxnet"]="https://aur.archlinux.org/mxnet.git"
+	["teams"]="https://aur.archlinux.org/teams.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
