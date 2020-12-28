@@ -5,31 +5,41 @@
 
 # AUR packages
 declare -A packages=(
+	# mandatory applications
 	["spotify"]="https://aur.archlinux.org/spotify.git"
-	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
 	["lemonbar-xft-git"]="https://aur.archlinux.org/lemonbar-xft-git.git"
 	["slack-desktop"]="https://aur.archlinux.org/slack-desktop.git"
+	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
+
+	# fonts
 	["siji-git"]="https://aur.archlinux.org/siji-git.git"
 	["bdf-tewi-git"]="https://aur.archlinux.org/bdf-tewi-git.git"
-	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
-	["flann"]="https://aur.archlinux.org/flann.git"
-	["openni2"]="https://aur.archlinux.org/openni2-git.git"
-	["openni"]="https://aur.archlinux.org/openni.git"
-	["pcl"]="https://aur.archlinux.org/pcl.git"
-	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
 	["jmk-x11-fonts"]="https://aur.archlinux.org/jmk-x11-fonts.git"
 	["gohufont-powerline"]="https://aur.archlinux.org/gohufont-powerline.git"
 	["gohufont"]="https://aur.archlinux.org/gohufont.git"
 	["envypn-font"]="https://aur.archlinux.org/envypn-font.git"
 	["tamzen-font-git"]="https://aur.archlinux.org/tamzen-font-git.git"
 	["nerd-fonts-profont"]="https://aur.archlinux.org/nerd-fonts-profont.git"
-	["otb-scientifica"]="https://aur.archlinux.org/otb-scientifica.git "
-	#["mxnet"]="https://aur.archlinux.org/mxnet.git"
+	["scientifica-bdf"]="https://aur.archlinux.org/scientifica-bdf.git "
+
+	# robotics
+	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
+	["sensorkinect"]="https://aur.archlinux.org/sensorkinect.git"
+	["openni2"]="https://aur.archlinux.org/openni2.git"
+	["openni"]="https://aur.archlinux.org/openni.git"
+	["flann"]="https://aur.archlinux.org/flann.git"
+	["pcl"]="https://aur.archlinux.org/pcl.git"
+	["astra-sdk"]="https://aur.archlinux.org/astra-sdk.git"
+	["sfml2.3"]="https://aur.archlinux.org/sfml2.3.git"
+	["libpthread-stubs"]="https://aur.archlinux.org/libpthread-stubs.git"
+
+	# good to haves
 	["python-keras"]="https://aur.archlinux.org/python-keras.git"
 	["python-graphviz"]="https://aur.archlinux.org/python-graphviz.git"
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
-	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
-	["sensorkinect"]="https://aur.archlinux.org/sensorkinect.git"
+	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
+	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
+	#["mxnet"]="https://aur.archlinux.org/mxnet.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
@@ -45,6 +55,7 @@ declare -A packages=(
 	["rocm-comgr"]="https://aur.archlinux.org/rocm-comgr.git"
 	["rocm-opencl-runtime"]="https://aur.archlinux.org/rocm-opencl-runtime.git"
 	["miopen"]="https://aur.archlinux.org/miopen.git"
+
 	#["chromium-widevine"]="https://aur.archlinux.org/chromium-widevine.git"
 	#["libjson"]="https://aur.archlinux.org/libjson.git"
 	#["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
