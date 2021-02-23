@@ -56,4 +56,3 @@ function plt_marginalhist(x, y, args...; title = "", kwargs...)
 	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
 	#Plots.title!(p[1], title)
 	return p
-end
