@@ -1,33 +1,59 @@
-using Plots, Plots.PlotMeasures
+using StatsPlots, Plots.PlotMeasures, MLJ
 
-""" Set default plot theme """
+include("themes.jl")
 
-begin
+# default theme.
+theme(:x33m0n)
 
-@info "setting plot theme"
 
-local PLOT_THEME = (
-	background = RGB(.15, .15, .15),
-	margin = 10px,
-	bottom_margin = 20px,
-	top_margin = 30px,
-	title_location = :left,
-	legendfont = font(7, RGB(.8, .8, .8)),
-	titlefont = font(10, RGB(1., 1., 1.)),
-	guidefont = font(7, RGB(.8, .8, .8)),
-	tickfont = font(6, RGB(.5, .5, .5)),
-	background_color_legend = RGBA(.15, .15, .15, .7),
-	foreground_color_border = RGB(.3, .3, .3),
-	foreground_color_legend = RGBA(.5, .5, .5, 0),
-	tickfontcolor = RGB(.5, .5, .5),
-	foreground_color_subplot = RGB(.6, .6, .6),
-	titlefontcolor = RGB(1, 1, 1),
-	palette = [RGB(1, 1, 1), RGB(1, .3, .3), RGB(1., .5, .2), RGB(.5, 1, .5), RGB(.3, .7, 1)],
-	legend = :topleft,
-	size = (800, 500),
-	fillalpha = .3,
-)
+# use plotly backend
+plotly()
 
-default(; PLOT_THEME...)
 
+""" destination directory to save plots to """
+PLOTDIR = get(ENV, "JULIA_PLOTDIR", "$(ENV["HOME"])/dev/julia/plots")
+
+
+# just so I remember this cool fill color
+PLOT_HEATMAP_FILLCOLOR = :gist_heat
+
+
+"""
+Simple macro that runs the plot function and stores it to a file because we are working over SSH.
+"""
+macro plt(cmd, output = "foo.html")
+	return :( $cmd; savefig("$PLOTDIR/" * $output); )
+end
+
+"""
+Plot a confusion matrix.
+"""
+function plt_confmat(cm::AbstractArray{<:Real,2}; normalize = true, kwargs...)
+	normalize && (cm = cm ./ sum(cm, dims = 1))
+
+	labels = [
+		(x.I..., text(string(round(cm[x], digits = 2)), 8, :white))
+		for x in eachindex(view(cm, 1:size(cm, 1), 1:size(cm, 2)))
+	]
+	labels = reshape(labels, cm |> eachindex |> length)
+
+	cm = cm |> transpose
+
+	heatmap(
+		cm,
+		xlabel = "predicted value",
+		ylabel = "true value",
+		c = :gist_heat,
+		size = (900, 800),
+		annotations = labels;
+		kwargs...
+	)
+end
+
+plt_confmat(cm::MLJ.MLJBase.ConfusionMatrixObject; kwargs...) = plt_confmat(cm.mat; kwargs...)
+
+function plt_marginalhist(x, y, args...; title = "", kwargs...)
+	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
+	#Plots.title!(p[1], title)
+	return p
 end
