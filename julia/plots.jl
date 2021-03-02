@@ -39,7 +39,7 @@ function plt_confmat(cm::AbstractArray{<:Real,2}; normalize = true, kwargs...)
 
 	cm = cm |> transpose
 
-	heatmap(
+	StatsPlots.heatmap(
 		cm,
 		xlabel = "predicted value",
 		ylabel = "true value",
@@ -56,3 +56,4 @@ function plt_marginalhist(x, y, args...; title = "", kwargs...)
 	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
 	#Plots.title!(p[1], title)
 	return p
+end
