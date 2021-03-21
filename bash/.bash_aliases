@@ -92,7 +92,4 @@ alias pulse-hdmi="pactl set-card-profile $AUDIO_CARD $AUDIO_PROFILE_DIGITAL"
 
 alias docker-clear="docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v"
 
-# run Julia with 4 threads
-alias julia="JULIA_NUM_THREADS=7 /usr/bin/julia"
-
 #! vim: ft=sh
