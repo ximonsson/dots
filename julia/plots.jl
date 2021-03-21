@@ -7,7 +7,7 @@ theme(:x33m0n)
 
 
 # use plotly backend
-plotly()
+gr()
 
 
 """ destination directory to save plots to """
@@ -27,29 +27,60 @@ end
 
 """
 Plot a confusion matrix.
+
+TODO make a recipe out of this instead. Time to learn something new.
 """
-function plt_confmat(cm::AbstractArray{<:Real,2}; normalize = true, kwargs...)
-	normalize && (cm = cm ./ sum(cm, dims = 1))
+function plt_confmat(
+	M::AbstractArray{<:Real,2},
+	labels;
+	textcolor = :white,
+	annosize = 14,
+	normalize = true,
+	flip = true,
+	kwargs...
+)
+	flip && (M = M[end:-1:1, :])
+	normalize && (M = M ./ sum(M, dims = 2))
 
-	labels = [
-		(x.I..., text(string(round(cm[x], digits = 2)), 8, :white))
-		for x in eachindex(view(cm, 1:size(cm, 1), 1:size(cm, 2)))
-	]
-	labels = reshape(labels, cm |> eachindex |> length)
+	function lbl(v)
+		l = round(v, digits = 2)
+		l = if l == 0
+			""
+		else
+			string(l)
+		end
 
-	cm = cm |> transpose
+		textcolor = if v > .75
+			:black
+		else
+			:white
+		end
+
+		text(l, annosize, textcolor)
+	end
+
+	# i find it weird that i need to transpose the matrix back and forth
+	M = M |> transpose
+	anno = [
+		(x.I .- .5 ..., lbl(M[x]))
+		for x in eachindex(view(M, 1:size(M, 1), 1:size(M, 2)))
+	] |> x -> reshape(x, M |> eachindex |> length) |> reverse
+	M = M |> transpose
 
 	StatsPlots.heatmap(
-		cm,
+		labels,
+		labels |> reverse,
+		M,
 		xlabel = "predicted value",
 		ylabel = "true value",
-		c = :gist_heat,
+		c = get(kwargs, :c, PLOT_HEATMAP_FILLCOLOR),
 		size = (900, 800),
-		annotations = labels;
+		annotations = anno;
 		kwargs...
 	)
 end
 
+# TODO fix labels
 plt_confmat(cm::MLJ.MLJBase.ConfusionMatrixObject; kwargs...) = plt_confmat(cm.mat; kwargs...)
 
 function plt_marginalhist(x, y, args...; title = "", kwargs...)
