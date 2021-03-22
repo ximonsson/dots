@@ -5,12 +5,10 @@ include("themes.jl")
 # default theme.
 theme(:x33m0n)
 
-
-# use plotly backend
-
+# set backend
 const JULIA_PLOTBACKEND = get(ENV, "JULIA_PLOTBACKEND", "gr")
 
-const JULIA_PLOTDEFAULTOUTPUT = if JULIA_PLOTBACKEND == "gr"
+const DEFAULT_PLOT_OUTPUT = if JULIA_PLOTBACKEND == "gr"
 	gr()
 	"foo.png"
 elseif JULIA_PLOTBACKEND == "plotly"
@@ -31,7 +29,7 @@ PLOT_HEATMAP_FILLCOLOR = :gist_heat
 """
 Simple macro that runs the plot function and stores it to a file because we are working over SSH.
 """
-macro plt(cmd, output = "foo.html")
+macro plt(cmd, output = DEFAULT_PLOT_OUTPUT)
 	return :( $cmd; savefig("$PLOTDIR/" * $output); )
 end
 
