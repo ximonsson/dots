@@ -5,6 +5,7 @@ include("themes.jl")
 # default theme.
 theme(:x33m0n)
 
+
 """ plotting backend """
 JULIA_PLOTBACKEND = get(ENV, "JULIA_PLOTBACKEND", "gr")
 
@@ -41,6 +42,11 @@ function plt_marginalhist(x, y, args...; title = "", kwargs...)
 end
 
 
+"""
+	confmatplot(M::Array{Real,2}; classes = nothing, flip = true, normalize = true, textcolor = nothing, annosize = 10)
+
+Plot a confusion matrix.
+"""
 @userplot ConfMatPlot
 
 @recipe function f(
