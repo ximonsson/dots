@@ -7,11 +7,21 @@ theme(:x33m0n)
 
 
 # use plotly backend
-gr()
 
+const JULIA_PLOTBACKEND = get(ENV, "JULIA_PLOTBACKEND", "gr")
+
+const JULIA_PLOTDEFAULTOUTPUT = if JULIA_PLOTBACKEND == "gr"
+	gr()
+	"foo.png"
+elseif JULIA_PLOTBACKEND == "plotly"
+	plotly()
+	"foo.html"
+else
+	@error "Not sure what backend this is" JULIA_PLOTBACKEND
+end
 
 """ destination directory to save plots to """
-PLOTDIR = get(ENV, "JULIA_PLOTDIR", "$(ENV["HOME"])/dev/julia/plots")
+const PLOTDIR = get(ENV, "JULIA_PLOTDIR", "$(ENV["HOME"])/dev/julia/plots")
 
 
 # just so I remember this cool fill color
@@ -33,27 +43,27 @@ TODO make a recipe out of this instead. Time to learn something new.
 function plt_confmat(
 	M::AbstractArray{<:Real,2},
 	labels;
-	textcolor = :white,
-	annosize = 14,
+	annosize = 10,
 	normalize = true,
-	flip = true,
+	textcolor = nothing,
+	flip = false,
 	kwargs...
 )
 	flip && (M = M[end:-1:1, :])
 	normalize && (M = M ./ sum(M, dims = 2))
 
+	# function to create the annotation text
+	# tries to adapt the color and hides 0 values
 	function lbl(v)
 		l = round(v, digits = 2)
-		l = if l == 0
-			""
-		else
-			string(l)
-		end
+		l = l == 0 ? "" : string(l)
 
-		textcolor = if v > .75
-			:black
-		else
-			:white
+		# TODO
+		# come up a way of doing this based on the color so it can be used
+		# for non-normalized confusion matrices also
+
+		if isnothing(textcolor) && normalize
+			textcolor = v > .75 ? :black : :white
 		end
 
 		text(l, annosize, textcolor)
@@ -67,12 +77,15 @@ function plt_confmat(
 	] |> x -> reshape(x, M |> eachindex |> length) |> reverse
 	M = M |> transpose
 
+	xs = labels
+	ys = flip ? labels |> reversed : labels
+
 	StatsPlots.heatmap(
-		labels,
-		labels |> reverse,
+		xs,
+		ys,
 		M,
-		xlabel = "predicted value",
-		ylabel = "true value",
+		xlabel = "predicted",
+		ylabel = "truth",
 		c = get(kwargs, :c, PLOT_HEATMAP_FILLCOLOR),
 		size = (900, 800),
 		annotations = anno;
