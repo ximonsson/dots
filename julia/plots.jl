@@ -5,9 +5,10 @@ include("themes.jl")
 # default theme.
 theme(:x33m0n)
 
-# set backend
-const JULIA_PLOTBACKEND = get(ENV, "JULIA_PLOTBACKEND", "gr")
+""" plotting backend """
+JULIA_PLOTBACKEND = get(ENV, "JULIA_PLOTBACKEND", "gr")
 
+""" default output file - depends on the backend """
 const DEFAULT_PLOT_OUTPUT = if JULIA_PLOTBACKEND == "gr"
 	gr()
 	"foo.png"
@@ -19,10 +20,9 @@ else
 end
 
 """ destination directory to save plots to """
-const PLOTDIR = get(ENV, "JULIA_PLOTDIR", "$(ENV["HOME"])/dev/julia/plots")
+PLOTDIR = get(ENV, "JULIA_PLOTDIR", "$(ENV["HOME"])/dev/julia/plots")
 
-
-# just so I remember this cool fill color
+""" just so I remember this cool fill color """
 PLOT_HEATMAP_FILLCOLOR = :gist_heat
 
 
@@ -84,15 +84,17 @@ function plt_confmat(
 		M,
 		xlabel = "predicted",
 		ylabel = "truth",
-		c = get(kwargs, :c, PLOT_HEATMAP_FILLCOLOR),
-		size = (900, 800),
 		annotations = anno;
+		c = get(kwargs, :c, PLOT_HEATMAP_FILLCOLOR),
 		kwargs...
 	)
 end
 
-# TODO fix labels
-plt_confmat(cm::MLJ.MLJBase.ConfusionMatrixObject; kwargs...) = plt_confmat(cm.mat; kwargs...)
+"""
+	plt_confmat(::MLJBase.ConfusionMatrix; kwargs...)
+"""
+plt_confmat(cm::MLJ.MLJBase.ConfusionMatrixObject, labels = nothing; kwargs...) =
+	plt_confmat(cm.mat, isnothing(labels) ? cm.labels : labels; kwargs...)
 
 function plt_marginalhist(x, y, args...; title = "", kwargs...)
 	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
