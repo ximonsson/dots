@@ -59,8 +59,6 @@ end
 		M = M ./ sum(M, dims = 2)
 	end
 
-	@debug "matrix" M
-
 	# function to create the annotation text
 	# tries to adapt the color and hides 0 values
 	function lbl(v)
