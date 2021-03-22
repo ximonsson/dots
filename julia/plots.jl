@@ -60,8 +60,10 @@ function plt_confmat(
 		# come up a way of doing this based on the color so it can be used
 		# for non-normalized confusion matrices also
 
-		if isnothing(textcolor) && normalize
+		textcolor = if isnothing(textcolor) && normalize
 			textcolor = v > .75 ? :black : :white
+		else
+			:white
 		end
 
 		text(l, annosize, textcolor)
@@ -76,7 +78,7 @@ function plt_confmat(
 	M = M |> transpose
 
 	xs = labels
-	ys = flip ? labels |> reversed : labels
+	ys = flip ? labels |> reverse : labels
 
 	StatsPlots.heatmap(
 		xs,
