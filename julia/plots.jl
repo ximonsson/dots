@@ -1,4 +1,4 @@
-using StatsPlots, Plots.PlotMeasures, MLJ
+using StatsPlots, Plots.PlotMeasures, MLJ.MLJBase, Plots
 
 include("themes.jl")
 
@@ -33,22 +33,33 @@ macro plt(cmd, output = DEFAULT_PLOT_OUTPUT)
 	return :( $cmd; savefig("$PLOTDIR/" * $output); )
 end
 
-"""
-Plot a confusion matrix.
+""" shorthand for marginal histograms that look weird from the start. """
+function plt_marginalhist(x, y, args...; title = "", kwargs...)
+	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
+	#Plots.title!(p[1], title)
+	return p
+end
 
-TODO make a recipe out of this instead. Time to learn something new.
-"""
-function plt_confmat(
-	M::AbstractArray{<:Real,2},
-	labels;
-	annosize = 10,
+
+@userplot ConfMatPlot
+
+@recipe function f(
+	p::ConfMatPlot;
+	classes = nothing,
+	flip = true,
 	normalize = true,
 	textcolor = nothing,
-	flip = false,
-	kwargs...
+	annosize = 10,
 )
-	flip && (M = M[end:-1:1, :])
-	normalize && (M = M ./ sum(M, dims = 2))
+	M = p.args[1]
+
+	M = flip ? M[end:-1:1, :] : M
+
+	if normalize
+		M = M ./ sum(M, dims = 2)
+	end
+
+	@debug "matrix" M
 
 	# function to create the annotation text
 	# tries to adapt the color and hides 0 values
@@ -77,29 +88,28 @@ function plt_confmat(
 	] |> x -> reshape(x, M |> eachindex |> length) |> reverse
 	M = M |> transpose
 
-	xs = labels
-	ys = flip ? labels |> reverse : labels
+	ticks = isnothing(classes) ? (1:size(M, 1)) : classes
 
-	StatsPlots.heatmap(
-		xs,
-		ys,
-		M,
-		xlabel = "predicted",
-		ylabel = "truth",
-		annotations = anno;
-		c = get(kwargs, :c, PLOT_HEATMAP_FILLCOLOR),
-		kwargs...
-	)
+	@series begin
+		seriescolor --> PLOT_HEATMAP_FILLCOLOR
+		xguide --> "predicted"
+		yguide --> "truth"
+		clims --> (0., 1.)
+
+		annotations := anno
+		x := ticks
+		y := (flip ? reverse(ticks) : ticks)
+		z := Surface(M)
+		seriestype := :heatmap
+
+		()
+	end
 end
 
 """
-	plt_confmat(::MLJBase.ConfusionMatrix; kwargs...)
+this one does not work because of bug in recipes i think
 """
-plt_confmat(cm::MLJ.MLJBase.ConfusionMatrixObject, labels = nothing; kwargs...) =
-	plt_confmat(cm.mat, isnothing(labels) ? cm.labels : labels; kwargs...)
-
-function plt_marginalhist(x, y, args...; title = "", kwargs...)
-	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
-	#Plots.title!(p[1], title)
-	return p
+@recipe function f(cm::MLJBase.ConfusionMatrixObject; classes = nothing)
+	seriestype := :confmatplot
+	cm.labels, cm.labels, cm.mat
 end
