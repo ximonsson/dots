@@ -1,7 +1,6 @@
 using Plots.PlotThemes
 
 begin
-
 	DEFAULTS = Dict(
 		:margin => 30px,
 		:bottom_margin => 50px,
@@ -37,5 +36,4 @@ begin
 		fg_color = RGB(0, 0, 0);
 		DEFAULTS...
 	)
-
 end

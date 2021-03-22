@@ -59,7 +59,9 @@ Plot a confusion matrix.
 )
 	M = p.args[1]
 
-	M = flip ? M[end:-1:1, :] : M
+	if flip
+		M = M[end:-1:1, :]
+	end
 
 	if normalize
 		M = M ./ sum(M, dims = 2)
