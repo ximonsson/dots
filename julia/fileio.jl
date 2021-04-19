@@ -11,7 +11,7 @@ Function to help loading Parquet files.
 
 Don't expect the `types` mapping to work.
 """
-function ldpq(path::AbstractString, p::Function = x -> x; keep = missing, types = Dict(), timestamps = [])
+function ldpq(path::AbstractString, p::Function = x -> x; types = Dict(), timestamps = [])
 	# the map_logical_types is not working as it should i think,
 	# so we will do the converting here manually
 	f = Parquet.File(path, map_logical_types = types)
@@ -19,21 +19,23 @@ function ldpq(path::AbstractString, p::Function = x -> x; keep = missing, types 
 	@debug "schema" Parquet.schema(f)
 
 	# convert pandas timestamp in microseconds to DateTime
-	timestamp(x) = x .* 1e-6 .|> unix2datetime
+	timestamp(x::Real) = x * 1e-6 |> unix2datetime
 	timestamp(::Missing) = missing
 
-	function fn(c)
-		df = DataFrame(c, copycols = false) |> p
-
-		!ismissing(keep) && select!(df, keep)
+	function fn(batch)
+		df = DataFrame(batch)
 
 		# DateTime columns
 		for c in timestamps
 			df[!, c] = df[!, c] .|> timestamp
 		end
 
-		df
+		df |> p
 	end
 
-	reduce(vcat, BatchedColumnsCursor(f) .|> fn)
+	df = reduce(vcat, map(fn, BatchedColumnsCursor(f, reusebuffer = true, batchsize = 1000000)))
+
+	Parquet.close(f)
+
+	return df
 end
