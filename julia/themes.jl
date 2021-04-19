@@ -5,6 +5,7 @@ begin
 		:margin => 30px,
 		:bottom_margin => 50px,
 		:top_margin => 50px,
+		:left_margin => 50px,
 		:title_location => :left,
 		:legend => :topleft,
 		:size => (800, 500),
@@ -19,7 +20,7 @@ begin
 		legendfont = font(8, RGB(.8, .8, .8)),
 		guidefont = font(8, RGB(.8, .8, .8)),
 		tickfont = font(8, RGB(.5, .5, .5)),
-		palette = [RGB(1, 1, 1), RGB(1., .3, .3), RGB(.5, 1, .5)],
+		palette = [RGB(1, 1, 1), RGB(1., .3, .3), RGB(1.0, .6, .1), RGB(.4, .7, .6), RGB(.5, 1, .5)],
 		fg_color = RGB(1, 1, 1);
 		DEFAULTS...
 	)
