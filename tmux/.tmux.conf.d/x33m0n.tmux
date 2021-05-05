@@ -1,5 +1,3 @@
-set -g default-terminal "xterm-256color"
-
 # Status update interval
 set -g status-interval 1
 
