@@ -10,7 +10,7 @@ theme(:x33m0n)
 JULIA_PLOTBACKEND = get(ENV, "JULIA_PLOTBACKEND", "gr")
 
 """ default output file - depends on the backend """
-const DEFAULT_PLOT_OUTPUT = if JULIA_PLOTBACKEND == "gr"
+DEFAULT_PLOT_OUTPUT = if JULIA_PLOTBACKEND == "gr"
 	gr()
 	"foo.png"
 elseif JULIA_PLOTBACKEND == "plotly"
@@ -25,7 +25,6 @@ PLOTDIR = get(ENV, "JULIA_PLOTDIR", "$(ENV["HOME"])/dev/julia/plots")
 
 """ just so I remember this cool fill color """
 PLOT_HEATMAP_FILLCOLOR = :gist_heat
-
 
 """
 Simple macro that runs the plot function and stores it to a file because we are working over SSH.
@@ -60,14 +59,13 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 	xs = (H.edges |> first |> collect)[2:end]
 
 	@series begin
-		seriestype := :line
+		seriestype --> :line
 		x := xs
 		y := H.weights
 		fill --> (0, .3)
 		()
 	end
 end
-
 
 """
 	confmatplot(M::Array{Real,2}; classes = nothing, flip = true, normalize = true, textcolor = nothing, annosize = 10)
