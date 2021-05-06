@@ -94,20 +94,18 @@ Plot a confusion matrix.
 		M = M ./ sum(M, dims = 2)
 	end
 
+	lum(c) = 0.2126c.r + 0.7152c.g + 0.0722c.b
+
 	# function to create the annotation text
 	# tries to adapt the color and hides 0 values
 	function lbl(v)
 		l = round(v, digits = 2)
 		l = l == 0 ? "" : string(l)
 
-		# TODO
-		# come up a way of doing this based on the color so it can be used
-		# for non-normalized confusion matrices also
-
-		textcolor = if isnothing(textcolor) && normalize
-			textcolor = v > .75 ? :black : :white
-		else
-			:white
+		# calculate text color
+		if isnothing(textcolor)
+			v = !normalize ? v / maximum(M) : v
+			textcolor = cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum > .75 ? :white : :black
 		end
 
 		text(l, annosize, textcolor)
