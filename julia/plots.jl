@@ -1,4 +1,4 @@
-using StatsPlots, Plots.PlotMeasures, MLJ.MLJBase, Plots
+using StatsPlots, Plots.PlotMeasures, MLJ.MLJBase, Plots, StatsBase
 
 include("themes.jl")
 
@@ -39,6 +39,33 @@ function plt_marginalhist(x, y, args...; title = "", kwargs...)
 	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
 	#Plots.title!(p[1], title)
 	return p
+end
+
+"""
+	xhistogram(::Array{Real,1})
+
+X(imon)Histogram. I don't like the usual implementation of histograms. This is a nice line version.
+"""
+@userplot XHistogram
+
+@recipe function f(p::XHistogram; normalize = false)
+	y = p.args[1]
+
+	bins --> 10
+	nbins = plotattributes[:bins]
+
+	H = StatsBase.fit(StatsBase.Histogram, y, nbins = nbins)
+	normalize && (H = StatsBase.normalize(H))
+
+	xs = (H.edges |> first |> collect)[2:end]
+
+	@series begin
+		seriestype := :line
+		x := xs
+		y := H.weights
+		fill --> (0, .3)
+		()
+	end
 end
 
 
