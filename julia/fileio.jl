@@ -22,8 +22,8 @@ function ldpq(path::AbstractString, p::Function = x -> x; types = Dict(), timest
 	timestamp(x::Real) = x * 1e-6 |> unix2datetime
 	timestamp(::Missing) = missing
 
-	function fn(batch)
-		df = DataFrame(batch)
+	function fn(b)
+		df = DataFrame(b)
 
 		# DateTime columns
 		for c in timestamps

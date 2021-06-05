@@ -62,7 +62,7 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 		seriestype --> :line
 		x := xs
 		y := H.weights
-		fill --> (0, .3)
+		#fill --> (0, .3)
 		()
 	end
 end

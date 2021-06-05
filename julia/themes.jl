@@ -6,8 +6,8 @@ begin
 		:bottom_margin => 50px,
 		:top_margin => 50px,
 		:left_margin => 50px,
-		:title_location => :left,
-		:legend => :topleft,
+		#:title_location => :left,
+		#:legend => :topleft,
 		:size => (800, 500),
 		:fillalpha => .7,
 	)
@@ -26,14 +26,14 @@ begin
 	)
 
 	PlotThemes._themes[:x33m0nlight] = PlotThemes.PlotTheme(
-		background = RGB(.95, .95, .95),
-		background_color_legend = RGBA(.15, .15, .15, .7),
-		foreground_color_border = RGB(.3, .3, .3),
-		foreground_color_legend = RGBA(.5, .5, .5, 0),
-		legendfont = font(8, RGB(.8, .8, .8)),
+		background = RGB(.99, .99, .99),
+		background_color_legend = RGBA(.9, .9, .9, .7),
+		foreground_color_legend = RGBA(.1, .1, .1, 0),
+		foreground_color_border = RGB(.1, .1, .1),
+		legendfont = font(8, RGB(.1, .1, .1)),
 		guidefont = font(8, RGB(.1, .1, .1)),
-		tickfont = font(8, RGB(.5, .5, .5)),
-		palette = [RGB(0, 0, 0), RGB(1., .3, .3), RGB(.5, 1, .5)],
+		tickfont = font(8, RGB(.2, .2, .2)),
+		palette = [RGB(.15, .15, .15), RGB(.81, .2, .2), RGB(.16, .50, .59), RGB(.8, .45, .2), RGB(.20, .69, .45)],
 		fg_color = RGB(0, 0, 0);
 		DEFAULTS...
 	)
