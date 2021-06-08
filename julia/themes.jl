@@ -1,4 +1,4 @@
-using Plots.PlotThemes
+using Plots.PlotMeasures, Plots.PlotThemes
 
 begin
 	DEFAULTS = Dict(

@@ -1,4 +1,4 @@
-using StatsPlots, Plots.PlotMeasures, MLJ.MLJBase, Plots, StatsBase
+using MLJ.MLJBase, Plots, StatsBase
 
 include("themes.jl")
 
@@ -33,13 +33,6 @@ macro plt(cmd, output = DEFAULT_PLOT_OUTPUT)
 	return :( $cmd; savefig("$PLOTDIR/" * $output); )
 end
 
-""" shorthand for marginal histograms that look weird from the start. """
-function plt_marginalhist(x, y, args...; title = "", kwargs...)
-	p = marginalhist(x, y, top_margin = 10px, right_margin = 10px, lw = 0, args...; kwargs...)
-	#Plots.title!(p[1], title)
-	return p
-end
-
 """
 	xhistogram(::Array{Real,1})
 
@@ -62,7 +55,15 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 		seriestype --> :line
 		x := xs
 		y := H.weights
-		#fill --> (0, .3)
+
+		if plotattributes[:seriestype] == :line
+			linewidth --> 1
+			fillrange --> 0
+			fillalpha --> .3
+		elseif plotattributes[:seriestype] == :bar
+			linewidth --> 0
+		end
+
 		()
 	end
 end
@@ -138,7 +139,7 @@ end
 """
 this one does not work because of bug in recipes i think
 """
-@recipe function f(cm::MLJBase.ConfusionMatrixObject; classes = nothing)
+@recipe function f(::Type{MLJBase.ConfusionMatrixObject}, cm::MLJBase.ConfusionMatrixObject; classes = nothing)
 	seriestype := :confmatplot
 	cm.labels, cm.labels, cm.mat
 end
