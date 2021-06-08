@@ -20,7 +20,7 @@ begin
 		legendfont = font(8, RGB(.8, .8, .8)),
 		guidefont = font(8, RGB(.8, .8, .8)),
 		tickfont = font(8, RGB(.5, .5, .5)),
-		palette = [RGB(1, 1, 1), RGB(1., .3, .3), RGB(1.0, .6, .1), RGB(.4, .7, .6), RGB(.5, 1, .5)],
+		palette = [RGB(.95, .95, .95), RGB(.81, .2, .2), RGB(.16, .50, .59), RGB(.8, .45, .2), RGB(.20, .69, .45)],
 		fg_color = RGB(1, 1, 1);
 		DEFAULTS...
 	)
