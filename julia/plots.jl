@@ -43,16 +43,24 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 @recipe function f(p::XHistogram; normalize = false)
 	y = p.args[1]
 
+	# in case there are missing values in y we filter them out silently
+	if eltype(y) <: Union{Missing,<:Real}
+		y = convert(Vector{Float64}, filter(!ismissing, y))
+	end
+
+	@debug "xhistogram" y
+
 	bins --> 10
 	nbins = plotattributes[:bins]
+	label --> nothing
 
 	H = StatsBase.fit(StatsBase.Histogram, y, nbins = nbins)
 	normalize && (H = StatsBase.normalize(H))
 
-	xs = (H.edges |> first |> collect)[2:end]
+	xs = (H.edges |> first |> collect)[1:end-1]
 
 	@series begin
-		seriestype --> :line
+		seriestype --> :bar
 		x := xs
 		y := H.weights
 
