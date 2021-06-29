@@ -1,4 +1,4 @@
-using Plots.PlotMeasures, Plots.PlotThemes
+using Plots, Plots.PlotMeasures, Plots.PlotThemes
 
 begin
 	DEFAULTS = Dict(
@@ -20,7 +20,7 @@ begin
 		legendfont = font(8, RGB(.8, .8, .8)),
 		guidefont = font(8, RGB(.8, .8, .8)),
 		tickfont = font(8, RGB(.5, .5, .5)),
-		palette = [RGB(.95, .95, .95), RGB(.81, .2, .2), RGB(.16, .50, .59), RGB(.8, .45, .2), RGB(.20, .69, .45)],
+		palette = [RGB(.95, .95, .95), RGB(.81, .2, .2), RGB(.16, .50, .59), RGB(.8, .45, .2), RGB(.20, .69, .45), RGB(.58, .16, .76)],
 		fg_color = RGB(1, 1, 1);
 		DEFAULTS...
 	)
