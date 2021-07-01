@@ -48,8 +48,6 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 		y = convert(Vector{Float64}, filter(!ismissing, y))
 	end
 
-	@debug "xhistogram" y
-
 	bins --> 10
 	nbins = plotattributes[:bins]
 	label --> nothing
@@ -74,6 +72,10 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 
 		()
 	end
+end
+
+@recipe function f(::Type{Val{:xhistogram}}, x, y, z;)
+	# TODO
 end
 
 """
@@ -150,4 +152,96 @@ this one does not work because of bug in recipes i think
 @recipe function f(::Type{MLJBase.ConfusionMatrixObject}, cm::MLJBase.ConfusionMatrixObject; classes = nothing)
 	seriestype := :confmatplot
 	cm.labels, cm.labels, cm.mat
+end
+
+"""
+StatsPlots.corrplot takes ages with larger datasets, this is most likely because of the scatter plots.
+I find the histogram2d to be the most valuable information in this plot so I made this to focus on that part.
+"""
+@userplot XCorrPlot
+
+@recipe function f(p::XCorrPlot)
+	M = p.args[1]
+
+	# number of dimensions
+	D = size(M, 2)
+	g = grid(D, D)
+	layout := g
+
+	# prepare a grid layout for upper right corner that will be blank
+	I = zeros(Int, D, D)
+	pltidx = 1
+	for i = axes(M, 2), j = axes(M, 2)
+		if i < j
+			g[i, j].attr[:blank] = true
+		else
+			I[i, j] = pltidx
+			pltidx += 1
+		end
+	end
+
+	# labels - create dummy one in case does not exist
+	L = get(plotattributes, :label, [])
+	if isempty(L)
+		L = ["y$i" for i = 1:D]
+	end
+
+	# by default each single plot does not have a lot of information
+	# around them, this is more for the plots that are along the sides
+
+	label := nothing
+	margin := 1mm
+	bottom_margin := 1mm
+	top_margin := 1mm
+	left_margin := 1mm
+	right_margin := 1mm
+	ticks := nothing
+	grid := false
+
+	# all histograms should share same numbers of bins
+	bins --> 50
+
+	# histograms in the diagonal
+	for d = axes(M, 2)
+		@series begin
+			seriestype := :histogram
+			subplot := I[d, d]
+			grid := true
+			seriescolor := 1
+
+			if d == D
+				xticks := :auto
+				xguide := L[end]
+			elseif d == 1
+				yticks := :auto
+				yguide := L[1]
+				left_margin := 50px
+			end
+
+			@view M[:, d]
+		end
+	end
+
+	# 2d histograms in upper corner
+	for i = axes(M, 2), j = axes(M, 2)
+		i < j && continue
+		@series	begin
+			if j == 1
+				yguide := L[i]
+				left_margin := 50px
+				yticks := :auto
+			end
+
+			if i == D
+				xguide := L[j]
+				bottom_margin := 50px
+				xticks := :auto
+			end
+
+			seriestype := :histogram2d
+			subplot := I[i, j]
+			colorbar := :none
+			@view(M[:, j]), @view(M[:, i])
+		end
+	end
 end
