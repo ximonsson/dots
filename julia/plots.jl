@@ -224,7 +224,7 @@ I find the histogram2d to be the most valuable information in this plot so I mad
 
 	# 2d histograms in upper corner
 	for i = axes(M, 2), j = axes(M, 2)
-		i < j && continue
+		i <= j && continue
 		@series	begin
 			if j == 1
 				yguide := L[i]
