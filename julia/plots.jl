@@ -79,31 +79,28 @@ end
 end
 
 """
-	confmatplot(M::Array{Real,2}; classes = nothing, flip = true, normalize = true, textcolor = nothing, annosize = 10)
+	confmatplot(M::Array{Real,2}; normalize = true, textcolor = nothing, annosize = 10)
 
 Plot a confusion matrix.
 """
 @userplot ConfMatPlot
 
-@recipe function f(
-	p::ConfMatPlot;
-	classes = nothing,
-	flip = true,
-	normalize = true,
-	textcolor = nothing,
-	annosize = 10,
-)
+@recipe function f(p::ConfMatPlot; normalize = true, textcolor = nothing, annosize = 10,)
 	M = p.args[1]
-
-	if flip
-		M = M[end:-1:1, :]
-	end
+	M = M[end:-1:1, :]
 
 	if normalize
 		M = M ./ sum(M, dims = 2)
 	end
 
 	lum(c) = 0.2126c.r + 0.7152c.g + 0.0722c.b
+
+	# labels - create dummy one in case does not exist
+	L = get(plotattributes, :label, [])
+	if isempty(L)
+		L = ["y$i" for i = 1:size(M, 1)]
+	end
+	L = L |> vec
 
 	# function to create the annotation text
 	# tries to adapt the color and hides 0 values
@@ -112,12 +109,14 @@ Plot a confusion matrix.
 		l = l == 0 ? "" : string(l)
 
 		# calculate text color
-		if isnothing(textcolor)
+		txtc = if isnothing(textcolor)
 			v = !normalize ? v / maximum(M) : v
-			textcolor = cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum > .75 ? :white : :black
+			(cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum) < .75 ? :white : :black
+		else
+			textcolor
 		end
 
-		text(l, annosize, textcolor)
+		text(l, annosize, txtc)
 	end
 
 	# i find it weird that i need to transpose the matrix back and forth
@@ -128,17 +127,16 @@ Plot a confusion matrix.
 	] |> x -> reshape(x, M |> eachindex |> length) |> reverse
 	M = M |> transpose
 
-	ticks = isnothing(classes) ? (1:size(M, 1)) : classes
-
 	@series begin
 		seriescolor --> PLOT_HEATMAP_FILLCOLOR
 		xguide --> "predicted"
 		yguide --> "truth"
 		clims --> (0., 1.)
+		label := nothing
 
 		annotations := anno
-		x := ticks
-		y := (flip ? reverse(ticks) : ticks)
+		x := L
+		y := reverse(L)
 		z := Surface(M)
 		seriestype := :heatmap
 
@@ -149,9 +147,10 @@ end
 """
 this one does not work because of bug in recipes i think
 """
-@recipe function f(::Type{MLJBase.ConfusionMatrixObject}, cm::MLJBase.ConfusionMatrixObject; classes = nothing)
+@recipe function f(::Type{MLJBase.ConfusionMatrixObject}, cm::MLJBase.ConfusionMatrixObject;)
 	seriestype := :confmatplot
-	cm.labels, cm.labels, cm.mat
+	labels := cm.labels
+	cm.mat
 end
 
 """
