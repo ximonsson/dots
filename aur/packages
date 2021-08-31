@@ -10,6 +10,7 @@ declare -A packages=(
 	["lemonbar-xft-git"]="https://aur.archlinux.org/lemonbar-xft-git.git"
 	["slack-desktop"]="https://aur.archlinux.org/slack-desktop.git"
 	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
+	["julia-bin"]="https://aur.archlinux.org/julia-bin.git"
 
 	# fonts
 	["siji-git"]="https://aur.archlinux.org/siji-git.git"
