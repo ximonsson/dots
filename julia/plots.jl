@@ -1,4 +1,4 @@
-using MLJ.MLJBase, Plots, StatsBase
+using MLJ.MLJBase, Plots, StatsBase, KernelDensity
 
 include("themes.jl")
 
@@ -40,7 +40,7 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 """
 @userplot XHistogram
 
-@recipe function f(p::XHistogram; normalize = false)
+@recipe function f(p::XHistogram; normalize = nothing)
 	y = p.args[1]
 
 	# in case there are missing values in y we filter them out silently
@@ -49,11 +49,16 @@ X(imon)Histogram. I don't like the usual implementation of histograms. This is a
 	end
 
 	bins --> 10
-	nbins = plotattributes[:bins]
 	label --> nothing
 
-	H = StatsBase.fit(StatsBase.Histogram, y, nbins = nbins)
-	normalize && (H = StatsBase.normalize(H))
+	nbins = plotattributes[:bins]
+	H = if typeof(nbins) <: Union{UnitRange{<:Real},AbstractArray{<:Real}}
+		StatsBase.fit(StatsBase.Histogram, y, nbins)
+	else
+		StatsBase.fit(StatsBase.Histogram, y, nbins = nbins)
+	end
+
+	!isnothing(normalize) && (H = StatsBase.normalize(H, mode = normalize))
 
 	xs = (H.edges |> first |> collect)[1:end-1]
 
@@ -85,7 +90,7 @@ Plot a confusion matrix.
 """
 @userplot ConfMatPlot
 
-@recipe function f(p::ConfMatPlot; normalize = true, textcolor = nothing, annosize = 10,)
+@recipe function f(p::ConfMatPlot; normalize = true, textcolor = nothing, annosize = 10, hidezero = true)
 	M = p.args[1]
 	M = M[end:-1:1, :]
 
@@ -106,12 +111,12 @@ Plot a confusion matrix.
 	# tries to adapt the color and hides 0 values
 	function lbl(v)
 		l = round(v, digits = 2)
-		l = l == 0 ? "" : string(l)
+		l = l == 0 && hidezero ? "" : string(l)
 
 		# calculate text color
 		txtc = if isnothing(textcolor)
 			v = !normalize ? v / maximum(M) : v
-			(cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum) < .75 ? :white : :black
+			(cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum) < .8 ? :white : :black
 		else
 			textcolor
 		end
@@ -132,11 +137,12 @@ Plot a confusion matrix.
 		xguide --> "predicted"
 		yguide --> "truth"
 		clims --> (0., 1.)
+		fillalpha --> 1.
 		label := nothing
 
 		annotations := anno
-		x := L
-		y := reverse(L)
+		x --> L
+		y --> reverse(L)
 		z := Surface(M)
 		seriestype := :heatmap
 
@@ -243,4 +249,12 @@ I find the histogram2d to be the most valuable information in this plot so I mad
 			@view(M[:, j]), @view(M[:, i])
 		end
 	end
+end
+
+@recipe function f(::Type{Val{:xdensity}}, x, y, z; bandwidth = KernelDensity.default_bandwidth(y))
+	kde = KernelDensity.kde(y, npoints = 200, bandwidth = bandwidth)
+	x := kde.x
+	y := kde.density
+	seriestype := :path
+	()
 end
