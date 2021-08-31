@@ -1,0 +1,90 @@
+* {
+	background-color: rgba ( 0, 0, 0, 0 % );
+	background: rgba ( 0, 0, 0, 80 % );
+	normal-background: @background;
+	alternate-normal-background: @background;
+	blue: rgba ( 0 , 150, 180, 100 % );
+
+	foreground: rgba ( 120, 120, 120, 100 % );
+	normal-foreground: @foreground;
+	alternate-normal-foreground: @foreground;
+	text-color: @foreground;
+
+	font: "GohuFont Powerline 8";
+	spacing: 6;
+}
+
+window {
+	background-color: @background;
+	border: 0;
+}
+
+mainbox {
+	padding: 30px;
+	border: 0;
+}
+
+listview {
+	border: 0;
+}
+
+textbox {
+	text-color: @foreground;
+}
+
+element {
+
+}
+
+element-text {
+	background-color: inherit;
+	text-color: inherit;
+}
+
+element.normal.normal {
+	text-color: @normal-foreground;
+	background-color: @background-color;
+}
+
+element.alternate.normal {
+	foreground: @alternate-normal-foreground;
+	background-color: @background-color;
+}
+
+element.alternate.active {
+	foreground: @alternate-normal-foreground;
+	background-color: @background-color;
+}
+
+element.selected.normal {
+	text-color: rgba ( 255, 255, 255, 100 % );
+	background-color: @background-color;
+}
+
+element.selected.active {
+	text-color: rgba ( 255, 255, 255, 100 % );
+	background-color: @background-color;
+}
+
+inputbar {
+	children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+entry {
+	text-color: rgba ( 0, 180, 180, 100 % );
+	placeholder : "";
+}
+
+prompt {
+	str: "";
+	//background-color: rgba ( 255, 0, 0, 100 %);
+	text-color: rgba (0, 0, 0, 0 % );
+}
+
+textbox-prompt-colon {
+	expand: false;
+	str: "";
+	//str: "───╼";
+	//margin: 0px 0.3em 0em 0em ;
+	text-color: @normal-foreground;
+}
