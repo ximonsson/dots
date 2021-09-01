@@ -115,8 +115,7 @@ Plot a confusion matrix.
 
 		# calculate text color
 		txtc = if isnothing(textcolor)
-			v = !normalize ? v / maximum(M) : v
-			(cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum) < .8 ? :white : :black
+			cgrad(PLOT_HEATMAP_FILLCOLOR)[v] |> lum < .8 ? :white : :black
 		else
 			textcolor
 		end
