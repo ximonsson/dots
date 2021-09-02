@@ -7,9 +7,9 @@ URxvt.lineSpace:		1
 URxvt.internalBorder:   30
 URxvt.scrollstyle: 		xterm
 URxvt.scrollBar: 		false
-URxvt.perl-ext-common: 	default,clipboard,matcher
+!URxvt.perl-ext-common: 	default,clipboard,matcher
 !URxvt.perl-ext-common: ...,tabbed,...
-URxvt*geometry: 		95x22
+URxvt*geometry: 		120x30
 URxvt.urgentOnBell: 	false
 URxvt.iso14755: 		false
 URxvt*scrollWithBuffer: true
