@@ -1,8 +1,8 @@
-begin
-	local gridcolor = RGB(.25, .25, .25)
-	local textsize = 1.5
-	local tickcolor = RGB(.5, .5, .5)
-	local labelcolor = RGB(.8, .8, .8)
+let
+	gridcolor = RGB(.25, .25, .25)
+	textsize = 1.5
+	tickcolor = RGB(.5, .5, .5)
+	labelcolor = RGB(.8, .8, .8)
 
 	Attributes(
 		resolution = (1200, 800),
