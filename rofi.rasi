@@ -67,20 +67,10 @@ element.selected.active {
 }
 
 inputbar {
-	padding: 0;
-	margin: 0;
-	children: [textbox-prompt-colon,entry,case-indicator ];
+	children: [ entry,case-indicator ];
 }
 
 entry {
 	text-color: rgba ( 0, 180, 180, 100 % );
 	placeholder : "";
-}
-
-textbox-prompt-colon {
-	expand: false;
-	str: "";
-	//str: "───╼";
-	//margin: 0px 0.3em 0em 0em ;
-	text-color: @normal-foreground;
 }
