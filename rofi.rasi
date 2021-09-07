@@ -26,6 +26,7 @@ mainbox {
 
 listview {
 	border: 0;
+	lines: 5;
 }
 
 textbox {
