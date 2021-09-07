@@ -53,6 +53,10 @@ element.alternate.normal {
 	background-color: @background-color;
 }
 
+element.normal.active {
+	background-color: @background-color;
+}
+
 element.alternate.active {
 	foreground: @alternate-normal-foreground;
 	background-color: @background-color;
