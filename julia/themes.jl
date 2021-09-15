@@ -10,6 +10,7 @@ begin
 		#:legend => :topleft,
 		:size => (800, 500),
 		:fillalpha => .7,
+		:label => nothing,
 	)
 
 	PlotThemes._themes[:x33m0n] = PlotThemes.PlotTheme(

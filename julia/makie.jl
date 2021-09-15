@@ -1,15 +1,16 @@
 let
-	gridcolor = RGB(.25, .25, .25)
+	gridcolor = RGBf(.25, .25, .25)
 	textsize = 1.5
-	tickcolor = RGB(.5, .5, .5)
-	labelcolor = RGB(.8, .8, .8)
+	tickcolor = RGBf(.5, .5, .5)
+	labelcolor = RGBf(.8, .8, .8)
 
 	Attributes(
 		resolution = (1200, 800),
-		backgroundcolor = RGB(.15, .15, .15),
-		color = RGB(1., 1., 1.),
+		backgroundcolor = RGBf(.15, .15, .15),
+		color = RGBf(1., 1., 1.),
 		padding = (0, 0, 0),
 		show_legend = true,
+		fontsize = 12,
 		title = Attributes(
 			textsize = 20,
 		),
@@ -30,7 +31,7 @@ let
 			),
 			frame = Attributes(
 				frames = ((true, false), (true, false)),
-				linecolor = RGB(.3, .3, .3),
+				linecolor = RGBf(.3, .3, .3),
 			),
 		),
 	)
