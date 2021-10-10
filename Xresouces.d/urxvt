@@ -4,6 +4,7 @@ urxvt.termName:		    xterm-256color
 URxvt.title:            term
 URxvt.depth: 			32
 URxvt.lineSpace:		1
+URxvt.letterSpace:      1
 URxvt.internalBorder:   30
 URxvt.scrollstyle: 		xterm
 URxvt.scrollBar: 		false
