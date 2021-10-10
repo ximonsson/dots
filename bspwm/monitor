@@ -1,8 +1,10 @@
 #! /bin/sh
 
-BUILTIN="eDP1"
-MONITORF="/sys/class/drm/card0-DP-3/status"
-XMONITOR="DP1-1"
+BUILTIN="eDP-1"
+MONITORF="/sys/class/drm/card0-DP-4/status"
+XMONITOR="DP-2-1"
+#MODE="--auto"
+MODE="--mode 2560x1440 --rate 60"
 
 
 function onchange_monitor {
@@ -13,7 +15,8 @@ function onchange_monitor {
 
 function external {
 	MONITOR="$1"
-	xrandr --output $MONITOR --auto --primary --output $BUILTIN --off
+	#xrandr --output $MONITOR --auto --primary --output $BUILTIN --off
+	xrandr --output $MONITOR $MODE --primary --output $BUILTIN --off
 	bspc monitor -d I II III IV V VI VII VIII IX X
 	onchange_monitor
 }
@@ -38,10 +41,10 @@ function dual {
 function internal {
 	xrandr \
 		--output $BUILTIN --auto --primary \
-		--output DP-1-2-1 --off \
-		--output DP-1-2-2 --off \
-		--output HDMI-1 --off \
-		--output DP1-1 --off
+		--output DP-2-1 --off
+		#--output DP-2-1-1 --off \
+		#--output DP-1-2-2 --off \
+		#--output HDMI-1 --off \
 	bspc monitor -d I II III IV V VI VII VIII IX X
 	onchange_monitor
 }
