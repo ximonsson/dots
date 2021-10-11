@@ -11,7 +11,7 @@ Xft.lcdfilter: lcddefault
 ! -lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1
 
 #define fontname \
-	xft:curie:pixelsize=12,\
+	-nerdypepper-curie-medium-r-normal--12-120-72-72-c-60-iso10646-1,\
 	-misc-gohup-medium-r-normal--11-80-100-100-c-60-iso10646-1
 
 #define fontsize 12
