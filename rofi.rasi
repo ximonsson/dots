@@ -27,7 +27,15 @@ mainbox {
 
 listview {
 	border: 0;
-	lines: 5;
+	scrollbar: false;
+	lines: 8;
+}
+
+scrollbar {
+	width: 2px;
+	border: 0;
+	handle-width: 4px;
+	padding: 0;
 }
 
 textbox {
