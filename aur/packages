@@ -23,6 +23,7 @@ declare -A packages=(
 	["nerd-fonts-profont"]="https://aur.archlinux.org/nerd-fonts-profont.git"
 	["ttf-scientifica"]="https://aur.archlinux.org/ttf-scientifica.git"
 	["bdf-curie"]="https://aur.archlinux.org/bdf-curie.git"
+	["bdf-bitocra"]="https://aur.archlinux.org/bdf-bitocra.git"
 
 	# robotics
 	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
