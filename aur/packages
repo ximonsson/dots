@@ -36,14 +36,19 @@ declare -A packages=(
 	["sfml2.3"]="https://aur.archlinux.org/sfml2.3.git"
 	["libpthread-stubs"]="https://aur.archlinux.org/libpthread-stubs.git"
 
+	# work
+	["visual-studio-code-bin"]="https://aur.archlinux.org/visual-studio-code-bin.git"
+	["teams"]="https://aur.archlinux.org/teams.git"
+	["micromamba-bin"]="https://aur.archlinux.org/micromamba-bin.git"
+	["miniconda3"]="https://aur.archlinux.org/miniconda3.git"
+	["azure-cli"]="https://aur.archlinux.org/azure-cli.git"
+	["prospect-mail-bin"]="https://aur.archlinux.org/prospect-mail-bin.git"
+	["davmail"]="https://aur.archlinux.org/davmail.git"
+
 	# good to haves
-	["python-keras"]="https://aur.archlinux.org/python-keras.git"
-	["python-graphviz"]="https://aur.archlinux.org/python-graphviz.git"
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
 	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
 	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
-	#["mxnet"]="https://aur.archlinux.org/mxnet.git"
-	["teams"]="https://aur.archlinux.org/teams.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
