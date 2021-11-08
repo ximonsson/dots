@@ -7,3 +7,4 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export BROWSER=firefox
 export EDITOR=nvim
 export WM=bspwm
+export GTK_THEME=Adwaita:dark
