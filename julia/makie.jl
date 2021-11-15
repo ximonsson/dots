@@ -1,38 +1,94 @@
 let
-	gridcolor = RGBf(.25, .25, .25)
-	textsize = 1.5
-	tickcolor = RGBf(.5, .5, .5)
-	labelcolor = RGBf(.8, .8, .8)
+	labelcolor = RGBf(.5, .5, .5)
+	backgroundcolor = RGBf(.1, .1, .1)
+	gridcolor = backgroundcolor
+	tickcolor = gridcolor
+	bgcolor = RGBf(.15, .15, .15)
+	labelpadding = 10
 
 	Attributes(
-		resolution = (1200, 800),
-		backgroundcolor = RGBf(.15, .15, .15),
+		resolution = (1000, 700),
+		backgroundcolor = backgroundcolor,
+		textcolor = RGBf(.8, .8, .8),
+		linecolor = :white,
 		color = RGBf(1., 1., 1.),
 		padding = (0, 0, 0),
 		show_legend = true,
-		fontsize = 12,
-		title = Attributes(
-			textsize = 20,
+		font = "Roboto Mono",
+		fontsize = 11,
+
+		palette = (
+			color = [
+				RGBAf(.95, .95, .95, 1.),
+				RGBAf(.81, .2, .2, 1.),
+				RGBAf(.16, .50, .59, 1.),
+				RGBAf(.8, .45, .2, 1.),
+				RGBAf(.20, .69, .45, 1.),
+				RGBAf(.58, .16, .76, 1.),
+			],
+			patchcolor = [
+				RGBAf(.95, .95, .95, .8),
+				RGBAf(.81, .2, .2, .8),
+				RGBAf(.16, .50, .59, .8),
+				RGBAf(.8, .45, .2, .8),
+				RGBAf(.20, .69, .45, .8),
+				RGBAf(.58, .16, .76, .8),
+			],
 		),
-		axis = Attributes(
-			grid = Attributes(
-				linecolor = (gridcolor, gridcolor),
-			),
-			ticks = Attributes(
-				textsize = (textsize, textsize),
-				textcolor = (tickcolor, tickcolor),
-				linecolor = (labelcolor, labelcolor),
-				gap = 1,
-				title_gap = 5,
-			),
-			names = Attributes(
-				textcolor = (labelcolor, labelcolor),
-				textsize = (2, 2),
-			),
-			frame = Attributes(
-				frames = ((true, false), (true, false)),
-				linecolor = RGBf(.3, .3, .3),
-			),
+
+		Axis = Attributes(
+			backgroundcolor = bgcolor,
+			rightspinevisible = false,
+			topspinevisible = false,
+			leftspinevisible = false,
+			bottomspinevisible = false,
+
+			titlesize = 16,
+			titlegap = 20,
+			titlealign = :left,
+			titlecolor = :white,
+
+			xgridcolor = gridcolor,
+			xlabelpadding = labelpadding,
+			xlabelcolor = labelcolor,
+			xtickcolor = tickcolor,
+
+			ygridcolor = gridcolor,
+			ylabelcolor = labelcolor,
+			ylabelpadding = labelpadding,
+			ytickcolor = tickcolor,
 		),
+
+		Axis3 = Attributes(
+			xspinesvisible = false,
+			yspinesvisible = false,
+			zspinesvisible = false,
+
+			xypanelcolor = bgcolor,
+			xzpanelcolor = bgcolor,
+			xlabelcolor = labelcolor,
+			xlabelpadding = labelpadding,
+			xgridcolor = gridcolor,
+			xtickcolor = tickcolor,
+
+			yzpanelcolor = bgcolor,
+			ylabelcolor = labelcolor,
+			ylabelpadding = labelpadding,
+			ygridcolor = gridcolor,
+			ytickcolor = tickcolor,
+
+			zpanelcolor = bgcolor,
+			zlabelcolor = labelcolor,
+			zlabelpadding = labelpadding,
+			zgridcolor = gridcolor,
+			ztickcolor = tickcolor,
+		),
+
+		Legend = Attributes(
+			bgcolor = (backgroundcolor, .35),
+			framewidth = 0.,
+			halign = :left,
+			titlecolor = labelcolor,
+		)
 	)
 end
