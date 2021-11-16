@@ -8,7 +8,8 @@ function weather
 	# retry a couple of times in case we are not able to communicate with the service
 	for N in 1 .. 5
 	do
-		weather=`$GOPATH/bin/weather $lat $lon 2> /dev/null`
+		#weather=`$GOPATH/bin/weather $lat $lon 2> /dev/null`
+		weather=`$GOPATH/bin/weather $lat $lon`
 		if [ $? -eq 0 ]; then
 			#>&2 echo "succeeded getting weather"
 			forecast=`echo $weather | cut -d ":" -f2`
@@ -16,7 +17,8 @@ function weather
 			weather="$temp°"
 			break
 		else
-			#>&2 echo "failed"
+			>&2 echo "failed"
+			>&2 echo "$weather"
 			weather="..."
 			sleep 1
 		fi
