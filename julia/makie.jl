@@ -5,6 +5,14 @@ let
 	tickcolor = gridcolor
 	bgcolor = RGBf(.15, .15, .15)
 	labelpadding = 10
+	palette = [
+		(.95, .95, .95),
+		(.81, .2, .2),
+		(.16, .50, .5),
+		(.8, .45, .2),
+		(.20, .69, .4),
+		(.58, .16, .7),
+	]
 
 	Attributes(
 		resolution = (1000, 700),
@@ -18,22 +26,8 @@ let
 		fontsize = 11,
 
 		palette = (
-			color = [
-				RGBAf(.95, .95, .95, 1.),
-				RGBAf(.81, .2, .2, 1.),
-				RGBAf(.16, .50, .59, 1.),
-				RGBAf(.8, .45, .2, 1.),
-				RGBAf(.20, .69, .45, 1.),
-				RGBAf(.58, .16, .76, 1.),
-			],
-			patchcolor = [
-				RGBAf(.95, .95, .95, .8),
-				RGBAf(.81, .2, .2, .8),
-				RGBAf(.16, .50, .59, .8),
-				RGBAf(.8, .45, .2, .8),
-				RGBAf(.20, .69, .45, .8),
-				RGBAf(.58, .16, .76, .8),
-			],
+			color = [ RGBAf(p..., 1.) for p in palette ],
+			patchcolor = [ RGBAf(p..., .8) for p in palette ],
 		),
 
 		Axis = Attributes(
