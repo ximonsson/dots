@@ -2,6 +2,14 @@ function lan
 {
 	device=$1
 
+	# make sure the device exists
+	# some laptops do not even have ethernet connection
+	if [ ! -d /sys/class/net/$device ]
+	then
+		echo -n ""
+		return
+	fi
+
 	stat /sys/class/net/$device/operstate 2>&1 > /dev/null
 	if [ "$?" -ne "0" ]
 	then
@@ -34,6 +42,13 @@ function wlan
 	link=`cat /proc/net/wireless | grep $device | awk '{ print $3 }' | cut -d "." -f1`
 
 	ICON='\ue21f warn'
+
+	if [[ $essid == "" ]]
+	then
+		echo -n "$(icon $ICON) disconnected"
+		return
+	fi
+
 	if [[ $essid != *off* ]]
 	then
 		ICON='\ue222'
@@ -45,5 +60,6 @@ function wlan
 			ICON='\ue221'
 		fi
 	fi
+
 	echo -n "$(icon $ICON) $essid"
 }
