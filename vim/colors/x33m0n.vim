@@ -10,7 +10,7 @@ hi link SpecialChar Special
 hi link SpecialComment Comment
 hi LineNr       ctermfg=239
 hi CursorLine   cterm=none ctermbg=0
-hi CursorLineNr ctermfg=7
+hi CursorLineNr cterm=none ctermfg=7
 hi Search       ctermfg=none  ctermbg=none cterm=reverse
 hi Visual       ctermbg=0 ctermfg=8
 
