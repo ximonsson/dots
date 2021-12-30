@@ -44,6 +44,7 @@ declare -A packages=(
 	["azure-cli"]="https://aur.archlinux.org/azure-cli.git"
 	["prospect-mail-bin"]="https://aur.archlinux.org/prospect-mail-bin.git"
 	["davmail"]="https://aur.archlinux.org/davmail.git"
+	["f5vpn"]="https://aur.archlinux.org/f5vpn.git"
 
 	# good to haves
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
