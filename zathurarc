@@ -17,3 +17,4 @@ set completion-highlight-fg "#00b5b5"
 set inputbar-fg "#fafafa"
 set font "ProFont IIx Nerd Font 7"
 set page-padding 10
+set first-page-column 2:1
