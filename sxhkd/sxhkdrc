@@ -162,5 +162,6 @@ XF86AudioMute
 # monitor
 #
 
-XF86Display
+#XF86Display
+super + shift + p
 	$XDG_CONFIG_HOME/bspwm/monitor
