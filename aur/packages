@@ -12,6 +12,9 @@ declare -A packages=(
 	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
 	["julia-bin"]="https://aur.archlinux.org/julia-bin.git"
 
+	# gaming
+	["dxvk-bin"]="https://aur.archlinux.org/dxvk-bin.git"
+
 	# fonts
 	["siji-git"]="https://aur.archlinux.org/siji-git.git"
 	["bdf-tewi-git"]="https://aur.archlinux.org/bdf-tewi-git.git"
@@ -65,10 +68,8 @@ declare -A packages=(
 	["rocm-opencl-runtime"]="https://aur.archlinux.org/rocm-opencl-runtime.git"
 	["miopen"]="https://aur.archlinux.org/miopen.git"
 
-	#["chromium-widevine"]="https://aur.archlinux.org/chromium-widevine.git"
 	#["libjson"]="https://aur.archlinux.org/libjson.git"
 	#["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
-	#["teamviewer12"]="https://aur.archlinux.org/teamviewer12.git"
 	#["arm-linux-gnueabihf-binutils"]="https://aur.archlinux.org/arm-linux-gnueabihf-binutils.git"
 	)
 # ! vim:ft=sh
