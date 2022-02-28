@@ -3,7 +3,7 @@ set default-bg "#0e1212"
 set recolor-reverse-video false
 set recolor-keephue true
 set recolor true
-set recolor-lightcolor "#050505"
+set recolor-lightcolor "#222222"
 set recolor-darkcolor "#f8f8f8"
 
 set statusbar-fg "#0a0a0a"
