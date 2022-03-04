@@ -69,6 +69,9 @@ declare -A packages=(
 	["rocm-opencl-runtime"]="https://aur.archlinux.org/rocm-opencl-runtime.git"
 	["miopen"]="https://aur.archlinux.org/miopen.git"
 
+	# misc
+	["python-eduvpn-client"]="https://aur.archlinux.org/python-eduvpn-client.git"
+
 	#["libjson"]="https://aur.archlinux.org/libjson.git"
 	#["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
 	#["arm-linux-gnueabihf-binutils"]="https://aur.archlinux.org/arm-linux-gnueabihf-binutils.git"
