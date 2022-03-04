@@ -2,10 +2,12 @@
 COUNTRY="Norway"
 REGION="Oslo"
 CITY="Oslo/Majorstuen"
+LAT=59.91
+LON=10.74
 
 # settings
-WLAN_DEVICE=wlp1s0 # wlan device
-LAN_DEVICE=enp0s31f6
+WLAN_DEVICE=wlan0 # wlan device
+LAN_DEVICE=enp4s0
 BATTERY=BAT0
 
 # colors
@@ -25,16 +27,17 @@ ICON_COLOR_WARN=$RED
 # dimensions
 SEP=8
 HEIGHT=28
-WIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}' | sed -n 1p`
-WIDTH=$(( WIDTH-2*SEP-2 ))
-X=$(( SEP+1))
+#WIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}' | sed -n 1p`
+#WIDTH=$(( WIDTH-1000-2 ))
+WIDTH=1200
+X=$(( 680 ))
 Y=$SEP
 DIMENSIONS=`printf "%dx%d+%d+%d" $WIDTH $HEIGHT $X $Y`
 
 # fonts
 FONTS=(
-	"-misc-tamzenforpowerline-medium-r-normal--13-94-100-100-c-70-iso8859-1"
-	"-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
 	"-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1"
+	"-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+	"-misc-tamzenforpowerline-medium-r-normal--13-94-100-100-c-70-iso8859-1"
 	)
 #! vim: ft=sh
