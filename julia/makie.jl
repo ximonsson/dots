@@ -14,11 +14,11 @@ let
 		(.58, .16, .7),
 	]
 
-	Attributes(
+	global theme_x33m0n = () -> Attributes(
 		resolution = (1000, 700),
 		backgroundcolor = backgroundcolor,
 		textcolor = RGBf(.8, .8, .8),
-		linecolor = :white,
+		#linecolor = :white,
 		color = RGBf(1., 1., 1.),
 		padding = (0, 0, 0),
 		show_legend = true,
