@@ -1,4 +1,6 @@
-let
+using GLMakie
+
+theme_x33m0n() = let
 	labelcolor = RGBf(.5, .5, .5)
 	backgroundcolor = RGBf(.1, .1, .1)
 	gridcolor = backgroundcolor
