@@ -1,11 +1,12 @@
 #! /bin/sh
 
-BUILTIN="eDP-1"
-MONITORF="/sys/class/drm/card0-DP-4/status"
-XMONITOR="DP-2-1"
+BUILTIN="eDP"
+#MONITORF="/sys/class/drm/card0-DP-4/status"
+#XMONITOR="DisplayPort-2"
+MODE="--mode 2560x1440 --rate 75"
+#XMONITOR="HDMI-A-0"
+XMONITOR="DisplayPort-2"
 #MODE="--auto"
-MODE="--mode 2560x1440 --rate 60"
-
 
 function onchange_monitor {
 	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
@@ -41,7 +42,7 @@ function dual {
 function internal {
 	xrandr \
 		--output $BUILTIN --auto --primary \
-		--output DP-2-1 --off
+		--output $XMONITOR --off
 		#--output DP-2-1-1 --off \
 		#--output DP-1-2-2 --off \
 		#--output HDMI-1 --off \
@@ -55,6 +56,16 @@ function hdmi {
 }
 
 MONITOR=0
+for F in /sys/class/drm/card0-HDMI-*
+do
+	STATUS=$(cat $F/status)
+	if [ $STATUS == "connected" ]
+	then
+		MONITOR=1
+		break
+	fi
+done
+
 for F in /sys/class/drm/card0-DP-*
 do
 	STATUS=$(cat $F/status)
