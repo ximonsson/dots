@@ -1,16 +1,22 @@
 using Plots, Plots.PlotMeasures, Plots.PlotThemes
 
-begin
+let
+	legendfontsize = 8
+	guidefontsize = 9
+	tickfontsize = 8
+
 	DEFAULTS = Dict(
-		:margin => 30px,
-		:bottom_margin => 50px,
-		:top_margin => 50px,
-		:left_margin => 50px,
+		:bottom_margin => 15px,
+		:top_margin => 20px,
+		:left_margin => 15px,
+		:right_margin => 10px,
 		#:title_location => :left,
 		#:legend => :topleft,
 		:size => (800, 500),
 		:fillalpha => .7,
 		:label => nothing,
+		:legendfontsize => legendfontsize,
+		:fontfamily => "monospace",
 	)
 
 	PlotThemes._themes[:x33m0n] = PlotThemes.PlotTheme(
@@ -18,10 +24,18 @@ begin
 		background_color_legend = RGBA(.15, .15, .15, .7),
 		foreground_color_border = RGB(.3, .3, .3),
 		foreground_color_legend = RGBA(.5, .5, .5, 0),
-		legendfont = font(8, RGB(.8, .8, .8)),
-		guidefont = font(8, RGB(.8, .8, .8)),
-		tickfont = font(8, RGB(.5, .5, .5)),
-		palette = [RGB(.95, .95, .95), RGB(.81, .2, .2), RGB(.16, .50, .59), RGB(.8, .45, .2), RGB(.20, .69, .45), RGB(.58, .16, .76)],
+		legendfont = font(legendfontsize, RGB(.8, .8, .8)),
+		guidefont = font(guidefontsize, RGB(.8, .8, .8)),
+		tickfont = font(tickfontsize, RGB(.5, .5, .5)),
+		palette = [
+			RGB(.95, .95, .95),
+			RGB(.81, .2, .2),
+			RGB(.16, .50, .59),
+			RGB(.8, .45, .2),
+			RGB(.20, .69, .45),
+			RGB(.58, .16, .76),
+			RGB(.3, .4, .8),
+		],
 		fg_color = RGB(1, 1, 1);
 		DEFAULTS...
 	)
@@ -31,10 +45,16 @@ begin
 		background_color_legend = RGBA(.9, .9, .9, .7),
 		foreground_color_legend = RGBA(.1, .1, .1, 0),
 		foreground_color_border = RGB(.1, .1, .1),
-		legendfont = font(8, RGB(.1, .1, .1)),
-		guidefont = font(8, RGB(.1, .1, .1)),
-		tickfont = font(8, RGB(.2, .2, .2)),
-		palette = [RGB(.15, .15, .15), RGB(.81, .2, .2), RGB(.16, .50, .59), RGB(.8, .45, .2), RGB(.20, .69, .45)],
+		legendfont = font(legendfontsize, RGB(.1, .1, .1)),
+		guidefont = font(guidefontsize, RGB(.1, .1, .1)),
+		tickfont = font(tickfontsize, RGB(.2, .2, .2)),
+		palette = [
+			RGB(.15, .15, .15),
+			RGB(.81, .2, .2),
+			RGB(.16, .50, .59),
+			RGB(.8, .45, .2),
+			RGB(.20, .69, .45),
+		],
 		fg_color = RGB(0, 0, 0);
 		DEFAULTS...
 	)

@@ -41,9 +41,13 @@ source ~/.config/neomutt/colors.neomuttrc
 source "gpg -dq $XDG_CONFIG_HOME/neomutt/passwords.gpg |"
 
 # KTH
-source $XDG_CONFIG_HOME/neomutt/kth
-folder-hook $folder 'source ~/.config/neomutt/kth'
+#source $XDG_CONFIG_HOME/neomutt/kth
+#folder-hook $folder 'source ~/.config/neomutt/kth'
 
 # GMail
 source $XDG_CONFIG_HOME/neomutt/gmail
 folder-hook $folder 'source ~/.config/neomutt/gmail'
+
+# Posten
+#source $XDG_CONFIG_HOME/neomutt/posten
+#folder-hook $folder 'source ~/.config/neomutt/posten'

@@ -12,6 +12,9 @@ declare -A packages=(
 	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
 	["julia-bin"]="https://aur.archlinux.org/julia-bin.git"
 
+	# gaming
+	["dxvk-bin"]="https://aur.archlinux.org/dxvk-bin.git"
+
 	# fonts
 	["siji-git"]="https://aur.archlinux.org/siji-git.git"
 	["bdf-tewi-git"]="https://aur.archlinux.org/bdf-tewi-git.git"
@@ -35,6 +38,10 @@ declare -A packages=(
 	["astra-sdk"]="https://aur.archlinux.org/astra-sdk.git"
 	["sfml2.3"]="https://aur.archlinux.org/sfml2.3.git"
 	["libpthread-stubs"]="https://aur.archlinux.org/libpthread-stubs.git"
+	["ros-noetic-desktop-full"]="https://aur.archlinux.org/ros-noetic-desktop-full.git"
+	["ros-noetic-rosbag"]="https://aur.archlinux.org/ros-noetic-rosbag.git"
+	["librealsense"]="https://aur.archlinux.org/librealsense.git"
+	["ros2-galactic"]="https://aur.archlinux.org/ros2-galactic.git"
 
 	# work
 	["visual-studio-code-bin"]="https://aur.archlinux.org/visual-studio-code-bin.git"
@@ -66,10 +73,11 @@ declare -A packages=(
 	["rocm-opencl-runtime"]="https://aur.archlinux.org/rocm-opencl-runtime.git"
 	["miopen"]="https://aur.archlinux.org/miopen.git"
 
-	#["chromium-widevine"]="https://aur.archlinux.org/chromium-widevine.git"
+	# misc
+	["python-eduvpn-client"]="https://aur.archlinux.org/python-eduvpn-client.git"
+
 	#["libjson"]="https://aur.archlinux.org/libjson.git"
 	#["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
-	#["teamviewer12"]="https://aur.archlinux.org/teamviewer12.git"
 	#["arm-linux-gnueabihf-binutils"]="https://aur.archlinux.org/arm-linux-gnueabihf-binutils.git"
 	)
 # ! vim:ft=sh

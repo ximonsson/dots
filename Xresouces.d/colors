@@ -1,5 +1,5 @@
 #define color_bg #040808
-#define color_fg #dae1e6
+#define color_fg #fafafa
 ! gray
 #define color_00 #2a3033
 #define color_08 #888
@@ -22,7 +22,7 @@
 #define color_06 #14929e
 #define color_14 #16acba
 ! white
-#define color_07 #d3d7cf
+#define color_07 #d3d3d3
 #define color_15 #ffffff
 
 *foreground: 		color_fg

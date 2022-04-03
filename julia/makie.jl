@@ -1,4 +1,6 @@
-let
+using GLMakie
+
+theme_x33m0n() = let
 	labelcolor = RGBf(.5, .5, .5)
 	backgroundcolor = RGBf(.1, .1, .1)
 	gridcolor = backgroundcolor
@@ -14,11 +16,11 @@ let
 		(.58, .16, .7),
 	]
 
-	Attributes(
+	global theme_x33m0n = () -> Attributes(
 		resolution = (1000, 700),
 		backgroundcolor = backgroundcolor,
 		textcolor = RGBf(.8, .8, .8),
-		linecolor = :white,
+		#linecolor = :white,
 		color = RGBf(1., 1., 1.),
 		padding = (0, 0, 0),
 		show_legend = true,
