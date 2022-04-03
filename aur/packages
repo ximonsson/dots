@@ -52,6 +52,8 @@ declare -A packages=(
 	["prospect-mail-bin"]="https://aur.archlinux.org/prospect-mail-bin.git"
 	["davmail"]="https://aur.archlinux.org/davmail.git"
 	["f5vpn"]="https://aur.archlinux.org/f5vpn.git"
+	["notion-app"]="https://aur.archlinux.org/notion-app.git"
+	["python-eduvpn-client"]="https://aur.archlinux.org/python-eduvpn-client.git"
 
 	# good to haves
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
