@@ -22,9 +22,9 @@ let
 	PlotThemes._themes[:x33m0n] = PlotThemes.PlotTheme(
 		background = RGB(.15, .15, .15),
 		background_color_legend = RGBA(.15, .15, .15, .7),
-		foreground_color_border = RGB(.3, .3, .3),
 		foreground_color_legend = RGBA(.5, .5, .5, 0),
-		legendfont = font(legendfontsize, RGB(.8, .8, .8)),
+		foreground_color_border = RGB(.3, .3, .3),
+		#legendfont = font(legendfontsize, RGB(.8, .8, .8)),
 		guidefont = font(guidefontsize, RGB(.8, .8, .8)),
 		tickfont = font(tickfontsize, RGB(.5, .5, .5)),
 		palette = [
@@ -45,7 +45,7 @@ let
 		background_color_legend = RGBA(.9, .9, .9, .7),
 		foreground_color_legend = RGBA(.1, .1, .1, 0),
 		foreground_color_border = RGB(.1, .1, .1),
-		legendfont = font(legendfontsize, RGB(.1, .1, .1)),
+		#legendfont = font(legendfontsize, RGB(.1, .1, .1)),
 		guidefont = font(guidefontsize, RGB(.1, .1, .1)),
 		tickfont = font(tickfontsize, RGB(.2, .2, .2)),
 		palette = [
