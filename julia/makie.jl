@@ -1,6 +1,6 @@
 using GLMakie
 
-theme_x33m0n() = let
+function theme_x33m0n()
 	labelcolor = RGBf(.5, .5, .5)
 	backgroundcolor = RGBf(.1, .1, .1)
 	gridcolor = backgroundcolor
@@ -16,8 +16,8 @@ theme_x33m0n() = let
 		(.58, .16, .7),
 	]
 
-	global theme_x33m0n = () -> Attributes(
-		resolution = (1000, 700),
+	return Attributes(
+		#resolution = (1000, 700),
 		backgroundcolor = backgroundcolor,
 		textcolor = RGBf(.8, .8, .8),
 		#linecolor = :white,
@@ -25,7 +25,7 @@ theme_x33m0n() = let
 		padding = (0, 0, 0),
 		show_legend = true,
 		font = "Roboto Mono",
-		fontsize = 11,
+		fontsize = 13,
 
 		palette = (
 			color = [ RGBAf(p..., 1.) for p in palette ],
