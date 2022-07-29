@@ -148,15 +148,8 @@ super + {Left,Down,Up,Right}
 #
 
 # raise volume
-XF86AudioRaiseVolume
-	amixer -q sset Master 2%+ unmute
-
-# lower volume
-XF86AudioLowerVolume
-	amixer -q sset Master 2%- unmute
-
-XF86AudioMute
-	amixer -q sset Master toggle
+{XF86AudioRaiseVolume,XF86AudioLowerVolume,XF86AudioMute}
+	amixer -q sset Master {2%+ unmute,2%- unmute,toggle}
 
 #
 # monitor
@@ -165,3 +158,10 @@ XF86AudioMute
 #XF86Display
 super + shift + p
 	$XDG_CONFIG_HOME/bspwm/monitor
+
+#
+# brightness
+#
+
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	echo $(( `cat /sys/class/backlight/intel_backlight/brightness` {+,-} 3000 )) > /sys/class/backlight/intel_backlight/brightness
