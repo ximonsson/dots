@@ -53,6 +53,8 @@ declare -A packages=(
 	["davmail"]="https://aur.archlinux.org/davmail.git"
 	["f5vpn"]="https://aur.archlinux.org/f5vpn.git"
 	["notion-app"]="https://aur.archlinux.org/notion-app.git"
+	["azure-kubelogin"]="https://aur.archlinux.org/azure-kubelogin.git"
+	["icaclient"]="https://aur.archlinux.org/icaclient.git"
 
 	# good to haves
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
