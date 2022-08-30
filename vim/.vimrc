@@ -49,6 +49,8 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-lua-ftplugin'
 Plug 'tikhomirov/vim-glsl'
+Plug 'hashivim/vim-terraform'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " airline theme
