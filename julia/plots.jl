@@ -1,4 +1,4 @@
-using MLJ.MLJBase, Plots, StatsBase, KernelDensity
+using MLJ.MLJBase, StatsPlots, StatsBase, StatsPlots.KernelDensity
 
 include("themes.jl")
 
