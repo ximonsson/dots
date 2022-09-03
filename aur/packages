@@ -23,10 +23,10 @@ declare -A packages=(
 	["gohufont"]="https://aur.archlinux.org/gohufont.git"
 	["envypn-font"]="https://aur.archlinux.org/envypn-font.git"
 	["tamzen-font-git"]="https://aur.archlinux.org/tamzen-font-git.git"
-	["nerd-fonts-profont"]="https://aur.archlinux.org/nerd-fonts-profont.git"
 	["ttf-scientifica"]="https://aur.archlinux.org/ttf-scientifica.git"
 	["bdf-curie"]="https://aur.archlinux.org/bdf-curie.git"
 	["bdf-bitocra"]="https://aur.archlinux.org/bdf-bitocra.git"
+	["nerd-fonts-complete"]="https://aur.archlinux.org/nerd-fonts-complete.git"
 
 	# robotics
 	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
