@@ -7,14 +7,14 @@ set -g status-style fg=colour240,bg=default
 # Left side of status bar
 set -g status-left-style fg=white
 set -g status-left-length 0
-set -g status-left "#[fg=colour232,bg=white,bold] #S #[fg=default,bg=default,nobold] "
+set -g status-left "#[fg=#16acba]#S | #[fg=default]"
 
 # Right side of status bar
 set -g status-right ""
 
 # Window status
-set -g window-status-format "   #[fg=#16acba]#I#[fg=default] #W   "
-set -g window-status-current-format "   #[fg=#16acba, bold]#I #[fg=white]#W#[fg=colour235]   "
+set -g window-status-format "#[fg=color255]#I#[fg=default] #W     "
+set -g window-status-current-format "#[fg=color255]#I #[fg=color255]#W#[fg=default]     "
 
 # Current window status
 set -g window-status-current-style fg=colour166
