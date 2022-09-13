@@ -28,7 +28,7 @@ promptinit
 
 # set sexy PS1
 RPS1="%F{8} %~ %f%k"
-PS1="%n %F{8}%m ──╼ %f"
+PS1="%m %F{8}%n ──╼ %f"
 
 # Load custom alias definitions.
 [ -r ~/.aliases ] && . ~/.aliases
