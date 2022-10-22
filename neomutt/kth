@@ -1,5 +1,7 @@
 #unmailboxes *
 
+set my_kth_pass="`pass show kth/simonsim`"
+
 # imap settings
 set imap_user=simonsim
 set imap_pass=$my_kth_pass
