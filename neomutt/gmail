@@ -1,7 +1,5 @@
 #unmailboxes *
 
-set my_gmail_pass="`pass show google/mail/simonsson.simon@gmail.com/mutt`"
-
 # imap settings
 set imap_user=simonsson.simon@gmail.com
 set imap_pass=$my_gmail_pass
