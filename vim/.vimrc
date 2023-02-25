@@ -34,7 +34,7 @@ let g:netrw_altv = 1
 filetype plugin indent on
 autocmd BufNewFile,BufRead *.gp setf gnuplot
 autocmd BufNewFile,BufRead *.neomuttrc setf neomuttrc
-autocmd BufWritePre *.tf TerraformFmt
+autocmd BufWrite *.tf TerraformFmt  " terraform fmt on write
 
 " plugins
 call plug#begin()
@@ -60,9 +60,5 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'minimalist'
 "let g:airline_solarized_bg='dark'
 
-" reset the cursor to an underscore
-"	not a big fan of this solution as it is not dynamic but has to
-"	do for the moment...
-" autocmd VimLeave * set guicursor=a:hor50
-
+" no mouse interaction
 set mouse=
