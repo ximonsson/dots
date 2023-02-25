@@ -34,6 +34,7 @@ let g:netrw_altv = 1
 filetype plugin indent on
 autocmd BufNewFile,BufRead *.gp setf gnuplot
 autocmd BufNewFile,BufRead *.neomuttrc setf neomuttrc
+autocmd BufWritePre *.tf TerraformFmt
 
 " plugins
 call plug#begin()
