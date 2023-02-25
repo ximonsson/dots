@@ -63,3 +63,5 @@ let g:airline_theme = 'minimalist'
 "	not a big fan of this solution as it is not dynamic but has to
 "	do for the moment...
 " autocmd VimLeave * set guicursor=a:hor50
+
+set mouse=
