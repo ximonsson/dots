@@ -40,8 +40,8 @@ source ~/.config/neomutt/colors.neomuttrc
 
 #source "gpg -dq $XDG_CONFIG_HOME/neomutt/passwords.gpg |"
 
-set my_gmail_pass="`pass show google/mail/simonsson.simon@gmail.com/mutt`"
-set my_kth_pass="`pass show kth/simonsim`"
+set my_gmail_pass="`pass show google.com/mail/simonsson.simon@gmail.com/mutt`"
+set my_kth_pass="`pass show kth.se/simonsim`"
 
 # KTH
 source $XDG_CONFIG_HOME/neomutt/kth
