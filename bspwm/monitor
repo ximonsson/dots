@@ -1,17 +1,15 @@
 #! /bin/sh
 
-BUILTIN="eDP-1"
-#MONITORF="/sys/class/drm/card0-DP-4/status"
-#XMONITOR="DisplayPort-2"
-XMONITOR="DP-2-1"
-MODE="--mode 2560x1440 --rate 75"
+BUILTIN="eDP"
 #XMONITOR="HDMI-A-0"
 #MODE="--auto"
+XMONITOR="DisplayPort-2"
+MODE="--mode 2560x1440 --rate 75"
 
 function onchange_monitor {
-	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 	[ -x $HOME/.fehbg ] && $HOME/.fehbg
 	xset -b
+	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 }
 
 function external {
@@ -43,10 +41,7 @@ function internal {
 	xrandr \
 		--output $BUILTIN --auto --primary \
 		--output $XMONITOR --off
-		#--output DP-2-1-1 --off \
-		#--output DP-1-2-2 --off \
-		#--output HDMI-1 --off \
-	bspc monitor -d I II III IV V VI VII VIII IX X
+	bspc monitor $BUILTIN -d I II III IV V VI VII VIII IX X
 	onchange_monitor
 }
 
@@ -58,7 +53,17 @@ function hdmi {
 MONITOR=0
 for F in /sys/class/drm/card0-DP-*
 do
-	[ ! -f $F/statys ] && continue
+	STATUS=$(cat $F/status)
+	if [ $STATUS == "connected" ]
+	then
+		MONITOR=1
+		break
+	fi
+done
+
+for F in /sys/class/drm/card0-HDMI-A-*
+do
+	[ ! -f $F/status ] && continue
 	STATUS=$(cat $F/status)
 	if [ $STATUS == "connected" ]
 	then
@@ -80,3 +85,4 @@ then
 else
 	internal
 fi
+
