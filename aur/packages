@@ -18,7 +18,7 @@ declare -A packages=(
 	# fonts
 	["siji-git"]="https://aur.archlinux.org/siji-git.git"
 	["bdf-tewi-git"]="https://aur.archlinux.org/bdf-tewi-git.git"
-	["jmk-x11-fonts"]="https://aur.archlinux.org/jmk-x11-fonts.git"
+	["jmk-x11-fonts-git"]="https://aur.archlinux.org/jmk-x11-fonts-git.git"
 	["gohufont-powerline"]="https://aur.archlinux.org/gohufont-powerline.git"
 	["gohufont"]="https://aur.archlinux.org/gohufont.git"
 	["envypn-font"]="https://aur.archlinux.org/envypn-font.git"
@@ -60,9 +60,13 @@ declare -A packages=(
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
 	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
 	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
+	["apache-spark"]="https://aur.archlinux.org/apache-spark.git"
+	["stremio"]="https://aur.archlinux.org/stremio.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
+	["opencl-amd-dev"]="https://aur.archlinux.org/opencl-amd-dev.git"
+	["miopen-hip"]="https://aur.archlinux.org/miopen-hip.git"
 	["roct-thunk-interface"]="https://aur.archlinux.org/roct-thunk-interface.git"
 	["rocr-runtime"]="https://aur.archlinux.org/rocr-runtime.git"
 	["llvm-roc"]="https://aur.archlinux.org/llvm-roc.git"
@@ -78,6 +82,7 @@ declare -A packages=(
 
 	# misc
 	["python-eduvpn-client"]="https://aur.archlinux.org/python-eduvpn-client.git"
+	["ncurses5-compat-libs"]="https://aur.archlinux.org/ncurses5-compat-libs.git"
 
 	#["libjson"]="https://aur.archlinux.org/libjson.git"
 	#["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
