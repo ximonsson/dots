@@ -55,11 +55,15 @@ declare -A packages=(
 	["notion-app"]="https://aur.archlinux.org/notion-app.git"
 	["azure-kubelogin"]="https://aur.archlinux.org/azure-kubelogin.git"
 	["icaclient"]="https://aur.archlinux.org/icaclient.git"
+	["kubelogin"]="https://aur.archlinux.org/kubelogin.git"
+	["azure-storage-fuse"]="https://aur.archlinux.org/azure-storage-fuse.git"
 
 	# good to haves
 	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
 	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
 	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
+	["zotero-bin"]="https://aur.archlinux.org/zotero-bin.git"
+	["unifi"]="https://aur.archlinux.org/unifi.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
