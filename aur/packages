@@ -66,6 +66,7 @@ declare -A packages=(
 	["unifi"]="https://aur.archlinux.org/unifi.git"
 	["apache-spark"]="https://aur.archlinux.org/apache-spark.git"
 	["stremio"]="https://aur.archlinux.org/stremio.git"
+	["duckdb-bin"]="https://aur.archlinux.org/duckdb-bin.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
