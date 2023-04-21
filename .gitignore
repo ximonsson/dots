@@ -13,3 +13,4 @@ __pycache__
 
 vim/plugged
 vim/.netrwhist
+vim/pack/plugins
