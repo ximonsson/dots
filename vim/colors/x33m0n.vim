@@ -32,7 +32,8 @@ hi Type         ctermfg=14
 hi Conditional  ctermfg=14
 hi Constant     ctermfg=9
 hi String       ctermfg=15
-hi Statement    ctermfg=14 cterm=bold
+hi Statement    ctermfg=14 cterm=none
+hi Keyword      ctermfg=14 cterm=bold
 hi Integer      ctermfg=1
 hi PreProc      ctermfg=15
 
