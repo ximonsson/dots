@@ -11,6 +11,8 @@ declare -A packages=(
 	["slack-desktop"]="https://aur.archlinux.org/slack-desktop.git"
 	["google-chrome"]="https://aur.archlinux.org/google-chrome.git"
 	["julia-bin"]="https://aur.archlinux.org/julia-bin.git"
+	["abook"]="https://aur.archlinux.org/abook.git"
+	["duckdb-bin"]="https://aur.archlinux.org/duckdb-bin.git"
 
 	# gaming
 	["dxvk-bin"]="https://aur.archlinux.org/dxvk-bin.git"
@@ -25,6 +27,7 @@ declare -A packages=(
 	["tamzen-font-git"]="https://aur.archlinux.org/tamzen-font-git.git"
 	["ttf-scientifica"]="https://aur.archlinux.org/ttf-scientifica.git"
 	["bdf-curie"]="https://aur.archlinux.org/bdf-curie.git"
+	["curie-font"]="https://aur.archlinux.org/curie-font.git"
 	["bdf-bitocra"]="https://aur.archlinux.org/bdf-bitocra.git"
 	["nerd-fonts-complete"]="https://aur.archlinux.org/nerd-fonts-complete.git"
 
@@ -59,38 +62,20 @@ declare -A packages=(
 	["azure-storage-fuse"]="https://aur.archlinux.org/azure-storage-fuse.git"
 
 	# good to haves
-	["figma-bin"]="https://aur.archlinux.org/figma-bin.git"
-	["conky-lua"]="https://aur.archlinux.org/conky-lua.git"
 	["mendeleydesktop"]="https://aur.archlinux.org/mendeleydesktop.git"
 	["zotero-bin"]="https://aur.archlinux.org/zotero-bin.git"
 	["unifi"]="https://aur.archlinux.org/unifi.git"
 	["apache-spark"]="https://aur.archlinux.org/apache-spark.git"
 	["stremio"]="https://aur.archlinux.org/stremio.git"
-	["duckdb-bin"]="https://aur.archlinux.org/duckdb-bin.git"
 
 	# ROCm packages
 	["opencl-amd"]="https://aur.archlinux.org/opencl-amd.git"
 	["opencl-amd-dev"]="https://aur.archlinux.org/opencl-amd-dev.git"
-	["miopen-hip"]="https://aur.archlinux.org/miopen-hip.git"
-	["roct-thunk-interface"]="https://aur.archlinux.org/roct-thunk-interface.git"
-	["rocr-runtime"]="https://aur.archlinux.org/rocr-runtime.git"
-	["llvm-roc"]="https://aur.archlinux.org/llvm-roc.git"
-	["rocm-cmake"]="https://aur.archlinux.org/rocm-cmake.git"
-	["rocminfo"]="https://aur.archlinux.org/rocminfo.git"
-	["hcc"]="https://aur.archlinux.org/hcc.git"
-	["hip"]="https://aur.archlinux.org/hip.git"
-	["rocblas"]="https://aur.archlinux.org/rocblas.git"
-	["rocfft"]="https://aur.archlinux.org/rocfft.git"
-	["rocm-comgr"]="https://aur.archlinux.org/rocm-comgr.git"
-	["rocm-opencl-runtime"]="https://aur.archlinux.org/rocm-opencl-runtime.git"
-	["miopen"]="https://aur.archlinux.org/miopen.git"
 
 	# misc
 	["python-eduvpn-client"]="https://aur.archlinux.org/python-eduvpn-client.git"
 	["ncurses5-compat-libs"]="https://aur.archlinux.org/ncurses5-compat-libs.git"
 
-	#["libjson"]="https://aur.archlinux.org/libjson.git"
-	#["lib32-libjson"]="https://aur.archlinux.org/lib32-libjson.git"
 	#["arm-linux-gnueabihf-binutils"]="https://aur.archlinux.org/arm-linux-gnueabihf-binutils.git"
 	)
 # ! vim:ft=sh
