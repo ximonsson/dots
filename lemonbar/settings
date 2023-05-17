@@ -33,7 +33,6 @@ X=$SEP
 Y=$SEP
 DIMENSIONS=`printf "%dx%d+%d+%d" $WIDTH $HEIGHT $X $Y`
 
-#"-misc-tamzenforpowerline-medium-r-normal--13-94-100-100-c-70-iso8859-1"
 # fonts
 FONTS=(
 	"-nerdypepper-curie-medium-r-normal--12-120-72-72-c-60-iso10646-1"
