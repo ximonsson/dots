@@ -10,8 +10,9 @@
 	alternate-normal-foreground: @foreground;
 	text-color: @foreground;
 
-	font: "GohuFont Powerline 8";
+	font: "curie 8";
 	spacing: 6;
+
 }
 
 window {
