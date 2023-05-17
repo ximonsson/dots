@@ -10,6 +10,10 @@ super + Return
 super + space
 	rofi -sort -levenshtein-sort -disable-history -show drun
 
+# run
+super + r
+	rofi -sort -levenshtein-sort -disable-history -show run
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -63,7 +67,7 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # rotate
-super + r
+super + shift + r
 	bspc node @/ --rotate 90
 
 # focus the next/previous node
