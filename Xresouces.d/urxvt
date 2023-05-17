@@ -26,7 +26,6 @@ URxvt.keysym.Control-Left:  \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
 
 ! colors
-!urxvt.background:		rgba:1000/1000/1000/f000
 urxvt.background:		rgba:1a00/1a00/1a00/ff00
 
 ! tabs
