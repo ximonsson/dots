@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi -disable-history -show run
+	rofi -sort -levenshtein-sort -disable-history -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -89,7 +89,7 @@ super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 alt + Tab
-	rofi -disable-history -show window
+	rofi -sort -levenshtein-sort -disable-history -show window
 
 #
 # preselect
