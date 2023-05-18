@@ -24,8 +24,8 @@ bspc config active_border_color       "#134956"
 bspc config focused_border_color      "#1fa0ba"
 
 bspc config top_padding               39
-bspc config left_padding              5
-bspc config right_padding             5
+bspc config left_padding              25
+bspc config right_padding             25
 
 bspc rule -a MPlayer state=floating
 bspc rule -a vlc state=floating

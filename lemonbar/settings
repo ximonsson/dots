@@ -27,9 +27,9 @@ ICON_COLOR_WARN=$RED
 # dimensions
 SEP=8
 HEIGHT=28
-WIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}' | sed -n 1p`
-WIDTH=$(( WIDTH-SEP-SEP ))
-X=$SEP
+SCREENWIDTH=`xrandr | grep \* | awk '{split($1,w,"x"); print w[1]}' | sed -n 1p`
+WIDTH=1200
+X=$(( SCREENWIDTH/2-WIDTH/2 ))
 Y=$SEP
 DIMENSIONS=`printf "%dx%d+%d+%d" $WIDTH $HEIGHT $X $Y`
 
