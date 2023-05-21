@@ -8,10 +8,14 @@
 #              a the name of a single package is passed as argument which we to try to update.
 ################################################################################################
 
-dir=$XDG_CONFIG_HOME/aur
+DIR=$XDG_CONFIG_HOME/aur
 
 # import packages
-. $dir/packages
+. $DIR/packages
+
+function clean {
+	git -C "$1" clean -xdf
+}
 
 function update {
 	pkg=$1
@@ -19,6 +23,7 @@ function update {
 	if [[ $? == 0 ]]; then
 		(cd "$pkg" && makepkg -sric)
 	fi
+	clean $pkg
 }
 
 function check_updates {
@@ -31,17 +36,14 @@ function check_updates {
 
 	# do nada
 	if [ $LOCAL = $REMOTE ]; then
-		echo "[ up-to-date ]"
-		# update !
+		:
 	elif [ $LOCAL = $BASE ]; then
-		echo "[ updating ]"
+		echo "UPDATING [ `basename $pkg` ]"
 		update $pkg
-		# lol what?
 	elif [ $REMOTE = $BASE ]; then
-		echo "[ needs push? ]"
-		# unknown
+		echo "NEEDS PUSH ? [ `basename $pkg` ]"
 	else
-		echo "[ diverged? ]"
+		echo "DIVERGED [ `basename $pkg` ]"
 	fi
 }
 
@@ -56,22 +58,21 @@ function install {
 	mkdir $pkg
 	git clone $url $pkg
 	(cd "$pkg" && makepkg -sric)
+	clean $pkg
 }
 
 if [ $# == 0 ];
 then # loop through all the packages and check for updates
-	for pkg in "${!packages[@]}"
+	for pkg in $DIR/*
 	do
-		if [ -d "$pkg" ] # not all packages are installed
-		then
-			printf "%-40s" "$pkg"
+		if [ -d "$pkg" ]; then
 			check_updates $pkg
 		fi
 	done
 else # update specific package
 	pkg=$1
-	printf "%-40s" "$pkg"
 	if [ ! -d $pkg ]; then
+		echo "INSTALL [ $pkg ]"
 		install $pkg
 	#elif [ $2 = "--force" ]; then
 		#update $pkg
