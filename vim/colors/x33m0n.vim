@@ -28,12 +28,12 @@ hi Directory    ctermfg=4
 hi Identifier   ctermfg=14 cterm=none
 hi Function     ctermfg=15 cterm=none
 
-hi Type         ctermfg=14 cterm=bold
+hi Type         ctermfg=14 cterm=none
 hi Conditional  ctermfg=14 cterm=bold
 hi Constant     ctermfg=9
 hi String       ctermfg=15
 hi Statement    ctermfg=14 cterm=none
-hi Keyword      ctermfg=14 cterm=bold
+hi Keyword      ctermfg=245 cterm=bold
 hi Integer      ctermfg=1
 hi PreProc      ctermfg=15
 
