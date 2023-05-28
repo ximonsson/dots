@@ -10,7 +10,15 @@ if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
+# Load custom alias definitions.
+[ -r ~/.aliases ] && . ~/.aliases
+
+# set sexy PS1
+RPS1="%F{8} %~ %f%k"
+PS1="%n %F{8}%m ──╼ %f"
+
 # set up prompt
+# ------------------------------------------------------------
 
 autoload -Uz promptinit
 promptinit
@@ -25,6 +33,10 @@ unsetopt beep notify
 bindkey -e
 
 # setup auto completion
+# ------------------------------------------------------------
+
+# add custom functions
+fpath=($HOME/.local/share/zsh/site-functions/ $fpath)
 
 autoload -Uz compinit
 compinit
@@ -32,14 +44,6 @@ compinit
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
-
-# set sexy PS1
-
-RPS1="%F{8} %~ %f%k"
-PS1="%n %F{8}%m ──╼ %f"
-
-# Load custom alias definitions.
-[ -r ~/.aliases ] && . ~/.aliases
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
