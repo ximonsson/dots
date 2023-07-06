@@ -14,6 +14,7 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 set vb
 
 set encoding=utf-8
+set autoread
 
 " no more tabs for me!
 set hidden
@@ -34,7 +35,6 @@ let g:netrw_altv = 1
 filetype plugin indent on
 autocmd BufNewFile,BufRead *.gp setf gnuplot
 autocmd BufNewFile,BufRead *.neomuttrc setf neomuttrc
-autocmd BufWrite *.tf TerraformFmt  " terraform fmt on write
 
 " plugins
 call plug#begin()
