@@ -39,8 +39,6 @@ autocmd BufNewFile,BufRead *.neomuttrc setf neomuttrc
 " plugins
 call plug#begin()
 Plug 'fatih/vim-go'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
