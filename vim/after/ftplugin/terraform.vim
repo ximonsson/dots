@@ -1,4 +1,1 @@
-augroup tf
-	au!
-	au BufWritePre *.tf TerraformFmt  " terraform fmt on write
-augroup END
+let g:terraform_fmt_on_save = 1
