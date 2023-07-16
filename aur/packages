@@ -32,6 +32,7 @@ declare -A packages=(
 	["nerd-fonts-complete"]="https://aur.archlinux.org/nerd-fonts-complete.git"
 
 	# robotics
+	["arduino-ide-bin"]="https://aur.archlinux.org/arduino-ide-bin.git"
 	["libfreenect"]="https://aur.archlinux.org/libfreenect.git"
 	["sensorkinect"]="https://aur.archlinux.org/sensorkinect.git"
 	["openni2"]="https://aur.archlinux.org/openni2.git"
