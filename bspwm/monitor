@@ -3,7 +3,7 @@
 BUILTIN="eDP"
 #XMONITOR="HDMI-A-0"
 #MODE="--auto"
-XMONITOR="DisplayPort-2"
+XMONITOR="DisplayPort-0"
 MODE="--mode 2560x1440 --rate 75"
 
 function onchange_monitor {
@@ -51,7 +51,7 @@ function hdmi {
 }
 
 MONITOR=0
-for F in /sys/class/drm/card0-DP-*
+for F in /sys/class/drm/card1-DP-*
 do
 	STATUS=$(cat $F/status)
 	if [ $STATUS == "connected" ]
