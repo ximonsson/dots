@@ -20,4 +20,4 @@ set ssl_starttls=yes
 mailboxes =INBOX
 #unset imap_passive
 account-hook $folder 'set imap_user=simonsson.simon@gmail.com imap_pass=$my_gmail_pass'
-# vim: filetype=muttrc
+# vim: filetype=neomuttrc

@@ -49,7 +49,7 @@ mono  error         bold
 #color index         color166        default        ~=                         # duplicate messages
 #color index         color7        default        "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
 #color index         color14          default        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
-color index         color243      default        "~A"                        # all messages
+color index         color247      default        "~A"                        # all messages
 color index         color14        default        ~F                         # flagged
 #color index         color7        default        "~E"                        # expired messages
 color index         color7         default        "~N"                        # new messages
@@ -73,7 +73,7 @@ color index         color1        default        "~D"                        # d
 
 # statusbg used to indicated flagged when foreground color shows other status
 # for collapsed thread
-color index         color248      default       "~v~(!~N)"                  # collapsed thread with no unread
+color index         color242      default       "~v~(!~N)"                  # collapsed thread with no unread
 color index         color5       default       "~v~(~N)"                   # collapsed thread with some unread
 #color index         color64         default        "~N~v~(~N)"                 # collapsed thread with unread parent
 color index         color6        default        "~v~(~F)!~N"                # collapsed thread with flagged, no unread
