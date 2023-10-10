@@ -1,10 +1,8 @@
 #! /bin/sh
 
 BUILTIN="eDP"
-#XMONITOR="HDMI-A-0"
-#MODE="--auto"
+MODE="--auto"
 XMONITOR="DisplayPort-0"
-MODE="--mode 2560x1440 --rate 75"
 
 function onchange_monitor {
 	[ -x $HOME/.fehbg ] && $HOME/.fehbg
