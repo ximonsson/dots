@@ -1,6 +1,6 @@
 #! /bin/sh
 
-BUILTIN="eDP"
+BUILTIN="eDP-1"
 #XMONITOR="HDMI-A-0"
 #MODE="--auto"
 XMONITOR="DisplayPort-2"
