@@ -95,10 +95,10 @@ color index         color1        default        "~v~(~D)"                   # t
 #color index_collapsed color246 default "~A"
 color index_subject color246 default "~A"
 color index_subject color255 default "~N"
-color index_subject color1 default "~D"
 color index_subject color7 default "~v~(~N)"
 color index_subject color14 default "~F"
 color index_subject color14 default "~v~(~F)"
+color index_subject color1 default "~D"
 
 # message headers ------------------------------------------------------
 
