@@ -45,7 +45,7 @@ function out
 		RAM=$(ram)
 
 		# network info
-		ETH=$(lan $LAN_DEVICE) # default to cable ethernet
+		ETH=$(eth $ETH_DEVICE) # default to cable ethernet
 		[ -z "$ETH" ] && ETH=$(wlan $WLAN_DEVICE) # in case empty use wifi info
 
 		# update weather
