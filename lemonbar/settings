@@ -7,7 +7,7 @@ LON="10.72"
 
 # settings
 WLAN_DEVICE=wlan0 # wlan device
-LAN_DEVICE=eth0
+ETH_DEVICE=eth0
 BATTERY=BAT1
 
 # colors

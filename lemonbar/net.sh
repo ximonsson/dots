@@ -1,4 +1,4 @@
-function lan
+function eth
 {
 	device=$1
 
@@ -49,7 +49,7 @@ function wlan
 		return
 	fi
 
-	if [[ $essid != *off* ]]
+	if [[ $essid != off ]]
 	then
 		ICON='\ue222'
 		if [ "$link" -le "20" ]
