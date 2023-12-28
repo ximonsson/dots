@@ -11,7 +11,7 @@ URxvt.scrollstyle: 		xterm
 URxvt.scrollBar: 		false
 !URxvt.perl-ext-common: 	default,clipboard,matcher
 !URxvt.perl-ext-common: ...,tabbed,...
-URxvt*geometry: 		140x50
+URxvt*geometry: 		110x50
 URxvt.urgentOnBell: 	false
 URxvt.iso14755: 		false
 URxvt*scrollWithBuffer: true
