@@ -4,14 +4,14 @@ set sort_aux=last-date-received
 set menu_scroll
 unset markers
 set send_charset="utf-8"
-set collapse_all
 set mime_forward
 set mime_forward_rest
-set index_format="%4C. %Z %{%Y %b %d} | %2M %-20.20L  %s"
-set include
+set include=yes
 set forward_quote
 unset sig_dashes
 unset mark_old
+
+set index_format="%4C. %Z %{%Y %b %d} | %2M %-20.20L  %s"
 
 # mailcap
 set mailcap_path=$XDG_CONFIG_HOME/neomutt/mailcap
