@@ -31,7 +31,7 @@ hi Function     ctermfg=255 cterm=none
 hi Type         ctermfg=14 cterm=none
 hi Conditional  ctermfg=14 cterm=bold
 hi Constant     ctermfg=9
-hi String       ctermfg=250
+hi String       ctermfg=255
 hi Statement    ctermfg=14 cterm=none
 hi Keyword      ctermfg=255 cterm=bold
 hi Integer      ctermfg=1
