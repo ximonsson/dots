@@ -1,0 +1,21 @@
+[font]
+size = 9.0
+
+[window]
+padding = { x = 30, y = 30 }
+
+[colors.normal]
+cyan = "#14929e"
+red = "#c6235a"
+green = "#1a9983"
+yellow = "#c17634"
+blue = "#14749e"
+magenta = "#8356a0"
+
+[colors.bright]
+cyan = "#16acba"
+red = "#d8346a"
+green = "#32b59f"
+yellow = "#d3af2e"
+blue = "#328db5"
+magenta = "#aa70d1"
