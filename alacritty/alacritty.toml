@@ -4,6 +4,10 @@ size = 9.0
 [window]
 padding = { x = 30, y = 30 }
 
+[colors.primary]
+foreground = "#fafafa"
+background = "#1a1a1a"
+
 [colors.normal]
 cyan = "#14929e"
 red = "#c6235a"
@@ -11,6 +15,8 @@ green = "#1a9983"
 yellow = "#c17634"
 blue = "#14749e"
 magenta = "#8356a0"
+white = "#d3d3d3"
+black = "#2a3033"
 
 [colors.bright]
 cyan = "#16acba"
@@ -19,3 +25,5 @@ green = "#32b59f"
 yellow = "#d3af2e"
 blue = "#328db5"
 magenta = "#aa70d1"
+black = "#888888"
+white = "#ffffff"
