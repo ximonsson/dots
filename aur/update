@@ -61,6 +61,14 @@ function install {
 	clean $pkg
 }
 
+function dl_install {
+	pkg=$1
+	giturl="https://aur.archlinux.org/$pkg.git"
+	echo "installing $pkg from $giturl..."
+	git clone $giturl
+	update $pkg
+}
+
 if [ $# == 0 ];
 then # loop through all the packages and check for updates
 	for pkg in $DIR/*
@@ -73,7 +81,7 @@ else # update specific package
 	pkg=$1
 	if [ ! -d $pkg ]; then
 		echo "INSTALL [ $pkg ]"
-		install $pkg
+		dl_install $pkg
 	#elif [ $2 = "--force" ]; then
 		#update $pkg
 	else
