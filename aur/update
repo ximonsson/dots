@@ -3,15 +3,12 @@
 ################################################################################################
 # file:        update
 # description: script to update AUR packages.
-#              In case no arguments are given we go through all packages defined in#######
-#              $XDG_CONFIG_HOME/aur/packages and try to update all of them. Else we assume
-#              a the name of a single package is passed as argument which we to try to update.
+#              In case no arguments are given we go through all directories in $XDG_CONFIG_HOME/aur
+#              and check for updates. If argument is given it is a name of a package that we
+#              want to install from AUR.
 ################################################################################################
 
 DIR=$XDG_CONFIG_HOME/aur
-
-# import packages
-. $DIR/packages
 
 function clean {
 	git -C "$1" clean -xdf
@@ -49,16 +46,10 @@ function check_updates {
 
 function install {
 	pkg=$1
-	url="${packages[$pkg]}"
-	if [ -z "$url" ]
-	then
-		echo "no such package"
-		return
-	fi
-	mkdir $pkg
-	git clone $url $pkg
-	(cd "$pkg" && makepkg -sric)
-	clean $pkg
+	giturl="https://aur.archlinux.org/$pkg.git"
+	echo "installing $pkg from $giturl..."
+	git clone $giturl
+	update $pkg
 }
 
 if [ $# == 0 ];
