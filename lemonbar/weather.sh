@@ -8,7 +8,11 @@ function weather
 	res=$(curl -s --retry 5 "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=$lat&lon=$lon")
 
 	if [ $? -eq 0 ]; then
-		temp=$(echo $res | jq -r '.properties.timeseries[0].data.instant.details.air_temperature')
+		temp=$(\
+			echo $res | \
+			jq -r '.properties.timeseries[0].data.instant.details.air_temperature' | \
+			awk '{ printf "%.f", $1 }'\
+		)
 		summary=$(echo $res | jq -r '.properties.timeseries[0].data.next_1_hours.summary.symbol_code')
 	fi
 
@@ -62,5 +66,5 @@ function weather
 			ICON='\ue22c'
 			;;
 	esac
-	echo -n "$(icon $ICON) $temp"
+	echo -n "$(icon $ICON) $temp °C"
 }
