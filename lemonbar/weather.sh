@@ -3,29 +3,22 @@ function weather
 {
 	lat=$1
 	lon=$2
+	summary=
+	temp="..."
+	res=$(curl -s --retry 5 "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=$lat&lon=$lon")
 
-	forecast=
-	# retry a couple of times in case we are not able to communicate with the service
-	for N in 1 .. 5
-	do
-		#weather=`$GOPATH/bin/weather $lat $lon 2> /dev/null`
-		weather=`$GOPATH/bin/weather $lat $lon`
-		if [ $? -eq 0 ]; then
-			#>&2 echo "succeeded getting weather"
-			forecast=`echo $weather | cut -d ":" -f2`
-			temp=`echo $weather | cut -d ":" -f1`
-			weather="$temp°"
-			break
-		else
-			>&2 echo "failed"
-			>&2 echo "$weather"
-			weather="..."
-			sleep 1
-		fi
-	done
+	if [ $? -eq 0 ]; then
+		temp=$(\
+			echo $res | \
+			jq -r '.properties.timeseries[0].data.instant.details.air_temperature' | \
+			awk '{ printf "%.f", $1 }'\
+		)
+		summary=$(echo $res | jq -r '.properties.timeseries[0].data.next_1_hours.summary.symbol_code')
+	fi
+
 	# icon
 	ICON='\ue25d warn'
-	case `echo $forecast | awk '{print tolower($0)}'` in
+	case $summary in
 		# cloudy ones
 		"partlycloudy"*|fair*)
 			H=$(date +"%H")
@@ -73,5 +66,5 @@ function weather
 			ICON='\ue22c'
 			;;
 	esac
-	echo -n "$(icon $ICON) $weather"
+	echo -n "$(icon $ICON) $temp °C"
 }

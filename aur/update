@@ -18,7 +18,7 @@ function update {
 	pkg=$1
 	git -C "$pkg" pull
 	if [[ $? == 0 ]]; then
-		(cd "$pkg" && makepkg -sric)
+		(cd "$pkg" && MAKEFLAGS="-j$(nproc)" makepkg -sric)
 	fi
 	clean $pkg
 }
