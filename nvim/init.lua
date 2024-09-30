@@ -5,7 +5,16 @@ vim.cmd([[
 	source ~/.vimrc
 ]])
 
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+--vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+	callback = function()
+		vim.lsp.buf.format {
+			async = false,
+		}
+	end,
+})
+
 
 -- setup Ruff
 require('lspconfig').ruff_lsp.setup {
