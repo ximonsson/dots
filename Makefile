@@ -4,7 +4,7 @@
 # NOTE: should change so files are not hidden in the repository and instead the created
 #       symlinks are
 
-install: bspwm bash lemonbar x picom weechat vim mutt aur zsh octave julia r tmux dunst userdirs
+install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff
 
 sxkhd:
 	ln -s -T $(CURDIR)/sxhkd $(XDG_CONFIG_HOME)/sxhkd
@@ -14,12 +14,6 @@ bspwm: sxkhd
 
 lemonbar:
 	ln -s -T $(CURDIR)/lemonbar $(XDG_CONFIG_HOME)/lemonbar
-
-openbox:
-
-bash:
-	ln -s -T $(CURDIR)/bash/.bashrc $(HOME)/.bashrc
-	ln -s -T $(CURDIR)/bash/.bash_aliases $(HOME)/.bash_aliases
 
 zsh:
 	ln -s $(CURDIR)/zprofile $(HOME)/.zprofile
@@ -41,11 +35,14 @@ picom:
 	ln -s -T $(CURDIR)/picom.conf $(XDG_CONFIG_HOME)/picom.conf
 
 vim:
-	mkdir $(HOME)/.vim $(XDG_CONFIG_HOME)/nvim
+	mkdir $(HOME)/.vim
 	ln -s -T $(CURDIR)/vim/.vimrc $(HOME)/.vimrc
 	ln -s -T $(CURDIR)/vim $(HOME)/.vim
-	ln -s -T $(HOME)/.vim/autoload $(XDG_CONFIG_HOME)/nvim/autoload
-	ln -s -T $(CURDIR)/nvim/init.vim $(XDG_CONFIG_HOME)/nvim/init.vim
+
+nvim: vim
+	mkdir -p $(XDG_CONFIG_HOME)/nvim
+	ln -sf -T $(CURDIR)/nvim/init.lua $(XDG_CONFIG_HOME)/nvim/init.lua
+	ln -sf -T $(HOME)/.vim/autoload $(XDG_CONFIG_HOME)/nvim/autoload
 
 weechat:
 	ln -s -T $(CURDIR)/weechat $(HOME)/.weechat
@@ -53,26 +50,13 @@ weechat:
 firefox:
 	ln -s -T $(CURDIR)/firefox/userContent.css $(HOME)/.mozilla/firefox/$(PROFILE)/chrome/userContent.css
 
-conky:
-	ln -s -T $(CURDIR)/.conkyrc $(HOME)/.conkyrc
-
-qutebrowser:
-	ln -s -T $(CURDIR)/qutebrowser/qutebrowser.conf $(XDG_CONFIG_HOME)/qutebrowser/qutebrowser.conf
-
 aur:
 	mkdir $(XDG_CONFIG_HOME)/aur
 	ln -s $(CURDIR)/aur/update $(XDG_CONFIG_HOME)/aur/update
-	ln -s $(CURDIR)/aur/packages $(XDG_CONFIG_HOME)/aur/packages
 
 mutt:
 	ln -s $(CURDIR)/neomutt $(XDG_CONFIG_HOME)/neomutt
 	ln -s $(XDG_CONFIG_HOME)/neomutt/neomuttrc $(HOME)/.muttrc
-
-octave:
-	ln -s $(CURDIR)/octave/.octaverc $(HOME)/.octaverc
-
-r:
-	ln -s $(CURDIR)/R/.Rprofile $(HOME)/.Rprofile
 
 julia:
 	mkdir -p $(HOME)/.julia/config
@@ -84,3 +68,30 @@ tmux:
 
 userdirs:
 	ln -s $(CURDIR)/user-dirs.dirs $(XDG_CONFIG_HOME)/user-dirs.dirs
+
+ruff:
+	sudo pacman -S ruff ruff-lsp
+	mkdir -p $(XDG_CONFIG_HOME)/ruff
+	ln -sf $(CURDIR)/ruff/pyproject.toml $(XDG_CONFIG_HOME)/ruff/pyproject.toml
+
+.PHONY: ruff nvim vim x
+
+
+# NOT USED
+# -------
+
+qutebrowser:
+	ln -s -T $(CURDIR)/qutebrowser/qutebrowser.conf $(XDG_CONFIG_HOME)/qutebrowser/qutebrowser.conf
+
+octave:
+	ln -s $(CURDIR)/octave/.octaverc $(HOME)/.octaverc
+
+r:
+	ln -s $(CURDIR)/R/.Rprofile $(HOME)/.Rprofile
+
+conky:
+	ln -s -T $(CURDIR)/.conkyrc $(HOME)/.conkyrc
+
+bash:
+	ln -s -T $(CURDIR)/bash/.bashrc $(HOME)/.bashrc
+	ln -s -T $(CURDIR)/bash/.bash_aliases $(HOME)/.bash_aliases
