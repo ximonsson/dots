@@ -1,0 +1,22 @@
+# Ruff
+
+[tool.ruff]
+indent-width = 4
+line-length = 88
+
+[tool.ruff.lint]
+ignore = ["E203", "E701"]
+
+[tool.ruff.lint.per-file-ignores]
+"data/**" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+# because they are changing this to default true soon
+docstring-code-format = false
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["dbutils", "spark", "display"]

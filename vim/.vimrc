@@ -1,6 +1,7 @@
 " colors por favor and my colorscheme
 syntax on
 colorscheme x33m0n
+colorscheme default
 
 " cosmetics like line numbers, highlighting
 set hlsearch
@@ -50,6 +51,8 @@ Plug 'xolox/vim-lua-ftplugin'
 Plug 'tikhomirov/vim-glsl'
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " airline theme
