@@ -7,10 +7,11 @@ Xft.lcdfilter: lcddefault
 
 #define fontname \
 	neep-10,\
-	-nerdypepper-curie-medium-r-normal--12-120-72-72-c-60-iso10646-1,\
 	-misc-gohup-medium-r-normal--11-80-100-100-c-60-iso10646-1,\
+	xft:Noto Color Emoji,\
 	-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
 
+!-nerdypepper-curie-medium-r-normal--12-120-72-72-c-60-iso10646-1,\
 #define fontsize 12
 
 ! vim: ft=xdefaults
