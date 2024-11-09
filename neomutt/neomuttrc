@@ -42,8 +42,8 @@ set my_gmail_pass="`pass show google.com/mail/simonsson.simon@gmail.com/mutt`"
 set my_kth_pass="`pass show kth.se/simonsim`"
 
 # KTH
-source $XDG_CONFIG_HOME/neomutt/kth
-folder-hook $folder 'source ~/.config/neomutt/kth'
+#source $XDG_CONFIG_HOME/neomutt/kth
+#folder-hook $folder 'source ~/.config/neomutt/kth'
 
 # GMail
 source $XDG_CONFIG_HOME/neomutt/gmail
