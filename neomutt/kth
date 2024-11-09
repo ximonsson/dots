@@ -13,7 +13,8 @@ set record="+Sent Items"
 set realname="Simon Simonsson"
 set from="simonsim@kth.se"
 set use_from=yes
-set smtp_url=smtps://$imap_user:$imap_pass@smtp.kth.se
+set smtp_url="smtp://$imap_user@smtp.kth.se:587"
+set smtp_pass=$imap_pass
 set ssl_force_tls=yes
 set ssl_starttls=yes
 
