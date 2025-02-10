@@ -53,6 +53,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'udalov/kotlin-vim'
+Plug 'leafOfTree/vim-svelte-plugin'
 call plug#end()
 
 " airline theme
