@@ -1,0 +1,15 @@
+.prompt  '⚫◗ '
+SET temp_directory = '/tmp/duckdb';
+
+# Azure stuff
+
+.mode trash
+
+CREATE SECRET az_cred (
+	TYPE AZURE,
+	PROVIDER CREDENTIAL_CHAIN
+);
+
+SET azure_transport_option_type = 'curl';
+
+.mode duckbox
