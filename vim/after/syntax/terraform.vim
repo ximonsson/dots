@@ -1,1 +1,0 @@
-hi Type cterm=none

@@ -5,8 +5,10 @@ vim.cmd([[
 	source ~/.vimrc
 ]])
 
---vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+-------------------------------
+-- LSP
 
+--- Formatting
 vim.api.nvim_create_autocmd('BufWritePre', {
 	callback = function()
 		vim.lsp.buf.format {
@@ -14,10 +16,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 		}
 	end,
 })
+--vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
+lspconf = require'lspconfig'
 
--- setup Ruff
-require('lspconfig').ruff_lsp.setup {
+-- python
+
+-- ruff
+lspconf.ruff.setup {
 	init_options = {
 		settings = {
 			args = {},
@@ -25,3 +31,11 @@ require('lspconfig').ruff_lsp.setup {
 	}
 }
 
+-- terraform
+lspconf.terraformls.setup{}
+
+-- typescript
+lspconf.ts_ls.setup{}
+
+-- svelte
+lspconf.svelte.setup{}
