@@ -1,6 +1,5 @@
 " colors por favor and my colorscheme
 syntax on
-colorscheme kanagawa-dragon
 
 " cosmetics like line numbers, highlighting
 set hlsearch

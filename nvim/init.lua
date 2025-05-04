@@ -5,6 +5,8 @@ vim.cmd([[
 	source ~/.vimrc
 ]])
 
+vim.cmd("colorscheme kanagawa-dragon")
+
 -------------------------------
 -- LSP
 
