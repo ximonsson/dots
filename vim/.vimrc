@@ -1,7 +1,6 @@
 " colors por favor and my colorscheme
 syntax on
-colorscheme x33m0n
-colorscheme default
+colorscheme kanagawa-dragon
 
 " cosmetics like line numbers, highlighting
 set hlsearch
@@ -54,6 +53,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'udalov/kotlin-vim'
 Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'rebelot/kanagawa.nvim'
 call plug#end()
 
 " airline theme
