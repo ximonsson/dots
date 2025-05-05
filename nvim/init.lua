@@ -8,6 +8,8 @@ vim.cmd([[
 -------------------------------
 -- LSP
 
+vim.lsp.set_log_level("off")
+
 --- Formatting
 vim.api.nvim_create_autocmd('BufWritePre', {
 	callback = function()
