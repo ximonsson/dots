@@ -1,7 +1,7 @@
 #
 # ls
 #
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --group-directories-first"
 alias l="ls -1"
 alias ll="l -laF"
 
@@ -26,7 +26,7 @@ function change_monitor
 	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 	#conky-restart
 }
-LAPTOP_DISPLAY=LVDS1
+LAPTOP_DISPLAY=eDP1
 alias xmonitor='change_monitor $MONITOR $LAPTOP_DISPLAY'
 alias xdisplay='change_monitor $LAPTOP_DISPLAY $MONITOR'
 
@@ -39,14 +39,6 @@ alias change-font="printf '\e]710;%s\007'"
 
 # AUR update
 alias aur-update='(cd $XDG_CONFIG_HOME/aur && ./update)'
-
-alias gubenerstrasse-samba='sudo mount -t cifs //FILE_SHARE/files $HOME/mnt/samba/ -o ip=192.168.2.253'
-
-# keep forgetting this one
-alias wifi="nmtui"
-
-# conky
-alias conky-restart="pkill --signal SIGHUP conky"
 
 # function for restarting USB device
 function restart-usb
@@ -75,12 +67,6 @@ function media-play-episode
 {
 	mplayer "$MEDIASERVER/shows/stream/?id=$1&season=$2&episode=$3"
 }
-
-#
-# Audio
-#
-alias pulse-analog="pactl set-card-profile $AUDIO_CARD $AUDIO_PROFILE_ANALOG"
-alias pulse-hdmi="pactl set-card-profile $AUDIO_CARD $AUDIO_PROFILE_DIGITAL"
 
 #
 # Docker
