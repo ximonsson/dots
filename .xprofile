@@ -8,3 +8,5 @@ export BROWSER=firefox
 export EDITOR=nvim
 export WM=bspwm
 export GTK_THEME=Adwaita:dark
+export PAGER=bat
+export MANPAGER="bat --file-name=man --style=plain"
