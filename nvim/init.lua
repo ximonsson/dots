@@ -1,8 +1,8 @@
 -- share settings with Vim
 vim.cmd([[
-	set runtimepath^=~/.vim runtimepath+=~/.vim/after
-	let &packpath=&runtimepath
-	source ~/.vimrc
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+source ~/.vimrc
 ]])
 
 vim.cmd("colorscheme kanagawa-dragon")
@@ -19,6 +19,17 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 			async = false,
 		}
 	end,
+})
+
+-- from mistral
+vim.diagnostic.config({
+	virtual_text = {
+		-- This enables inline error messages
+		prefix = '●', -- You can customize the prefix
+	},
+	signs = true, -- Show signs in the sign column
+	underline = true, -- Underline errors, warnings, etc.
+	update_in_insert = false, -- Update diagnostics in insert mode
 })
 --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
