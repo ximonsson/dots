@@ -61,12 +61,8 @@ require('llm').setup({
 	-- you can set any field:value pair here it will be passed as is to the backend
 	request_body = {
 		top_p = 1,
-		temperature = 1.0,
-		--parameters = {
-			--max_new_tokens = 60,
-			--temperature = 0.2,
-			--top_p = 0.95,
-		--},
+		temperature = 0.0,
+		stop = {"\n\n"},
 	},
 
 	-- set this if the model supports fill in the middle
