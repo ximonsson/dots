@@ -53,6 +53,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'udalov/kotlin-vim'
 Plug 'leafOfTree/vim-svelte-plugin'
 Plug 'rebelot/kanagawa.nvim'
+Plug 'huggingface/llm.nvim'
 call plug#end()
 
 " airline theme
