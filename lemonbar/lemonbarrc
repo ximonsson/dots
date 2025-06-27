@@ -45,8 +45,8 @@ function out
 		RAM=$(ram)
 
 		# network info
-		ETH=$(eth $ETH_DEVICE) # default to cable ethernet
-		[ -z "$ETH" ] && ETH=$(wlan $WLAN_DEVICE) # in case empty use wifi info
+		LAN=$(eth $LAN_DEVICE) # default to cable ethernet
+		[ -z "$LAN" ] && LAN=$(wlan $WLAN_DEVICE) # in case empty use wifi info
 
 		# update weather
 		if [ "$COUNT" -eq "$WEATHER_UPDATE_INT" ]; then
@@ -57,7 +57,7 @@ function out
 
 		# output info
 		LEFT="$DATETIME   $WEATHER"
-		RIGHT="$ETH   $VOL   $RAM   $CPU   $CPU_TEMP   $FS   $BAT"
+		RIGHT="$LAN   $VOL   $RAM   $CPU   $CPU_TEMP   $FS   $BAT"
 		echo "%{l}%{O20}$LEFT%{r}$RIGHT%{O20}"
 		sleep 1
 	done
