@@ -73,19 +73,19 @@ require('llm').setup({
 	request_body = {
 		top_p = 1,
 		temperature = 0.0,
-		stop = {"\n\n"},
+		stop = {"\n\n\n"},
 	},
 
 	-- set this if the model supports fill in the middle
 	fim = {
 		enabled = true,
-		--prefix = "<fim_prefix>",
-		--middle = "<fim_middle>",
-		--suffix = "<fim_suffix>",
+		prefix = "[PREFIX]",
+		middle = "[MIDDLE]",
+		suffix = "[SUFFIX]",
 	},
 
 	debounce_ms = 150,
-	accept_keymap = "<Tab>",
+	accept_keymap = "<C-M>",
 	dismiss_keymap = "<S-Tab>",
 	tls_skip_verify_insecure = true,
 
