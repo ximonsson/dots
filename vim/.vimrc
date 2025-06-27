@@ -54,6 +54,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'leafOfTree/vim-svelte-plugin'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'huggingface/llm.nvim'
+Plug 'milanglacier/minuet-ai.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 " airline theme
