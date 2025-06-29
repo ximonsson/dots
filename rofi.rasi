@@ -10,9 +10,9 @@
 	alternate-normal-foreground: @foreground;
 	text-color: @foreground;
 
-	font: "curie 8";
+	//font: "curie 8";
+	font: "monospace 9";
 	spacing: 6;
-
 }
 
 window {
