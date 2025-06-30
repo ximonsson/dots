@@ -1,6 +1,6 @@
 * {
 	background-color: rgba ( 0, 0, 0, 0 % );
-	background: rgba ( 0, 0, 0, 90 % );
+	background: rgba ( 15, 15, 15, 100 % );
 	normal-background: @background;
 	alternate-normal-background: @background;
 	blue: rgba ( 0 , 150, 180, 100 % );
@@ -82,7 +82,7 @@ element.selected.active {
 }
 
 inputbar {
-	children: [ entry,case-indicator ];
+	children: [ entry,case-indicator,prompt ];
 }
 
 entry {
