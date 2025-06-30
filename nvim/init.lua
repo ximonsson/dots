@@ -76,6 +76,7 @@ lspconf.ts_ls.setup{}
 lspconf.svelte.setup{}
 
 ------------------------------------
+--- LLM stuffz
 
 local CODESTRAL_API_KEY = vim.fn.system(
 	"pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
@@ -83,7 +84,6 @@ local CODESTRAL_API_KEY = vim.fn.system(
 
 vim.g.CODESTRAL_API_KEY = CODESTRAL_API_KEY
 
---require("llm.lua")
 require('minuet').setup{
 	virtualtext = {
 		auto_trigger_ft = {},
@@ -120,3 +120,35 @@ require('minuet').setup{
 	},
 	provider = "codestral",
 }
+
+require("codecompanion").setup({
+	strategies = {
+		chat = {
+			adapter = {
+				name = "mistral",
+				model = "codestral-latest",
+			},
+		},
+		inline = {
+			adapter = {
+				name = "mistral",
+				model = "codestral-latest",
+			},
+		},
+		cmd = {
+			adapter = {
+				name = "mistral",
+				model = "codestral-latest",
+			},
+		},
+	},
+	adapters = {
+	   mistral = function()
+		   return require("codecompanion.adapters").extend("mistral", {
+			   env = {
+				   api_key = "cmd: pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
+			   },
+		   })
+	   end,
+	}
+})
