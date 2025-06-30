@@ -7,6 +7,26 @@ source ~/.vimrc
 
 vim.cmd("colorscheme kanagawa-dragon")
 
+require('lualine').setup {
+	sections = {
+		lualine_x = {
+			{
+				require 'minuet.lualine',
+				-- the follwing is the default configuration
+				-- the name displayed in the lualine. Set to "provider", "model" or "both"
+				-- display_name = 'both',
+				-- separator between provider and model name for option "both"
+				-- provider_model_separator = ':',
+				-- whether show display_name when no completion requests are active
+				-- display_on_idle = false,
+			},
+			'encoding',
+			'fileformat',
+			'filetype',
+		},
+	},
+}
+
 -------------------------------
 -- LSP
 
@@ -26,7 +46,7 @@ vim.diagnostic.config({
 	virtual_text = {
 		-- This enables inline error messages
 		prefix = '●', -- You can customize the prefix
-	},
+},
 	signs = true, -- Show signs in the sign column
 	underline = true, -- Underline errors, warnings, etc.
 	update_in_insert = false, -- Update diagnostics in insert mode
@@ -56,9 +76,15 @@ lspconf.ts_ls.setup{}
 lspconf.svelte.setup{}
 
 ------------------------------------
+--- LLM stuffz
 
---require("llm.lua")
-require('minuet').setup {
+local CODESTRAL_API_KEY = vim.fn.system(
+	"pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
+):gsub("^%s*(.-)%s*$", "%1")
+
+vim.g.CODESTRAL_API_KEY = CODESTRAL_API_KEY
+
+require('minuet').setup{
 	virtualtext = {
 		auto_trigger_ft = {},
 		keymap = {
@@ -80,7 +106,7 @@ require('minuet').setup {
 		codestral = {
 			model = 'codestral-latest',
 			end_point = 'https://codestral.mistral.ai/v1/fim/completions',
-			api_key = 'CODESTRAL_API_KEY',
+			api_key = function () return CODESTRAL_API_KEY end,
 			stream = true,
 			--template = {
 				--prompt = "See [Prompt Section for default value]",
@@ -95,22 +121,34 @@ require('minuet').setup {
 	provider = "codestral",
 }
 
-require('lualine').setup {
-	sections = {
-		lualine_x = {
-			{
-				require 'minuet.lualine',
-				-- the follwing is the default configuration
-				-- the name displayed in the lualine. Set to "provider", "model" or "both"
-				-- display_name = 'both',
-				-- separator between provider and model name for option "both"
-				-- provider_model_separator = ':',
-				-- whether show display_name when no completion requests are active
-				-- display_on_idle = false,
+require("codecompanion").setup({
+	strategies = {
+		chat = {
+			adapter = {
+				name = "mistral",
+				model = "codestral-latest",
 			},
-			'encoding',
-			'fileformat',
-			'filetype',
+		},
+		inline = {
+			adapter = {
+				name = "mistral",
+				model = "codestral-latest",
+			},
+		},
+		cmd = {
+			adapter = {
+				name = "mistral",
+				model = "codestral-latest",
+			},
 		},
 	},
-}
+	adapters = {
+	   mistral = function()
+		   return require("codecompanion.adapters").extend("mistral", {
+			   env = {
+				   api_key = "cmd: pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
+			   },
+		   })
+	   end,
+	}
+})
