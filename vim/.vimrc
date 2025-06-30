@@ -57,13 +57,8 @@ Plug 'huggingface/llm.nvim'
 Plug 'milanglacier/minuet-ai.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'olimorris/codecompanion.nvim'
 call plug#end()
-
-" airline theme
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'minimalist'
-"let g:airline_solarized_bg='dark'
 
 " no mouse interaction
 set mouse=
