@@ -75,6 +75,10 @@ lspconf.ts_ls.setup{}
 -- svelte
 lspconf.svelte.setup{}
 
+require('render-markdown').setup({
+    completions = { lsp = { enabled = true } },
+})
+
 ------------------------------------
 --- LLM stuffz
 
