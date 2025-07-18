@@ -1,6 +1,6 @@
 #! /bin/sh
 
-BUILTIN="eDP"
+BUILTIN="eDP-1"
 MODE="--auto"
 XMONITOR="DisplayPort-0"
 
@@ -12,7 +12,6 @@ function onchange_monitor {
 
 function external {
 	MONITOR="$1"
-	#xrandr --output $MONITOR --auto --primary --output $BUILTIN --off
 	xrandr --output $MONITOR $MODE --primary --output $BUILTIN --off
 	bspc monitor -d I II III IV V VI VII VIII IX X
 	onchange_monitor
