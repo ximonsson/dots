@@ -4,10 +4,6 @@
 # This file contains autostart commands for BSPWM
 #
 
-xrdb -merge -I$HOME $HOME/.Xresources
-#xsetroot -cursor_name left_ptr
-#xsetroot -solid "#171719"
-
 # sxhkd
 if [ ! $(pidof sxhkd) ]; then
 	#set -U SXHKD_SHELL /usr/bin/bash

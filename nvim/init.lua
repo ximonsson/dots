@@ -75,14 +75,18 @@ lspconf.ts_ls.setup{}
 -- svelte
 lspconf.svelte.setup{}
 
+require('render-markdown').setup({
+    completions = { lsp = { enabled = true } },
+})
+
 ------------------------------------
 --- LLM stuffz
 
-local CODESTRAL_API_KEY = vim.fn.system(
-	"pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
-):gsub("^%s*(.-)%s*$", "%1")
-
-vim.g.CODESTRAL_API_KEY = CODESTRAL_API_KEY
+-- uncomment this if want to use Codestral directly.
+--local CODESTRAL_API_KEY = vim.fn.system(
+--"pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
+--):gsub("^%s*(.-)%s*$", "%1")
+--vim.g.CODESTRAL_API_KEY = CODESTRAL_API_KEY
 
 require('minuet').setup{
 	virtualtext = {
@@ -103,6 +107,22 @@ require('minuet').setup{
 		},
 	},
 	provider_options = {
+		openai_fim_compatible = {
+			model = "code-clerk-fim",
+			end_point = "http://localhost:5000/v1/completions",
+			api_key = function () return "xxx" end,
+			stream = true,
+			--template = {
+				--prompt = "See [Prompt Section for default value]",
+				--suffix = "See [Prompt Section for default value]",
+			--},
+			optional = {
+				max_tokens = 256,
+				stop = { '\n\n' },
+				top_p = 1,
+				temperature = 0,
+			},
+		},
 		codestral = {
 			model = 'codestral-latest',
 			end_point = 'https://codestral.mistral.ai/v1/fim/completions',
@@ -115,40 +135,71 @@ require('minuet').setup{
 			optional = {
 				max_tokens = 256,
 				stop = { '\n\n' },
+				top_p = 1,
+				temperature = 0,
 			},
 		},
 	},
-	provider = "codestral",
+	provider = "openai_fim_compatible",
 }
 
 require("codecompanion").setup({
 	strategies = {
 		chat = {
 			adapter = {
-				name = "mistral",
-				model = "codestral-latest",
+				--name = "mistral",
+				--model = "codestral-latest",
+				name = "mlflow",
+				model = "code-clerk",
 			},
 		},
 		inline = {
 			adapter = {
-				name = "mistral",
-				model = "codestral-latest",
+				name = "mlflow",
+				model = "code-clerk",
 			},
 		},
 		cmd = {
 			adapter = {
-				name = "mistral",
-				model = "codestral-latest",
+				name = "mlflow",
+				model = "code-clerk",
 			},
 		},
 	},
 	adapters = {
-	   mistral = function()
-		   return require("codecompanion.adapters").extend("mistral", {
-			   env = {
-				   api_key = "cmd: pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
-			   },
-		   })
-	   end,
+		mlflow = function()
+			return require("codecompanion.adapters").extend("openai_compatible", {
+				name = "code_clerk",
+				formatted_name = "Code Clerk",
+
+				env = {
+					api_key = "xxx",
+					url = "http://localhost:5000",
+				},
+
+				opts = {
+					vision = false,
+				},
+
+				handlers = {
+					---@param self CodeCompanion.Adapter
+					---@return boolean
+					setup = function(self)
+						if self.opts and self.opts.stream then
+							self.parameters.stream = true
+						end
+						return true
+					end
+				}
+			})
+		end,
+		mistral = function()
+			return require("codecompanion.adapters").extend("mistral", {
+				env = {
+					url = "https://api.mistral.ai",
+					api_key = "",
+				},
+			})
+		end,
 	}
 })
