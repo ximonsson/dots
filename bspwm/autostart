@@ -17,6 +17,7 @@ if [ ! $(pidof picom) ]; then
 	picom -b --config $XDG_CONFIG_HOME/picom.conf
 else
 	pkill -x picom
+	sleep 1
 	picom -b --config $XDG_CONFIG_HOME/picom.conf
 fi
 
@@ -25,5 +26,6 @@ if [ ! $(pidof dunst) ]; then
 	dunst &
 else
 	pkill -x dunst
+	sleep 1
 	dunst &
 fi

@@ -1,50 +1,53 @@
--- LLM
---
--- I don't enable suggestions as I type because I find it super
--- annoying and there are so many errors. Below I map C-k to complete.
+local CODESTRAL_API_KEY = vim.fn.system(
+	"pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
+):gsub("^%s*(.-)%s*$", "%1")
 
-require('llm').setup({
-	api_token = "xxx", -- cf Install paragraph
-	model = "code-clerk", -- the model ID, behavior depends on backend
-	backend = "openai", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
-	url = "http://127.0.0.1:5000/v1/completions", -- the http url of the backend
-	tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
+vim.g.CODESTRAL_API_KEY = CODESTRAL_API_KEY
 
-	-- parameters that are added to the request body, values are arbitrary,
-	-- you can set any field:value pair here it will be passed as is to the backend
-	request_body = {
-		top_p = 1,
-		temperature = 0.0,
-		stop = {"\n\n"},
+require('minuet').setup{
+	virtualtext = {
+		auto_trigger_ft = {},
+		keymap = {
+			-- accept whole completion
+			accept = '<C-m>',
+			-- accept one line
+			accept_line = '<A-a>',
+			-- accept n lines (prompts for number)
+			-- e.g. "A-z 2 CR" will accept 2 lines
+			accept_n_lines = '<A-z>',
+			-- Cycle to prev completion item, or manually invoke completion
+			prev = '<C-k>',
+			-- Cycle to next completion item, or manually invoke completion
+			next = '<A-]>',
+			dismiss = '<A-e>',
+		},
 	},
-
-	-- set this if the model supports fill in the middle
-	fim = {
-		enabled = true,
-		--prefix = "<fim_prefix>",
-		--middle = "<fim_middle>",
-		--suffix = "<fim_suffix>",
+	provider_options = {
+		codestral = {
+			model = 'codestral-latest',
+			end_point = 'https://codestral.mistral.ai/v1/fim/completions',
+			api_key = function () return CODESTRAL_API_KEY end,
+			stream = true,
+			--template = {
+				--prompt = "See [Prompt Section for default value]",
+				--suffix = "See [Prompt Section for default value]",
+			--},
+			optional = {
+				max_tokens = 256,
+				stop = { '\n\n' },
+			},
+		},
 	},
+	provider = "codestral",
+}
 
-	debounce_ms = 150,
-	accept_keymap = "<Tab>",
-	dismiss_keymap = "<S-Tab>",
-	tls_skip_verify_insecure = true,
-
-	-- llm-ls configuration, cf llm-ls section
-	lsp = {
-		bin_path = nil,
-		host = nil,
-		port = nil,
-		cmd_env = nil, -- or { LLM_LOG_LEVEL = "DEBUG" } to set the log level of llm-ls
-		version = "0.5.3",
+require("codecompanion").setup({
+	strategies = {
+		chat = {
+			adapter = "codestral",
+		},
+		inline = {
+			adapter = "codestral",
+		},
 	},
-
-	tokenizer = nil, -- cf Tokenizer paragraph
-	context_window = 256000, -- max number of tokens for the context window
-	enable_suggestions_on_startup = false,
-	enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
-	disable_url_path_completion = false, -- cf Backend
 })
-
-vim.keymap.set("i", "<C-k>", "<Esc>:LLMSuggestion<CR>a", { silent = true, noremap = true })
