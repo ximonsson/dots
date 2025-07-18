@@ -7,9 +7,35 @@ SET temp_directory = '/tmp/duckdb';
 
 CREATE SECRET az_cred (
 	TYPE AZURE,
-	PROVIDER CREDENTIAL_CHAIN
+	PROVIDER CREDENTIAL_CHAIN,
+	CHAIN 'env;cli'
 );
 
 SET azure_transport_option_type = 'curl';
 
+# modules that require manual loading
+
+LOAD spatial;
+
+# attach databases
+
+#ATTACH 'data/posten.duckdb' AS posten;
+ATTACH 'data/mainframe.duckdb' AS mainframe;
+ATTACH 'data/data.toll.no/toll.duckdb' AS toll;
+
 .mode duckbox
+
+# Unity
+
+LOAD delta;
+LOAD uc_catalog;
+
+CREATE SECRET (
+	TYPE UC,
+	TOKEN getenv('DATABRICKS_ACCESS_TOKEN'),
+	ENDPOINT getenv('DATABRICKS_WORKSPACE_URL')
+);
+
+ATTACH 'dev' AS dev (TYPE UC_CATALOG);
+ATTACH 'qa' AS qa (TYPE UC_CATALOG);
+ATTACH 'prod' AS prod (TYPE UC_CATALOG);

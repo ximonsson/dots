@@ -1,10 +1,10 @@
 [font]
 size = 9
 normal.family = "monospace"
-italic.family = "jmk Modd"
 
 [window]
 padding = { x = 30, y = 30 }
+opacity = 0.9
 
 [colors.primary]
 foreground = "#fafafa"

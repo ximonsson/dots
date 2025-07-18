@@ -3,6 +3,7 @@
 BUILTIN="eDP"
 MODE="--auto"
 XMONITOR="DisplayPort-0"
+export XMONITOR="DisplayPort-1"
 
 function onchange_monitor {
 	[ -x $HOME/.fehbg ] && $HOME/.fehbg
@@ -10,11 +11,28 @@ function onchange_monitor {
 	$XDG_CONFIG_HOME/lemonbar/lemonbarrc &
 }
 
+function bspwm_wide {
+	bspc config top_padding               100
+	bspc config left_padding              150
+	bspc config right_padding             150
+	bspc config bottom_padding            50
+}
+
+function bspwm_norm {
+	bspc config top_padding               40
+	bspc config left_padding              20
+	bspc config right_padding             20
+	bspc config bottom_padding            20
+}
+
 function external {
 	MONITOR="$1"
 	#xrandr --output $MONITOR --auto --primary --output $BUILTIN --off
 	xrandr --output $MONITOR $MODE --primary --output $BUILTIN --off
 	bspc monitor -d I II III IV V VI VII VIII IX X
+
+	# TODO check width of screen
+	bspwm_norm
 	onchange_monitor
 }
 
@@ -39,7 +57,9 @@ function internal {
 	xrandr \
 		--output $BUILTIN --auto --primary \
 		--output $XMONITOR --off
+
 	bspc monitor $BUILTIN -d I II III IV V VI VII VIII IX X
+	bspwm_norm
 	onchange_monitor
 }
 
@@ -59,7 +79,7 @@ do
 	fi
 done
 
-for F in /sys/class/drm/card0-HDMI-A-*
+for F in /sys/class/drm/card1-HDMI-A-*
 do
 	[ ! -f $F/status ] && continue
 	STATUS=$(cat $F/status)
@@ -83,4 +103,3 @@ then
 else
 	internal
 fi
-

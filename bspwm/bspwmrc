@@ -1,17 +1,6 @@
 #! /bin/sh
 
-# autostart
-
-$XDG_CONFIG_HOME/bspwm/autostart
-
-# monitor
-
-$XDG_CONFIG_HOME/bspwm/monitor
-
 # settings
-
-bspc config border_width              4
-bspc config window_gap                10
 
 bspc config split_ratio               0.5
 bspc config borderless_monocle        true
@@ -23,9 +12,8 @@ bspc config normal_border_color       "#171719"
 bspc config active_border_color       "#134956"
 bspc config focused_border_color      "#1fa0ba"
 
-bspc config top_padding               39
-bspc config left_padding              25
-bspc config right_padding             25
+bspc config border_width              4
+bspc config window_gap                10
 
 bspc rule -a MPlayer state=floating
 bspc rule -a vlc state=floating
@@ -39,5 +27,13 @@ bspc rule -a *:LibFreenect state=floating
 bspc rule -a feh state=floating
 bspc rule -a R_x11 state=floating
 bspc rule -a gksqt state=floating center=on
-bspc rule -a Makie state=floating center=on
+bspc rule -a GLWindow state=floating center=on
 bspc rule -a mpv state=floating center=on
+
+# autostart
+
+$XDG_CONFIG_HOME/bspwm/autostart
+
+# monitor
+
+$XDG_CONFIG_HOME/bspwm/monitor
