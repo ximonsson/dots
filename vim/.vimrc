@@ -59,6 +59,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'olimorris/codecompanion.nvim'
 Plug 'MeanderingProgrammer/render-markdown.nvim'
+Plug 'echasnovski/mini.diff'
 call plug#end()
 
 " no mouse interaction
