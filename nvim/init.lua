@@ -156,25 +156,19 @@ require("codecompanion").setup({
 		chat = {
 			adapter = {
 				name = "codestral",
-				model = "codestral-latest",
-				--name = "mlflow",
-				--model = "code-clerk",
+				model = "devstral-small-latest",
 			},
 		},
 		inline = {
 			adapter = {
 				name = "codestral",
-				model = "codestral-latest",
-				--name = "mlflow",
-				--model = "code-clerk",
+				model = "devstral-small-latest",
 			},
 		},
 		cmd = {
 			adapter = {
 				name = "codestral",
-				model = "codestral-latest",
-				--name = "mlflow",
-				--model = "code-clerk",
+				model = "devstral-small-latest",
 			},
 		},
 	},
@@ -208,7 +202,7 @@ require("codecompanion").setup({
 		codestral = function()
 			return require("codecompanion.adapters").extend("mistral", {
 				env = {
-					url = "http://localhost:4000",
+					url = "http://localhost:4000/mistral",
 					api_key = "xxx",
 				},
 			})
