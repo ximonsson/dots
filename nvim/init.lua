@@ -115,8 +115,9 @@ require('minuet').setup{
 	},
 	provider_options = {
 		openai_fim_compatible = {
-			model = "code-clerk-fim",
-			end_point = "http://localhost:5000/v1/completions",
+			--model = "code-clerk-fim",
+			model = "codestral-fim-latest",
+			end_point = "http://localhost:4000/v1/completions",
 			api_key = function () return "xxx" end,
 			stream = true,
 			--template = {
@@ -133,7 +134,7 @@ require('minuet').setup{
 		codestral = {
 			model = 'codestral-latest',
 			end_point = 'https://codestral.mistral.ai/v1/fim/completions',
-			api_key = function () return CODESTRAL_API_KEY end,
+			api_key = function () return "xxx" end,
 			stream = true,
 			--template = {
 				--prompt = "See [Prompt Section for default value]",
@@ -154,22 +155,26 @@ require("codecompanion").setup({
 	strategies = {
 		chat = {
 			adapter = {
-				--name = "mistral",
-				--model = "codestral-latest",
-				name = "mlflow",
-				model = "code-clerk",
+				name = "codestral",
+				model = "codestral-latest",
+				--name = "mlflow",
+				--model = "code-clerk",
 			},
 		},
 		inline = {
 			adapter = {
-				name = "mlflow",
-				model = "code-clerk",
+				name = "codestral",
+				model = "codestral-latest",
+				--name = "mlflow",
+				--model = "code-clerk",
 			},
 		},
 		cmd = {
 			adapter = {
-				name = "mlflow",
-				model = "code-clerk",
+				name = "codestral",
+				model = "codestral-latest",
+				--name = "mlflow",
+				--model = "code-clerk",
 			},
 		},
 	},
@@ -200,11 +205,11 @@ require("codecompanion").setup({
 				}
 			})
 		end,
-		mistral = function()
+		codestral = function()
 			return require("codecompanion.adapters").extend("mistral", {
 				env = {
-					url = "https://api.mistral.ai",
-					api_key = "",
+					url = "http://localhost:4000",
+					api_key = "xxx",
 				},
 			})
 		end,
