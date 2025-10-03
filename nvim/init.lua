@@ -27,11 +27,6 @@ require('lualine').setup {
 	},
 }
 
--------------------------------
--- LSP
-
-vim.lsp.set_log_level("off")
-
 --- Formatting
 vim.api.nvim_create_autocmd('BufWritePre', {
 	callback = function()
@@ -46,12 +41,19 @@ vim.diagnostic.config({
 	virtual_text = {
 		-- This enables inline error messages
 		prefix = '●', -- You can customize the prefix
-},
+	},
 	signs = true, -- Show signs in the sign column
 	underline = true, -- Underline errors, warnings, etc.
 	update_in_insert = false, -- Update diagnostics in insert mode
 })
---vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
+require('mini.diff').setup()
+
+
+-------------------------------
+-- LSP
+
+vim.lsp.set_log_level("off")
 
 lspconf = require'lspconfig'
 
@@ -81,19 +83,8 @@ require('render-markdown').setup({
 })
 
 
-----
-
-require('mini.diff').setup()
-
-
 ------------------------------------
 --- LLM stuffz
-
--- uncomment this if want to use Codestral directly.
---local CODESTRAL_API_KEY = vim.fn.system(
---"pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{print $2}'"
---):gsub("^%s*(.-)%s*$", "%1")
---vim.g.CODESTRAL_API_KEY = CODESTRAL_API_KEY
 
 require('minuet').setup{
 	virtualtext = {
@@ -115,7 +106,6 @@ require('minuet').setup{
 	},
 	provider_options = {
 		openai_fim_compatible = {
-			--model = "code-clerk-fim",
 			model = "codestral-fim-latest",
 			end_point = "http://localhost:4000/v1/completions",
 			api_key = function () return "xxx" end,
@@ -154,58 +144,62 @@ require('minuet').setup{
 require("codecompanion").setup({
 	strategies = {
 		chat = {
-			adapter = {
-				name = "codestral",
-				model = "devstral-small-latest",
-			},
+			adapter = "warpstral"
 		},
 		inline = {
-			adapter = {
-				name = "codestral",
-				model = "devstral-small-latest",
-			},
+			adapter = "warpstral"
 		},
 		cmd = {
-			adapter = {
-				name = "codestral",
-				model = "devstral-small-latest",
-			},
+			adapter = "warpstral"
 		},
 	},
 	adapters = {
-		mlflow = function()
-			return require("codecompanion.adapters").extend("openai_compatible", {
-				name = "code_clerk",
-				formatted_name = "Code Clerk",
+		http = {
+			mlflow = function()
+				return require("codecompanion.adapters").extend("openai_compatible", {
+					name = "code_clerk",
+					formatted_name = "Code Clerk",
 
-				env = {
-					api_key = "xxx",
-					url = "http://localhost:5000",
-				},
+					env = {
+						api_key = "xxx",
+						url = "http://localhost:5000",
+					},
 
-				opts = {
-					vision = false,
-				},
+					opts = {
+						vision = false,
+					},
 
-				handlers = {
-					---@param self CodeCompanion.Adapter
-					---@return boolean
-					setup = function(self)
-						if self.opts and self.opts.stream then
-							self.parameters.stream = true
+					handlers = {
+						---@param self CodeCompanion.Adapter
+						---@return boolean
+						setup = function(self)
+							if self.opts and self.opts.stream then
+								self.parameters.stream = true
+							end
+							return true
 						end
-						return true
-					end
-				}
-			})
-		end,
-		codestral = function()
-			return require("codecompanion.adapters").extend("mistral", {
-				env = {
-					url = "http://localhost:4000/mistral",
-					api_key = "xxx",
-				},
-			})
-		end,
+					}
+				})
+			end,
+
+			warpstral = function()
+				return require("codecompanion.adapters").extend("mistral", {
+					name = "warpstral",
+					formatted_name = "Warpstral",
+
+					env = {
+						url = "http://localhost:4000/mistral",
+						api_key = "xxx",
+					},
+
+					schema = {
+						---@type CodeCompanion.Schema
+						model = {
+							default = "devstral-small-latest",
+						}
+					}
+				})
+			end,
+		},
 	}
 })
