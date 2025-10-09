@@ -53,29 +53,69 @@ require('mini.diff').setup()
 -------------------------------
 -- LSP
 
-vim.lsp.set_log_level("off")
-
-lspconf = require'lspconfig'
+vim.lsp.set_log_level("warn")
 
 -- python
 
 -- ruff
-lspconf.ruff.setup {
+vim.lsp.config("ruff", {
 	init_options = {
 		settings = {
 			args = {},
 		}
 	}
-}
+})
 
 -- terraform
-lspconf.terraformls.setup{}
+vim.lsp.config("terraformls", {})
 
 -- typescript
-lspconf.ts_ls.setup{}
+vim.lsp.config("ts_ls", {})
 
 -- svelte
-lspconf.svelte.setup{}
+vim.lsp.config("svelte", {})
+
+-- golang
+vim.lsp.config("gopls", {
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                staticcheck = true,
+            },
+            codelenses = {
+                generate = true,
+                test = true,
+            },
+        },
+    },
+})
+
+vim.lsp.enable({"ruff", "terraformls", "ts_ls", "svelte", "gopls"})
+
+
+-- autocmd("BufWritePre", {
+-- 	pattern = "*.go",
+-- 	callback = function()
+-- 		local params = vim.lsp.util.make_range_params()
+-- 		params.context = {only = {"source.organizeImports"}}
+		-- buf_request_sync defaults to a 1000ms timeout. Depending on your
+		-- machine and codebase, you may want longer. Add an additional
+		-- argument after params if you find that you have to write the file
+		-- twice for changes to be saved.
+		-- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+-- 		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+-- 		for cid, res in pairs(result or {}) do
+-- 			for _, r in pairs(res.result or {}) do
+-- 				if r.edit then
+-- 					local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+-- 					vim.lsp.util.apply_workspace_edit(r.edit, enc)
+-- 				end
+-- 			end
+-- 		end
+		-- vim.lsp.buf.format({async = false})
+-- 	end
+-- })
 
 require('render-markdown').setup({
     completions = { lsp = { enabled = true } },
@@ -110,6 +150,7 @@ require('minuet').setup{
 			end_point = "http://localhost:4000/v1/completions",
 			api_key = function () return "xxx" end,
 			stream = true,
+			name = "Warpgate",
 			--template = {
 				--prompt = "See [Prompt Section for default value]",
 				--suffix = "See [Prompt Section for default value]",
