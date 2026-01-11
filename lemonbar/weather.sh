@@ -5,7 +5,7 @@ function weather
 	lon=$2
 	summary=
 	temp="..."
-	res=$(curl -s --retry 5 "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=$lat&lon=$lon")
+	res=$(curl -s "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=$lat&lon=$lon")
 
 	if [ $? -eq 0 ]; then
 		temp=$(\

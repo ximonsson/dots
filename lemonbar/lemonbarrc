@@ -27,8 +27,8 @@ function icon
 	echo "%{F$color}%{T2}$tmp%{T-}%{F-}"
 }
 
-# to not spam weather service only update once every minute
-WEATHER_UPDATE_INT=60
+# to not spam weather service only update once every 10 minutes
+WEATHER_UPDATE_INT=600
 COUNT=$WEATHER_UPDATE_INT
 
 function out
