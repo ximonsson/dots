@@ -48,9 +48,6 @@ function out
 		LAN=$(eth $LAN_DEVICE) # default to cable ethernet
 		[ -z "$LAN" ] && LAN=$(wlan $WLAN_DEVICE) # in case empty use wifi info
 
-		# echo to stderr a message
-		echo "$WEATHER_COUNT" >&2
-
 		# update weather
 		if [ "$WEATHER_COUNT" -eq "$WEATHER_UPDATE_INT" ]; then
 			WEATHER="$(weather $LAT $LON)"
