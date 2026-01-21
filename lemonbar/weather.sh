@@ -4,20 +4,27 @@ function weather
 	lat=$1
 	lon=$2
 	summary=
-	temp="..."
+	temp="x"
+	ICON='\ue25d warn'
+
+	# make API call and parse
+
 	res=$(curl -s "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=$lat&lon=$lon")
 
-	if [ $? -eq 0 ]; then
-		temp=$(\
-			echo $res | \
-			jq -r '.properties.timeseries[0].data.instant.details.air_temperature' | \
-			awk '{ printf "%.f", $1 }'\
-		)
-		summary=$(echo $res | jq -r '.properties.timeseries[0].data.next_1_hours.summary.symbol_code')
+	if [ $? -ne 0 ]
+	then
+		echo -n "$(icon $ICON) $temp"
+		exit 1
 	fi
 
+	temp=$(\
+		echo $res | \
+		jq -r '.properties.timeseries[0].data.instant.details.air_temperature' | \
+		awk '{ printf "%.f", $1 }'\
+	)
+	summary=$(echo $res | jq -r '.properties.timeseries[0].data.next_1_hours.summary.symbol_code')
+
 	# icon
-	ICON='\ue25d warn'
 	case $summary in
 		# cloudy ones
 		"partlycloudy"*|fair*)
