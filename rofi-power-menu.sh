@@ -16,22 +16,25 @@ if ! command -v systemctl &> /dev/null; then
 fi
 
 # Options for the power menu
-OPTIONS="Shutdown\nReboot\nSuspend\nCancel"
+OPTIONS="lock\nshutdown\nreboot\nsuspend"
 
 # Show rofi menu and get user selection
 SELECTED=$(echo -e "$OPTIONS" | rofi -dmenu -p "Power Menu")
 
 # Execute the selected action
 case "$SELECTED" in
-    "Shutdown")
+	"lock")
+		slock
+		;;
+    "shutdown")
         echo "Shutting down..."
         systemctl poweroff
         ;;
-    "Reboot")
+    "reboot")
         echo "Rebooting..."
         systemctl reboot
         ;;
-    "Suspend")
+    "suspend")
         echo "Suspending..."
         systemctl suspend
         ;;
