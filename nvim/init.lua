@@ -49,6 +49,8 @@ vim.diagnostic.config({
 
 require('mini.diff').setup()
 
+require('nvim-treesitter').install({ 'yaml' })---:wait(300000)
+
 
 -------------------------------
 -- LSP

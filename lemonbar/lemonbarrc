@@ -27,9 +27,9 @@ function icon
 	echo "%{F$color}%{T2}$tmp%{T-}%{F-}"
 }
 
-# to not spam weather service only update once every minute
-WEATHER_UPDATE_INT=60
-COUNT=$WEATHER_UPDATE_INT
+# to not spam weather service only update once every 10 minutes
+WEATHER_UPDATE_INT=600
+WEATHER_COUNT=$WEATHER_UPDATE_INT
 
 function out
 {
@@ -49,11 +49,16 @@ function out
 		[ -z "$LAN" ] && LAN=$(wlan $WLAN_DEVICE) # in case empty use wifi info
 
 		# update weather
-		if [ "$COUNT" -eq "$WEATHER_UPDATE_INT" ]; then
+		if [ "$WEATHER_COUNT" -eq "$WEATHER_UPDATE_INT" ]; then
 			WEATHER="$(weather $LAT $LON)"
-			COUNT=0
+
+			if [ $? -eq 0 ]
+			then
+				WEATHER_COUNT=0
+			fi
+		else
+			WEATHER_COUNT=$(( WEATHER_COUNT + 1))
 		fi
-		COUNT=$(( COUNT + 1))
 
 		# output info
 		LEFT="$DATETIME   $WEATHER"

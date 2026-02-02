@@ -1,0 +1,12 @@
+[Unit]
+Description=Warpgate Docker Container
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ximon/sync/dev
+ExecStart=/usr/bin/make warpgate
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

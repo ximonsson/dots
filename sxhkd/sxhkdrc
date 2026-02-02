@@ -18,6 +18,9 @@ super + r
 super + Escape
 	pkill -USR1 -x sxhkd
 
+super + ctrl + Escape
+	rofi-power-menu.sh
+
 #
 # bspwm hotkeys
 #
