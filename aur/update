@@ -16,10 +16,18 @@ function clean {
 
 function update {
 	pkg=$1
-	git -C "$pkg" pull
-	if [[ $? == 0 ]]; then
-		(cd "$pkg" && MAKEFLAGS="-j$(nproc)" makepkg -sric)
+	
+	# Early exit if git pull fails
+	if ! git -C "$pkg" pull; then
+		return 1
 	fi
+	
+	# Early exit if makepkg fails
+	if ! (cd "$pkg" && MAKEFLAGS="-j$(nproc)" makepkg -sric); then
+		return 1
+	fi
+	
+	# Only clean if both operations succeeded
 	clean $pkg
 }
 
