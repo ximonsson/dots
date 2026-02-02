@@ -1,0 +1,28 @@
+litellm_settings:
+  drop_params: true
+
+model_list:
+
+  - model_name: "codestral-latest"
+    litellm_params:
+      model: "codestral/codestral-latest"
+      api_key: "os.environ/CODESTRAL_API_KEY"
+      api_base: "https://codestral.mistral.ai/v1"
+
+  - model_name: "codestral-fim-latest"
+    litellm_params:
+      model: "text-completion-codestral/codestral-latest"
+      api_key: "os.environ/CODESTRAL_API_KEY"
+      api_base: "https://codestral.mistral.ai/v1/fim/completions"
+
+general_settings:
+
+  pass_through_endpoints:
+
+    - path: "/mistral/v1/ocr"
+      target: "https://api.mistral.ai/v1/ocr"
+      headers:
+        Authorization: "Bearer os.environ/MISTRAL_API_KEY"
+        content-type: application/json
+        accept: application/json
+      forward_headers: true

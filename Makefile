@@ -74,7 +74,18 @@ ruff:
 	mkdir -p $(XDG_CONFIG_HOME)/ruff
 	ln -sf $(CURDIR)/ruff/pyproject.toml $(XDG_CONFIG_HOME)/ruff/pyproject.toml
 
-.PHONY: ruff nvim vim x
+.PHONY: ruff nvim vim x warpgate
+
+# Warpgate
+# ---
+
+$(XDG_CONFIG_HOME)/systemd/user/warpgate.service: warpgate/warpgate.service
+	ln -s -f -t $(XDG_CONFIG_HOME)/systemd/user/ $(CURDIR)/warpgate/warpgate.service
+
+warpgate:
+	MISTRAL_API_KEY=$$(pass mistral.ai/simonsson.simon@gmail.com | grep f00: | awk '{ print $$2 }') \
+	CODESTRAL_API_KEY=$$(pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{ print $$2 }') \
+	nerdctl compose up warpgate
 
 
 # NOT USED

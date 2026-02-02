@@ -1,0 +1,12 @@
+services:
+
+  warpgate:
+    image: ghcr.io/berriai/litellm-non_root:main-latest
+    ports:
+      - 4000:4000
+    environment:
+      - MISTRAL_API_KEY
+      - CODESTRAL_API_KEY
+    volumes:
+      - ./warpgate/config.yaml:/app/config.yaml
+    command: ["--config", "/app/config.yaml", "--detailed_debug"]
