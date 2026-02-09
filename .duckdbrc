@@ -1,5 +1,7 @@
 .prompt  '⚫◗ '
 SET temp_directory = '/tmp/duckdb';
+SET autoinstall_known_extensions=1;
+SET autoload_known_extensions=1;
 
 # Azure stuff
 
