@@ -3,17 +3,12 @@ litellm_settings:
 
 model_list:
 
-  - model_name: "codestral-latest"
+  - model_name: "mistral-medium-latest"
     litellm_params:
-      model: "codestral/codestral-latest"
-      api_key: "os.environ/CODESTRAL_API_KEY"
-      api_base: "https://codestral.mistral.ai/v1"
+      model: "mistral/mistral-medium-latest"
+      api_key: "os.environ/MISTRAL_API_KEY"
+      api_base: "https://api.mistral.ai/v1"
 
-  - model_name: "codestral-fim-latest"
-    litellm_params:
-      model: "text-completion-codestral/codestral-latest"
-      api_key: "os.environ/CODESTRAL_API_KEY"
-      api_base: "https://codestral.mistral.ai/v1/fim/completions"
 
 general_settings:
 
