@@ -148,26 +148,9 @@ require('minuet').setup{
 		},
 	},
 	provider_options = {
-		openai_fim_compatible = {
-			model = "codestral-fim-latest",
-			end_point = "http://localhost:4000/v1/completions",
-			api_key = function () return "xxx" end,
-			stream = true,
-			name = "Warpgate",
-			--template = {
-				--prompt = "See [Prompt Section for default value]",
-				--suffix = "See [Prompt Section for default value]",
-			--},
-			optional = {
-				max_tokens = 256,
-				stop = { '\n\n' },
-				top_p = 1,
-				temperature = 0,
-			},
-		},
 		codestral = {
 			model = 'codestral-latest',
-			end_point = 'https://codestral.mistral.ai/v1/fim/completions',
+			end_point = "http://localhost:4000/mistral/v1/fim/completions",
 			api_key = function () return "xxx" end,
 			stream = true,
 			--template = {
@@ -182,7 +165,7 @@ require('minuet').setup{
 			},
 		},
 	},
-	provider = "openai_fim_compatible",
+	provider = "codestral",
 }
 
 require("codecompanion").setup({

@@ -5,6 +5,8 @@ alias ls="ls --color=auto --group-directories-first"
 alias l="ls -1"
 alias ll="l -laF"
 
+alias bonsai="tree --filesfirst --gitignore"
+
 #
 # grep
 # in color and alias for searching directories

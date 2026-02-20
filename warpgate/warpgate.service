@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/ximon/sync/dev
+WorkingDirectory=/home/ximon/.dots
 ExecStart=/usr/bin/make warpgate
 Restart=on-failure
 
