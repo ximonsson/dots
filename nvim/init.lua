@@ -83,8 +83,9 @@ vim.lsp.config("gopls", {
         gopls = {
             analyses = {
                 unusedparams = true,
-                staticcheck = true,
             },
+			staticcheck = true,
+			gofumpt = true,
             codelenses = {
                 generate = true,
                 test = true,
