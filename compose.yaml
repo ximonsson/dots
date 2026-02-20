@@ -2,8 +2,7 @@ services:
 
   warpgate:
     image: ghcr.io/berriai/litellm-non_root:main-latest
-    ports:
-      - 4000:4000
+    network_mode: host
     environment:
       - MISTRAL_API_KEY
       - CODESTRAL_API_KEY
