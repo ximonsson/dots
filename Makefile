@@ -85,6 +85,7 @@ $(XDG_CONFIG_HOME)/systemd/user/warpgate.service: warpgate/warpgate.service
 warpgate:
 	MISTRAL_API_KEY=$$(pass mistral.ai/simonsson.simon@gmail.com | grep f00: | awk '{ print $$2 }') \
 	CODESTRAL_API_KEY=$$(pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{ print $$2 }') \
+	OPENAI_API_KEY=$$(pass openai.com/simon.simonsson@posten.no | grep OPENAI_API_KEY: | awk '{ print $$2 }') \
 	nerdctl compose up warpgate
 
 
