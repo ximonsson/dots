@@ -120,6 +120,12 @@ require("lazy").setup({
     "MunifTanjim/nui.nvim",
     lazy = true,
   },
+
+  -- vim-fugitive for Git integration
+  {
+    "tpope/vim-fugitive",
+    lazy = false,  -- Load immediately for Git commands
+  },
 }, {
   install = {
     colorscheme = { "kanagawa-dragon" },
