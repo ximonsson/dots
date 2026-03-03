@@ -5,7 +5,7 @@ alias ls="ls --color=auto --group-directories-first"
 alias l="ls -1"
 alias ll="l -laF"
 
-alias bonsai="tree --filesfirst --gitignore"
+alias bonsai="tree --filesfirst --gitignore -I '.git'"
 
 #
 # grep
