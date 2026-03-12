@@ -5,7 +5,7 @@ alias ls="ls --color=auto --group-directories-first"
 alias l="ls -1"
 alias ll="l -laF"
 
-alias bonsai="tree --filesfirst --gitignore"
+alias bonsai="tree --filesfirst --gitignore -I '.git'"
 
 #
 # grep
@@ -38,6 +38,8 @@ alias xdisplay='change_monitor $LAPTOP_DISPLAY $MONITOR'
 alias pdf-merge='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$1.pdf file1.pdf file2.pdf'
 
 alias change-font="printf '\e]710;%s\007'"
+
+alias wai='curl -s http://ip-api.com/json/ | jq -r ".city,.country,.lon,.lat"'
 
 # AUR update
 alias aur-update='(cd $XDG_CONFIG_HOME/aur && ./update)'
