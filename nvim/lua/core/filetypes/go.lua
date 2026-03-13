@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
 	-- Organize imports
-	M.organize_imports()
+	utils.organize_imports()
 	-- Format using LSP
 	vim.lsp.buf.format({ async = false })
   end,
