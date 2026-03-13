@@ -15,3 +15,11 @@ end
 -- Basic file operations (same as before, but using leader)
 map("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
+
+-- LSP: Organize imports (for Python and other languages that support it)
+map("n", "<leader>oi", function()
+  vim.lsp.buf.code_action({
+    context = { only = { "source.organizeImports" } },
+    apply = true,
+  })
+end, { desc = "Organize Imports" })
