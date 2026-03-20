@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.lua",
   callback = function()
-    utils.standard_format()
+
   end,
   desc = "Format Lua files on save using LSP",
 })
