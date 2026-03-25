@@ -126,9 +126,16 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     lazy = false,  -- Load immediately for Git commands
   },
+
+  -- komau color scheme
+  {
+    "ntk148v/komau.vim",
+    lazy = false,
+  },
 }, {
   install = {
-    colorscheme = { "kanagawa-dragon" },
+    --colorscheme = { "kanagawa-dragon" },
+    colorscheme = { "komau" },
   },
 
   -- Performance settings
