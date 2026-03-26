@@ -35,6 +35,7 @@ alias xdisplay='change_monitor $LAPTOP_DISPLAY $MONITOR'
 #
 # Good to have
 #
+alias rcp='rsync -ah --progress --info=progress2'
 alias pdf-merge='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$1.pdf file1.pdf file2.pdf'
 
 alias change-font="printf '\e]710;%s\007'"
