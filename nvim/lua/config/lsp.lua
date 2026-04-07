@@ -2,7 +2,7 @@
 -- Migrated from init.lua
 
 -- Set LSP log level
-vim.lsp.set_log_level("warn")
+vim.lsp.log.set_level("warn")
 
 -- Diagnostic configuration (from Mistral setup)
 vim.diagnostic.config({
@@ -25,16 +25,16 @@ local lsp_configs = {
       }
     }
   },
-  
+
   -- Terraform
   terraformls = {},
-  
+
   -- TypeScript
   ts_ls = {},
-  
+
   -- Svelte
   svelte = {},
-  
+
   -- Go
   gopls = {
     settings = {
@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     local bufnr = args.buf
-    
+
     -- Basic LSP keymaps
     buf_map(bufnr, 'n', 'gd', vim.lsp.buf.definition, 'Go to definition')
     buf_map(bufnr, 'n', 'gr', vim.lsp.buf.references, 'Go to references')
