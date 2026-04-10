@@ -2,6 +2,7 @@ services:
 
   warpgate:
     image: ghcr.io/berriai/litellm-non_root:main-latest
+    pull_policy: always
     network_mode: host
     environment:
       - MISTRAL_API_KEY
