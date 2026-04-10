@@ -4,7 +4,7 @@
 # NOTE: should change so files are not hidden in the repository and instead the created
 #       symlinks are
 
-install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff
+install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff opencode warpgate
 
 sxkhd:
 	ln -s -T $(CURDIR)/sxhkd $(XDG_CONFIG_HOME)/sxhkd
@@ -80,13 +80,16 @@ ruff:
 # ---
 
 $(XDG_CONFIG_HOME)/systemd/user/warpgate.service: warpgate/warpgate.service
-	ln -s -f -t $(XDG_CONFIG_HOME)/systemd/user/ $(CURDIR)/warpgate/warpgate.service
+	ln -s -f -t $(XDG_CONFIG_HOME)/systemd/user/ $(CURDIR)/$^
 
 warpgate:
 	MISTRAL_API_KEY=$$(pass mistral.ai/simonsson.simon@gmail.com | grep f00: | awk '{ print $$2 }') \
 	CODESTRAL_API_KEY=$$(pass mistral.ai/simonsson.simon@gmail.com | grep CODESTRAL_API_KEY: | awk '{ print $$2 }') \
 	OPENAI_API_KEY=$$(pass openai.com/simon.simonsson@posten.no | grep OPENAI_API_KEY | awk '{ print $$2 }') \
 	nerdctl compose up warpgate
+
+opencode: opencode.json
+	ln -s -f -t $(XDG_CONFIG_HOME)/opencode $(CURDIR)/$^
 
 
 # NOT USED

@@ -3,23 +3,15 @@
 
 local autocmd = vim.api.nvim_create_autocmd
 
--- Auto formatting and whitespace trimming on save
--- Merged from vimrc and init.lua for better performance
+-- Fallback formatting for filetypes without specific configuration
+-- This runs only if no filetype-specific BufWritePre autocmd exists
 autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
-    -- First trim whitespace (migrated from vimrc)
-    --vim.cmd("%s/\\s\+$//e")  -- Fixed escape sequence
-	vim.cmd([[
-		%s/\s\+$//e
-	]])  -- Fixed escape sequence
-	
-    -- Then format with LSP (from init.lua)
-    pcall(function()  -- Use pcall to handle cases where LSP isn't available
-      vim.lsp.buf.format {
-        async = false,
-      }
-    end)
+	-- always trim whitespace
+    vim.cmd([[
+      %s/\s\+$//e
+    ]])
   end,
 })
 

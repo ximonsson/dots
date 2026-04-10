@@ -16,6 +16,10 @@ require("core.filetypes.rust")
 require("core.filetypes.haskell")
 require("core.filetypes.markdown")
 require("core.filetypes.text")
+require("core.filetypes.python")
+require("core.filetypes.terraform")
+require("core.filetypes.lua")
+require("core.filetypes.typescript")
 
 -- Load syntax highlighting tweaks
 require("core.syntax")
@@ -32,4 +36,4 @@ require("config.lualine")
 require("config.treesitter")
 
 -- Set colorscheme (after plugins are loaded)
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme komau")

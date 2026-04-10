@@ -1,6 +1,8 @@
 -- Haskell language filetype configuration
 -- Migrated from ~/.vim/after/ftplugin/haskell.vim
 
+local utils = require("core.filetypes.utils")
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "haskell",
   callback = function()

@@ -1,14 +1,25 @@
 -- Julia language filetype configuration
 -- Migrated from ~/.vim/after/ftplugin/julia.vim
 
+local utils = require("core.filetypes.utils")
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "julia",
   callback = function()
     -- Disable bracket alignment for Julia
     vim.g.julia_indent_align_brackets = 0
-    
+
     -- Use tabs instead of spaces for Julia
     vim.bo.expandtab = false
   end,
   desc = "Configure Julia indentation and formatting",
+})
+
+-- Standard formatting for Julia files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.jl",
+  callback = function()
+	vim.lsp.buf.format({ async = false })
+  end,
+  desc = "Format Julia files on save",
 })
