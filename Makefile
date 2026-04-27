@@ -88,8 +88,10 @@ warpgate:
 	OPENAI_API_KEY=$$(pass openai.com/simon.simonsson@posten.no | grep OPENAI_API_KEY | awk '{ print $$2 }') \
 	nerdctl compose up warpgate
 
-opencode: opencode.json
-	ln -s -f -t $(XDG_CONFIG_HOME)/opencode $(CURDIR)/$^
+opencode: opencode/opencode.json opencode/agents opencode/skills
+	ln -s -f -T $(CURDIR)/opencode/opencode.json $(XDG_CONFIG_HOME)/opencode/opencode.json
+	ln -s -f -T $(CURDIR)/opencode/agents $(XDG_CONFIG_HOME)/opencode/agents
+	ln -s -f -T $(CURDIR)/opencode/skills $(XDG_CONFIG_HOME)/opencode/skills
 
 
 # NOT USED
