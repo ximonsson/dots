@@ -40,7 +40,8 @@ alias pdf-merge='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$1.pdf f
 
 alias change-font="printf '\e]710;%s\007'"
 
-alias wai='curl -s http://ip-api.com/json/ | jq -r ".city,.country,.lon,.lat"'
+#alias wai='curl -s http://ip-api.com/json/ | jq -r ".city,.country,.lon,.lat"'
+alias wai='curl -s http://ipwho.is | jq -r ".city,.country,.longitude,.latitude"'
 
 # AUR update
 alias aur-update='(cd $XDG_CONFIG_HOME/aur && ./update)'
