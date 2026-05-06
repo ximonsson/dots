@@ -131,11 +131,33 @@ require("lazy").setup({
   {
     "ntk148v/komau.vim",
     lazy = false,
+    config = function()
+      require("komau").setup({
+        overrides = {
+          Normal = { fg = '#f5eee6', bg = '#000000' },
+        }
+      })
+    end,
+  },
+
+  -- koda color scheme
+  {
+    "oskarnurm/koda.nvim",
+    lazy = false,
+    config = function()
+      require("koda").setup({
+        transparent = false,
+        colors = {
+          const = "#d73a49",
+          warning = "#d73a49",
+        }
+      })
+    end,
   },
 }, {
   install = {
     --colorscheme = { "kanagawa-dragon" },
-    colorscheme = { "komau" },
+    colorscheme = { "koda" },
   },
 
   -- Performance settings

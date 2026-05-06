@@ -36,4 +36,4 @@ require("config.lualine")
 require("config.treesitter")
 
 -- Set colorscheme (after plugins are loaded)
-vim.cmd("colorscheme komau")
+vim.cmd("colorscheme koda")
