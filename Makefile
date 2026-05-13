@@ -4,7 +4,7 @@
 # NOTE: should change so files are not hidden in the repository and instead the created
 #       symlinks are
 
-install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff opencode warpgate
+install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff opencode warpgate gtk
 
 sxkhd:
 	ln -s -T $(CURDIR)/sxhkd $(XDG_CONFIG_HOME)/sxhkd
@@ -69,12 +69,16 @@ tmux:
 userdirs:
 	ln -s $(CURDIR)/user-dirs.dirs $(XDG_CONFIG_HOME)/user-dirs.dirs
 
+gtk:
+	mkdir -p $(XDG_CONFIG_HOME)/gtk-3.0
+	ln -sf -T $(CURDIR)/gtk/3.0/settings.ini $(XDG_CONFIG_HOME)/gtk-3.0/settings.ini
+
 ruff:
 	sudo pacman -S ruff ruff-lsp
 	mkdir -p $(XDG_CONFIG_HOME)/ruff
 	ln -sf $(CURDIR)/ruff/pyproject.toml $(XDG_CONFIG_HOME)/ruff/pyproject.toml
 
-.PHONY: ruff nvim vim x warpgate
+.PHONY: ruff nvim vim x warpgate gtk
 
 # Warpgate
 # ---
