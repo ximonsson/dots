@@ -1,20 +1,26 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "provider": {
-    "warpgate": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Warpgate",
-      "options": {
-        "baseURL": "http://localhost:4000/v1"
-      },
-      "models": {
-      }
-    },
-	"mistral": {
-      "options": {
-        "baseURL": "http://localhost:4000/mistral/v1",
-		"apiKey": "XOXO"
-      }
+	"$schema": "https://opencode.ai/config.json",
+	"provider": {
+		"warpgate": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Warpgate",
+			"options": {
+				"baseURL": "http://localhost:4000/v1"
+			},
+			"models": {
+			}
+		},
+		"mistral": {
+			"options": {
+				"baseURL": "http://localhost:4000/mistral/v1",
+				"apiKey": "XOXO"
+			}
+		}
+	},
+	"mcp": {
+		"notion": {
+			"type": "remote",
+			"url": "https://mcp.notion.com/mcp"
+		}
 	}
-  }
 }
