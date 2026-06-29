@@ -4,7 +4,7 @@
 # NOTE: should change so files are not hidden in the repository and instead the created
 #       symlinks are
 
-install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff opencode warpgate gtk
+install: bspwm bash lemonbar x picom weechat nvim mutt aur zsh julia tmux dunst userdirs ruff opencode warpgate gtk pi
 
 sxkhd:
 	ln -s -T $(CURDIR)/sxhkd $(XDG_CONFIG_HOME)/sxhkd
@@ -78,7 +78,7 @@ ruff:
 	mkdir -p $(XDG_CONFIG_HOME)/ruff
 	ln -sf $(CURDIR)/ruff/pyproject.toml $(XDG_CONFIG_HOME)/ruff/pyproject.toml
 
-.PHONY: ruff nvim vim x warpgate gtk
+.PHONY: ruff nvim vim x warpgate gtk pi
 
 # Warpgate
 # ---
@@ -96,6 +96,10 @@ opencode: opencode/opencode.json opencode/agents opencode/skills
 	ln -s -f -T $(CURDIR)/opencode/opencode.json $(XDG_CONFIG_HOME)/opencode/opencode.json
 	ln -s -f -T $(CURDIR)/opencode/agents $(XDG_CONFIG_HOME)/opencode/agents
 	ln -s -f -T $(CURDIR)/opencode/skills $(XDG_CONFIG_HOME)/opencode/skills
+
+pi: pi/AGENTS.md pi/models.json
+	ln -s -f $(CURDIR)/pi/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
+	ln -s -f $(CURDIR)/pi/models.json $(HOME)/.pi/agent/models.json
 
 
 # NOT USED
