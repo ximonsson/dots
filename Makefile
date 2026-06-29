@@ -98,6 +98,7 @@ opencode: opencode/opencode.json opencode/agents opencode/skills
 	ln -s -f -T $(CURDIR)/opencode/skills $(XDG_CONFIG_HOME)/opencode/skills
 
 pi: pi/AGENTS.md pi/models.json
+	mkdir -p $(HOME)/.pi/agent
 	ln -s -f $(CURDIR)/pi/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
 	ln -s -f $(CURDIR)/pi/models.json $(HOME)/.pi/agent/models.json
 
