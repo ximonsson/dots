@@ -2,6 +2,25 @@
 	"providers": {
 		"mistral": {
 			"baseUrl": "http://localhost:4000/mistral"
+		},
+		"llama.cpp": {
+			"baseUrl": "http://localhost:8080/v1",
+			"api": "openai-completions",
+			"compat": {
+				"supportsDeveloperRole": false
+			},
+			"models": [
+				{
+					"id": "google/gemma-4-12B-it-qat-q4_0-gguf",
+					"reasoning": true,
+					"input": ["text", "image"]
+				},
+				{
+					"id": "google/gemma-4-E2B-it-qat-q4_0-gguf",
+					"reasoning": true,
+					"input": ["text", "image"]
+				}
+			]
 		}
 	}
 }
